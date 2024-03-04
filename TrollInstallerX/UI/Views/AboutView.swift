@@ -17,10 +17,12 @@ struct AboutView: View {
     let contributors = [
         ("opa334", "http://github.com/opa334"), /* TrollStore */
         ("felix-pb", "http://github.com/felix-pb"), /* kfd */
-        ("kok3shidoll", "http://github.com/kok3shidoll"), /* kfd stuff */
+        ("kok3shidoll", "http://github.com/kok3shidoll"), /* arm64 stuff */
+        ("Kaspersky", "http://securelist.com/operation-triangulation-the-last-hardware-mystery/111669/"), /* dmaFail */
+        ("Zhuowei", "http://github.com/zhuowei"), /* tccd sandbox escape */
         ("dhinakg", "http://github.com/dhinakg"), /* memory hogger */
         ("staturnz", "http://github.com/staturnzz"), /* patchfinding */
-        ("sourcelocation", "http://github.com/sourcelocation"), /* UI */
+        ("sourcelocation", "http://github.com/sourcelocation") /* UI */
     ]
     
     var body: some View {
@@ -79,14 +81,15 @@ struct AboutView: View {
             
             LazyVGrid(columns: columns) {
                 ForEach(contributors, id: \.0) { contributor in
-                    // FIXME
-//                    Link(destination: URL(string: contributor.1)!) {
+                    Button(action: {
+                        openURL(URL(string: contributor.1)!)
+                    }, label: {
                         HStack {
                             Text(contributor.0)
                             Image(systemName: Locale.characterDirection(forLanguage: Locale.current.languageCode ?? "") == .rightToLeft ? "chevron.left" : "chevron.right")
                         }
                         .padding(.vertical, 4)
-//                    }
+                    })
                 }
             }
             .font(.footnote)

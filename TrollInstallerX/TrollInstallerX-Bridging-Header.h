@@ -20,6 +20,10 @@
 #include "MacDirtyCow/grant_full_disk_access.h"
 #include "MacDirtyCow/vm_unaligned_copy_switch_race.h"
 
+// dmaFail
+
+// kfd
+
 
 CFPropertyListRef MGCopyAnswer(CFStringRef property);
 

@@ -14,7 +14,7 @@
 		315AB8CA2B7CE83E00DE2D4A /* BuildManifest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315AB8C92B7CE83E00DE2D4A /* BuildManifest.swift */; };
 		315AB8FF2B7D0FFB00DE2D4A /* XPC.apinotes in Resources */ = {isa = PBXBuildFile; fileRef = 315AB8FC2B7D0FFB00DE2D4A /* XPC.apinotes */; };
 		315AB9022B7D101200DE2D4A /* libchoma.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 315AB9012B7D101200DE2D4A /* libchoma.a */; };
-		315AB9062B7D103000DE2D4A /* patchfind_test.c in Sources */ = {isa = PBXBuildFile; fileRef = 315AB9052B7D103000DE2D4A /* patchfind_test.c */; };
+		315AB9062B7D103000DE2D4A /* patchfind.c in Sources */ = {isa = PBXBuildFile; fileRef = 315AB9052B7D103000DE2D4A /* patchfind.c */; };
 		316B39172B7D16C700196729 /* libxpf.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 316B39162B7D16C700196729 /* libxpf.dylib */; };
 		316B39182B7D16D000196729 /* libxpf.dylib in Copy Files */ = {isa = PBXBuildFile; fileRef = 316B39162B7D16C700196729 /* libxpf.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		316D041D2B7F77A5001324BA /* SwiftfulLoadingIndicators in Frameworks */ = {isa = PBXBuildFile; productRef = 316D041C2B7F77A5001324BA /* SwiftfulLoadingIndicators */; };
@@ -30,8 +30,10 @@
 		31792E982B77B93000D3DE29 /* libMobileGestalt.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 31792E972B77B91700D3DE29 /* libMobileGestalt.tbd */; };
 		31792E9B2B77F16700D3DE29 /* AppleDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31792E9A2B77F16700D3DE29 /* AppleDB.swift */; };
 		31792E9D2B77F42100D3DE29 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31792E9C2B77F42100D3DE29 /* API.swift */; };
+		31BC0B152B95DB80000F404E /* vm_unaligned_copy_switch_race.c in Sources */ = {isa = PBXBuildFile; fileRef = 31BC0B0F2B95DB80000F404E /* vm_unaligned_copy_switch_race.c */; };
+		31BC0B162B95DB80000F404E /* helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BC0B122B95DB80000F404E /* helpers.m */; };
+		31BC0B172B95DB80000F404E /* grant_full_disk_access.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BC0B132B95DB80000F404E /* grant_full_disk_access.m */; };
 		31F44EAD2B77A7A300F20B2A /* TrollInstallerXApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F44EAC2B77A7A300F20B2A /* TrollInstallerXApp.swift */; };
-		31F44EAF2B77A7A300F20B2A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F44EAE2B77A7A300F20B2A /* ContentView.swift */; };
 		31F44EB12B77A7A500F20B2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31F44EB02B77A7A500F20B2A /* Assets.xcassets */; };
 		31F44EB42B77A7A500F20B2A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31F44EB32B77A7A500F20B2A /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -113,8 +115,8 @@
 		315AB8FE2B7D0FFB00DE2D4A /* base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = base.h; sourceTree = "<group>"; };
 		315AB9002B7D100400DE2D4A /* launch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = launch.h; sourceTree = "<group>"; };
 		315AB9012B7D101200DE2D4A /* libchoma.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libchoma.a; sourceTree = "<group>"; };
-		315AB9042B7D103000DE2D4A /* patchfind_test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = patchfind_test.h; sourceTree = "<group>"; };
-		315AB9052B7D103000DE2D4A /* patchfind_test.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = patchfind_test.c; sourceTree = "<group>"; };
+		315AB9042B7D103000DE2D4A /* patchfind.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = patchfind.h; sourceTree = "<group>"; };
+		315AB9052B7D103000DE2D4A /* patchfind.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = patchfind.c; sourceTree = "<group>"; };
 		316B39162B7D16C700196729 /* libxpf.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libxpf.dylib; sourceTree = "<group>"; };
 		316D043E2B7F8188001324BA /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		316D04402B7F8188001324BA /* Error++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Error++.swift"; sourceTree = "<group>"; };
@@ -130,9 +132,15 @@
 		31792E992B77B93500D3DE29 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		31792E9A2B77F16700D3DE29 /* AppleDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleDB.swift; sourceTree = "<group>"; };
 		31792E9C2B77F42100D3DE29 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		31BC0B0F2B95DB80000F404E /* vm_unaligned_copy_switch_race.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vm_unaligned_copy_switch_race.c; sourceTree = "<group>"; };
+		31BC0B102B95DB80000F404E /* vm_unaligned_copy_switch_race.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vm_unaligned_copy_switch_race.h; sourceTree = "<group>"; };
+		31BC0B112B95DB80000F404E /* helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = helpers.h; sourceTree = "<group>"; };
+		31BC0B122B95DB80000F404E /* helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = helpers.m; sourceTree = "<group>"; };
+		31BC0B132B95DB80000F404E /* grant_full_disk_access.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = grant_full_disk_access.m; sourceTree = "<group>"; };
+		31BC0B142B95DB80000F404E /* grant_full_disk_access.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = grant_full_disk_access.h; sourceTree = "<group>"; };
+		31BC0B182B95DE38000F404E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		31F44EA92B77A7A300F20B2A /* TrollInstallerX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrollInstallerX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31F44EAC2B77A7A300F20B2A /* TrollInstallerXApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrollInstallerXApp.swift; sourceTree = "<group>"; };
-		31F44EAE2B77A7A300F20B2A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		31F44EB02B77A7A500F20B2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31F44EB32B77A7A500F20B2A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		31F794852B78DD2C008745C3 /* libcurl.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libcurl.tbd; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib/libcurl.tbd; sourceTree = DEVELOPER_DIR; };
@@ -283,8 +291,8 @@
 		315AB9032B7D102400DE2D4A /* patchfinding */ = {
 			isa = PBXGroup;
 			children = (
-				315AB9042B7D103000DE2D4A /* patchfind_test.h */,
-				315AB9052B7D103000DE2D4A /* patchfind_test.c */,
+				315AB9042B7D103000DE2D4A /* patchfind.h */,
+				315AB9052B7D103000DE2D4A /* patchfind.c */,
 			);
 			path = patchfinding;
 			sourceTree = "<group>";
@@ -341,6 +349,33 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		31BC0B0C2B95DA29000F404E /* kfd */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = kfd;
+			sourceTree = "<group>";
+		};
+		31BC0B0D2B95DA30000F404E /* dmaFail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = dmaFail;
+			sourceTree = "<group>";
+		};
+		31BC0B0E2B95DA37000F404E /* MacDirtyCow */ = {
+			isa = PBXGroup;
+			children = (
+				31BC0B142B95DB80000F404E /* grant_full_disk_access.h */,
+				31BC0B132B95DB80000F404E /* grant_full_disk_access.m */,
+				31BC0B112B95DB80000F404E /* helpers.h */,
+				31BC0B122B95DB80000F404E /* helpers.m */,
+				31BC0B0F2B95DB80000F404E /* vm_unaligned_copy_switch_race.c */,
+				31BC0B102B95DB80000F404E /* vm_unaligned_copy_switch_race.h */,
+			);
+			path = MacDirtyCow;
+			sourceTree = "<group>";
+		};
 		31F44EA02B77A7A300F20B2A = {
 			isa = PBXGroup;
 			children = (
@@ -361,12 +396,15 @@
 		31F44EAB2B77A7A300F20B2A /* TrollInstallerX */ = {
 			isa = PBXGroup;
 			children = (
+				31BC0B182B95DE38000F404E /* Info.plist */,
+				31BC0B0E2B95DA37000F404E /* MacDirtyCow */,
+				31BC0B0D2B95DA30000F404E /* dmaFail */,
+				31BC0B0C2B95DA29000F404E /* kfd */,
 				316D043C2B7F8188001324BA /* UI */,
 				315AB9032B7D102400DE2D4A /* patchfinding */,
 				315AB8C82B7CE81500DE2D4A /* grabkernel */,
 				315AB8862B7CD7F800DE2D4A /* _external */,
 				31F44EAC2B77A7A300F20B2A /* TrollInstallerXApp.swift */,
-				31F44EAE2B77A7A300F20B2A /* ContentView.swift */,
 				31F44EB02B77A7A500F20B2A /* Assets.xcassets */,
 				31F44EB22B77A7A500F20B2A /* Preview Content */,
 				31792E7B2B77B00000D3DE29 /* TrollInstallerX-Bridging-Header.h */,
@@ -462,17 +500,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				316D04532B7F8189001324BA /* SettingsView.swift in Sources */,
-				31F44EAF2B77A7A300F20B2A /* ContentView.swift in Sources */,
 				316D04572B7F8189001324BA /* PopupView.swift in Sources */,
 				316D044E2B7F8189001324BA /* Error++.swift in Sources */,
 				31F44EAD2B77A7A300F20B2A /* TrollInstallerXApp.swift in Sources */,
 				316D04512B7F8189001324BA /* AboutView.swift in Sources */,
 				31792E9D2B77F42100D3DE29 /* API.swift in Sources */,
 				316D04562B7F8189001324BA /* LogView.swift in Sources */,
+				31BC0B162B95DB80000F404E /* helpers.m in Sources */,
+				31BC0B172B95DB80000F404E /* grant_full_disk_access.m in Sources */,
 				316D04542B7F8189001324BA /* MaterialView.swift in Sources */,
 				316D044D2B7F8189001324BA /* Logger.swift in Sources */,
-				315AB9062B7D103000DE2D4A /* patchfind_test.c in Sources */,
+				315AB9062B7D103000DE2D4A /* patchfind.c in Sources */,
 				316D04522B7F8189001324BA /* InstallerView.swift in Sources */,
+				31BC0B152B95DB80000F404E /* vm_unaligned_copy_switch_race.c in Sources */,
 				315AB8CA2B7CE83E00DE2D4A /* BuildManifest.swift in Sources */,
 				315AB8C32B7CDD1A00DE2D4A /* fragment_zip.m in Sources */,
 				31792E9B2B77F16700D3DE29 /* AppleDB.swift in Sources */,
@@ -617,6 +657,7 @@
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				HEADER_SEARCH_PATHS = TrollInstallerX/_external/include;
+				INFOPLIST_FILE = TrollInstallerX/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -657,6 +698,7 @@
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				HEADER_SEARCH_PATHS = TrollInstallerX/_external/include;
+				INFOPLIST_FILE = TrollInstallerX/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

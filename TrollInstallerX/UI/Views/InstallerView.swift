@@ -9,7 +9,41 @@ import SwiftUI
 import UIKit
 import SwiftfulLoadingIndicators
 
+import SwiftUI
+
+func downloadManifestAsync(url: String, docsDir: String) async throws -> Int {
+    let result = await withUnsafeContinuation { continuation in
+        DispatchQueue.global().async {
+            let resultCode = download_manifest(url, docsDir)
+            continuation.resume(returning: resultCode)
+        }
+    }
+    return Int(result)
+}
+
+func downloadKernelCacheAsync(url: String, kernelPath: String, docsDir: String) async throws -> Int {
+    let result = await withUnsafeContinuation { continuation in
+        DispatchQueue.global().async {
+            let resultCode = download_kernelcache(url, kernelPath, docsDir)
+            continuation.resume(returning: resultCode)
+        }
+    }
+    return Int(result)
+}
+
 struct InstallerView: View {
+    
+    /*
+    arm64e:
+    iOS 14.x: TrollHelperOTA
+    iOS 15.0-16.1.2: MacDirtyCow
+    iOS 15.0-16.5.1: kfd + XPF + dmaFail?
+     
+    arm64:
+    iOS 14.x: kfd + XPF/IOSurface
+    iOS 15.0-16.1.2: MacDirtyCow
+    iOS 15.0-16.6.1: kfd + XPF
+    */
     
     enum InstallationProgress: Equatable {
         case idle, downloadingKernel, patchfinding, exploiting, unsandboxing, escalatingPrivileges, installing, finished
@@ -35,9 +69,6 @@ struct InstallerView: View {
     
     @State var installProgress: InstallationProgress = .idle
     @State var installationError: Error?
-    
-    @State var updateChangelog: String? = nil
-    @State var mismatchChangelog: String? = nil
     
     @AppStorage("verboseLogging") var verboseLogging: Bool = false
     @State var verboseLoggingTemporary: Bool = false
@@ -340,7 +371,7 @@ struct InstallerView: View {
             installProgress = .patchfinding
             
             Logger.log("Patchfinding kernel", isStatus: true)
-            patchfinder_test(docsDir + "/kernelcache")
+            patchfind_kernel(docsDir + "/kernelcache")
             
             installProgress = .exploiting
             Logger.log("Exploiting kernel", isStatus: true)

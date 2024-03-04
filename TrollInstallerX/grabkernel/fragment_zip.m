@@ -10,7 +10,6 @@
 #include <string.h>
 
 int download_manifest(const char *zipURL, const char *outDir) {
-    
     fragmentzip_t *fz = NULL;
     
     fz = fragmentzip_open(zipURL);

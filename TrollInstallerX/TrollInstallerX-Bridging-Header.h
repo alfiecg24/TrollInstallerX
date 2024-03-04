@@ -9,8 +9,16 @@
 #define TrollInstallerX_Bridging_Header_h
 
 #include <Foundation/Foundation.h>
+
+// Kernel grabber
 #include "grabkernel/fragment_zip.h"
-#include "patchfinding/patchfind_test.h"
+
+// XPF patchfinder
+#include "patchfinding/patchfind.h"
+
+// MacDirtyCow
+#include "MacDirtyCow/grant_full_disk_access.h"
+#include "MacDirtyCow/vm_unaligned_copy_switch_race.h"
 
 
 CFPropertyListRef MGCopyAnswer(CFStringRef property);

@@ -59,6 +59,9 @@ bool download_kernelcache(NSString *zipURL, bool isOTA, NSString *outDir) {
     NSString *kernelCachePath = nil;
 
     for (NSDictionary<NSString *, id> *identity in buildManifest[@"BuildIdentities"]) {
+        if ([identity[@"Info"][@"Variant"] hasPrefix:@"Research"]) {
+            continue;
+        }
         if ([identity[@"Info"][@"DeviceClass"] isEqualToString:boardconfig.lowercaseString]) {
             kernelCachePath = [pathPrefix stringByAppendingPathComponent:identity[@"Manifest"][@"KernelCache"][@"Info"][@"Path"]];
         }

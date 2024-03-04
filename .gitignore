@@ -1,0 +1,10 @@
+## User settings
+xcuserdata/
+
+## Xcode 8 and earlier
+*.xcscmblueprint
+*.xccheckout
+
+DerivedData/
+.DS_Store
+*.dSYM/

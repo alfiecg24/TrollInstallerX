@@ -230,56 +230,69 @@ struct InstallerView: View {
     var bottomSection: some View {
         VStack {
             Button {
-                UIImpactFeedbackGenerator(style: .medium).impactOccurred()
-                beginInstall()
+                if #unavailable(iOS 17) {
+                    UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+                    beginInstall()
+                }
             } label: {
-                Label(title: {
-                    switch installProgress {
-                    case .idle:
-                        Text("Install TrollStore")
-                    case .downloadingKernel:
-                        Text("Downloading kernelcache")
-                    case .patchfinding:
-                        Text("Patchfinding")
-                    case .exploiting:
-                        Text("Exploiting")
-                    case .unsandboxing:
-                        Text("Unsandboxing")
-                    case .escalatingPrivileges:
-                        Text("Escalating privileges")
-                    case .installing:
-                        Text("Installing TrollHelper")
-                    case .finished:
-                        if installationError == nil {
-                            Text("Successfully installed")
-                        } else {
-                            Text("Unsuccessful")
-                        }
-                    }
-                    
-                }, icon: {
-                    if !requiresEnvironmentUpdate {
-                        ZStack {
-                            switch installProgress {
-                            case .finished:
-                                if installationError == nil {
-                                    Image(systemName: "lock.open")
-                                } else {
-                                    Image(systemName: "lock.slash")
-                                }
-                            case .idle:
-                                Image(systemName: "lock.open")
-                            default:
-                                LoadingIndicator(animation: .doubleHelix, color: .white, size: .small)
+                if #unavailable(iOS 17) {
+                    Label(title: {
+                        switch installProgress {
+                        case .idle:
+                            Text("Install TrollStore")
+                        case .downloadingKernel:
+                            Text("Downloading kernelcache")
+                        case .patchfinding:
+                            Text("Patchfinding")
+                        case .exploiting:
+                            Text("Exploiting")
+                        case .unsandboxing:
+                            Text("Unsandboxing")
+                        case .escalatingPrivileges:
+                            Text("Escalating privileges")
+                        case .installing:
+                            Text("Installing TrollHelper")
+                        case .finished:
+                            if installationError == nil {
+                                Text("Successfully installed")
+                            } else {
+                                Text("Unsuccessful")
                             }
                         }
-                    } else {
-                        Image(systemName: "doc.badge.arrow.up")
-                    }
-                })
-                .foregroundColor(.white)
-                .padding()
-                .frame(maxWidth: isInstalling ? .infinity : 280)
+                        
+                    }, icon: {
+                        if !requiresEnvironmentUpdate {
+                            ZStack {
+                                switch installProgress {
+                                case .finished:
+                                    if installationError == nil {
+                                        Image(systemName: "lock.open")
+                                    } else {
+                                        Image(systemName: "lock")
+                                    }
+                                case .idle:
+                                    Image(systemName: "lock.open")
+                                default:
+                                    LoadingIndicator(animation: .doubleHelix, color: .white, size: .small)
+                                }
+                            }
+                        } else {
+                            Image(systemName: "doc.badge.arrow.up")
+                        }
+                    })
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(maxWidth: isInstalling ? .infinity : 280)
+                } else {
+                    Label(title: {
+                       Text("Unsupported")
+                    }, icon: {
+                        Image(systemName: "lock.slash")
+                    })
+                    .foregroundColor(.gray)
+                    .padding()
+                    .frame(maxWidth: isInstalling ? .infinity : 280)
+                }
             }
             .disabled(isInstalling)
             .drawingGroup()

@@ -11,7 +11,8 @@
 #include <Foundation/Foundation.h>
 
 // Kernel grabber
-#include "grabkernel/fragment_zip.h"
+#include "grabkernel/appledb.h"
+#include "grabkernel/grabkernel.h"
 
 // XPF patchfinder
 #include "patchfinding/patchfind.h"
@@ -23,7 +24,6 @@
 // dmaFail
 
 // kfd
-
 
 CFPropertyListRef MGCopyAnswer(CFStringRef property);
 

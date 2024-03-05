@@ -11,24 +11,14 @@ import SwiftfulLoadingIndicators
 
 import SwiftUI
 
-func downloadManifestAsync(url: String, docsDir: String) async throws -> Int {
+func downloadKernelCacheAsync(url: String, isOTA: Bool, docsDir: String) async throws -> Bool {
     let result = await withUnsafeContinuation { continuation in
         DispatchQueue.global().async {
-            let resultCode = download_manifest(url, docsDir)
+            let resultCode = download_kernelcache(url, isOTA, docsDir)
             continuation.resume(returning: resultCode)
         }
     }
-    return Int(result)
-}
-
-func downloadKernelCacheAsync(url: String, kernelPath: String, docsDir: String) async throws -> Int {
-    let result = await withUnsafeContinuation { continuation in
-        DispatchQueue.global().async {
-            let resultCode = download_kernelcache(url, kernelPath, docsDir)
-            continuation.resume(returning: resultCode)
-        }
-    }
-    return Int(result)
+    return result
 }
 
 struct InstallerView: View {
@@ -161,6 +151,9 @@ struct InstallerView: View {
                     .font(.subheadline)
                     .foregroundColor(.white)
                 Text("made by Alfie CG")
+                    .font(.subheadline)
+                    .foregroundColor(.white.opacity(0.5))
+                Text("DO NOT USE ICRAZEWARE")
                     .font(.subheadline)
                     .foregroundColor(.white.opacity(0.5))
             }
@@ -347,36 +340,23 @@ struct InstallerView: View {
         Task {
             installProgress = .downloadingKernel
             Logger.log("Determining IPSW URL", isStatus: true)
-            let url = try await getIPSWURL()
+            var isOTA = false
+            let url = getFirmwareURL(&isOTA)
             guard url != nil else {
-                Logger.log("Failed to find IPSW URL for \(getMachineName())/\(getBuildNumber())!", type: .error)
+                Logger.log("Failed to find IPSW URL!", type: .error)
                 return
             }
             Logger.log("Successfully retrieved IPSW URL!", type: .continuous, isStatus: true)
             
             let fileManager = FileManager.default
             let docsDir = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0].path
-            try? fileManager.removeItem(atPath: docsDir + "/BuildManifest.plist")
             try? fileManager.removeItem(atPath: docsDir + "/kernelcache")
             
             installProgress = .downloadingKernel
             
-            Logger.log("Downloading build manifest", isStatus: true)
-            var ret = try await downloadManifestAsync(url: url!, docsDir: docsDir)
-            if ret != 0 {
-                return
-            }
-            
-            Logger.log("Parsing build manifest", isStatus: true)
-            let kernelPath = getKernelPath(buildManifestPath: docsDir + "/BuildManifest.plist", model: getHWModel())
-            guard kernelPath != nil else {
-                print("Failed to find kernelcache file from manifest!")
-                return
-            }
-            
             Logger.log("Downloading kernelcache", isStatus: true)
-            ret = try await downloadKernelCacheAsync(url: url!, kernelPath: kernelPath!, docsDir: docsDir)
-            if ret != 0 {
+            let ret = try await downloadKernelCacheAsync(url: url!, isOTA: isOTA, docsDir: docsDir)
+            if !ret {
                 print("Failed to download kernelcache file!")
                 return
             }

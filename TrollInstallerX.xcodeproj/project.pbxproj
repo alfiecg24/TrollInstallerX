@@ -9,9 +9,8 @@
 /* Begin PBXBuildFile section */
 		315AB88F2B7CD85C00DE2D4A /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 315AB88D2B7CD85C00DE2D4A /* libcurl.a */; };
 		315AB8902B7CD85C00DE2D4A /* libfragmentzip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 315AB88E2B7CD85C00DE2D4A /* libfragmentzip.a */; };
-		315AB8C32B7CDD1A00DE2D4A /* fragment_zip.m in Sources */ = {isa = PBXBuildFile; fileRef = 315AB8C22B7CDD1A00DE2D4A /* fragment_zip.m */; };
+		315AB8C32B7CDD1A00DE2D4A /* grabkernel.m in Sources */ = {isa = PBXBuildFile; fileRef = 315AB8C22B7CDD1A00DE2D4A /* grabkernel.m */; };
 		315AB8C72B7CE48600DE2D4A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 31792E992B77B93500D3DE29 /* libz.tbd */; };
-		315AB8CA2B7CE83E00DE2D4A /* BuildManifest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315AB8C92B7CE83E00DE2D4A /* BuildManifest.swift */; };
 		315AB8FF2B7D0FFB00DE2D4A /* XPC.apinotes in Resources */ = {isa = PBXBuildFile; fileRef = 315AB8FC2B7D0FFB00DE2D4A /* XPC.apinotes */; };
 		315AB9022B7D101200DE2D4A /* libchoma.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 315AB9012B7D101200DE2D4A /* libchoma.a */; };
 		315AB9062B7D103000DE2D4A /* patchfind.c in Sources */ = {isa = PBXBuildFile; fileRef = 315AB9052B7D103000DE2D4A /* patchfind.c */; };
@@ -28,14 +27,13 @@
 		316D04572B7F8189001324BA /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316D044A2B7F8188001324BA /* PopupView.swift */; };
 		31792E772B77AF0000D3DE29 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31792E762B77AF0000D3DE29 /* IOKit.framework */; };
 		31792E982B77B93000D3DE29 /* libMobileGestalt.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 31792E972B77B91700D3DE29 /* libMobileGestalt.tbd */; };
-		31792E9B2B77F16700D3DE29 /* AppleDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31792E9A2B77F16700D3DE29 /* AppleDB.swift */; };
-		31792E9D2B77F42100D3DE29 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31792E9C2B77F42100D3DE29 /* API.swift */; };
 		31BC0B152B95DB80000F404E /* vm_unaligned_copy_switch_race.c in Sources */ = {isa = PBXBuildFile; fileRef = 31BC0B0F2B95DB80000F404E /* vm_unaligned_copy_switch_race.c */; };
 		31BC0B162B95DB80000F404E /* helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BC0B122B95DB80000F404E /* helpers.m */; };
 		31BC0B172B95DB80000F404E /* grant_full_disk_access.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BC0B132B95DB80000F404E /* grant_full_disk_access.m */; };
 		31F44EAD2B77A7A300F20B2A /* TrollInstallerXApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F44EAC2B77A7A300F20B2A /* TrollInstallerXApp.swift */; };
 		31F44EB12B77A7A500F20B2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31F44EB02B77A7A500F20B2A /* Assets.xcassets */; };
 		31F44EB42B77A7A500F20B2A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31F44EB32B77A7A500F20B2A /* Preview Assets.xcassets */; };
+		51789B772B96407800E704E9 /* appledb.m in Sources */ = {isa = PBXBuildFile; fileRef = 51789B762B96407800E704E9 /* appledb.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -79,9 +77,8 @@
 		315AB8BE2B7CDCA800DE2D4A /* typecheck-gcc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "typecheck-gcc.h"; sourceTree = "<group>"; };
 		315AB8BF2B7CDCA800DE2D4A /* multi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = multi.h; sourceTree = "<group>"; };
 		315AB8C02B7CDCA800DE2D4A /* urlapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = urlapi.h; sourceTree = "<group>"; };
-		315AB8C12B7CDD1A00DE2D4A /* fragment_zip.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fragment_zip.h; sourceTree = "<group>"; };
-		315AB8C22B7CDD1A00DE2D4A /* fragment_zip.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = fragment_zip.m; sourceTree = "<group>"; };
-		315AB8C92B7CE83E00DE2D4A /* BuildManifest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildManifest.swift; sourceTree = "<group>"; };
+		315AB8C12B7CDD1A00DE2D4A /* grabkernel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = grabkernel.h; sourceTree = "<group>"; };
+		315AB8C22B7CDD1A00DE2D4A /* grabkernel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = grabkernel.m; sourceTree = "<group>"; };
 		315AB8CE2B7D0FCB00DE2D4A /* non_ppl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = non_ppl.h; sourceTree = "<group>"; };
 		315AB8CF2B7D0FCB00DE2D4A /* common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
 		315AB8D02B7D0FCB00DE2D4A /* ppl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ppl.h; sourceTree = "<group>"; };
@@ -130,8 +127,6 @@
 		31792E7B2B77B00000D3DE29 /* TrollInstallerX-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TrollInstallerX-Bridging-Header.h"; sourceTree = "<group>"; };
 		31792E972B77B91700D3DE29 /* libMobileGestalt.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libMobileGestalt.tbd; path = usr/lib/libMobileGestalt.tbd; sourceTree = SDKROOT; };
 		31792E992B77B93500D3DE29 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		31792E9A2B77F16700D3DE29 /* AppleDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleDB.swift; sourceTree = "<group>"; };
-		31792E9C2B77F42100D3DE29 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		31BC0B0F2B95DB80000F404E /* vm_unaligned_copy_switch_race.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vm_unaligned_copy_switch_race.c; sourceTree = "<group>"; };
 		31BC0B102B95DB80000F404E /* vm_unaligned_copy_switch_race.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vm_unaligned_copy_switch_race.h; sourceTree = "<group>"; };
 		31BC0B112B95DB80000F404E /* helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = helpers.h; sourceTree = "<group>"; };
@@ -144,6 +139,8 @@
 		31F44EB02B77A7A500F20B2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		31F44EB32B77A7A500F20B2A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		31F794852B78DD2C008745C3 /* libcurl.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libcurl.tbd; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/lib/libcurl.tbd; sourceTree = DEVELOPER_DIR; };
+		516D482B2B9656FB008D8218 /* appledb.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = appledb.h; sourceTree = "<group>"; };
+		51789B762B96407800E704E9 /* appledb.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = appledb.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,11 +224,10 @@
 		315AB8C82B7CE81500DE2D4A /* grabkernel */ = {
 			isa = PBXGroup;
 			children = (
-				315AB8C12B7CDD1A00DE2D4A /* fragment_zip.h */,
-				315AB8C22B7CDD1A00DE2D4A /* fragment_zip.m */,
-				31792E9A2B77F16700D3DE29 /* AppleDB.swift */,
-				31792E9C2B77F42100D3DE29 /* API.swift */,
-				315AB8C92B7CE83E00DE2D4A /* BuildManifest.swift */,
+				315AB8C12B7CDD1A00DE2D4A /* grabkernel.h */,
+				315AB8C22B7CDD1A00DE2D4A /* grabkernel.m */,
+				51789B762B96407800E704E9 /* appledb.m */,
+				516D482B2B9656FB008D8218 /* appledb.h */,
 			);
 			path = grabkernel;
 			sourceTree = "<group>";
@@ -503,8 +499,8 @@
 				316D04572B7F8189001324BA /* PopupView.swift in Sources */,
 				316D044E2B7F8189001324BA /* Error++.swift in Sources */,
 				31F44EAD2B77A7A300F20B2A /* TrollInstallerXApp.swift in Sources */,
+				51789B772B96407800E704E9 /* appledb.m in Sources */,
 				316D04512B7F8189001324BA /* AboutView.swift in Sources */,
-				31792E9D2B77F42100D3DE29 /* API.swift in Sources */,
 				316D04562B7F8189001324BA /* LogView.swift in Sources */,
 				31BC0B162B95DB80000F404E /* helpers.m in Sources */,
 				31BC0B172B95DB80000F404E /* grant_full_disk_access.m in Sources */,
@@ -513,9 +509,7 @@
 				315AB9062B7D103000DE2D4A /* patchfind.c in Sources */,
 				316D04522B7F8189001324BA /* InstallerView.swift in Sources */,
 				31BC0B152B95DB80000F404E /* vm_unaligned_copy_switch_race.c in Sources */,
-				315AB8CA2B7CE83E00DE2D4A /* BuildManifest.swift in Sources */,
-				315AB8C32B7CDD1A00DE2D4A /* fragment_zip.m in Sources */,
-				31792E9B2B77F16700D3DE29 /* AppleDB.swift in Sources */,
+				315AB8C32B7CDD1A00DE2D4A /* grabkernel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

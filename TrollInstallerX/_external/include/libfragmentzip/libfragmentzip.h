@@ -36,12 +36,9 @@
 #ifdef __cplusplus
 extern "C"
 {
-#else
-typedef enum {
-    false = 0,
-    true = 1
-} bool;
 #endif
+
+#include <stdbool.h>
 
 typedef struct{
     uint32_t signature;

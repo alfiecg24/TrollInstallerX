@@ -11,8 +11,7 @@
 #include <Foundation/Foundation.h>
 
 // Kernel grabber
-#include "grabkernel/appledb.h"
-#include "grabkernel/grabkernel.h"
+#include <libgrabkernel2/libgrabkernel2.h>
 
 // XPF patchfinder
 #include "patchfinding/patchfind.h"

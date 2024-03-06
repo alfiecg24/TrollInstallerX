@@ -1,6 +1,6 @@
 //
 //  grabkernel.h
-//  TrollInstallerX
+//  libgrabkernel2
 //
 //  Created by Alfie on 14/02/2024.
 //

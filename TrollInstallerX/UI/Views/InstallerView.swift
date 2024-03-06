@@ -39,6 +39,10 @@ struct InstallerView: View {
         case idle, downloadingKernel, patchfinding, exploiting, unsandboxing, escalatingPrivileges, installing, finished
     }
     
+    enum InstallationError: Error {
+        case failedToDownloadKernel
+    }
+    
     struct MenuOption: Identifiable, Equatable {
         
         static func == (lhs: InstallerView.MenuOption, rhs: InstallerView.MenuOption) -> Bool {
@@ -339,25 +343,13 @@ struct InstallerView: View {
         
         Task {
             installProgress = .downloadingKernel
-            Logger.log("Determining IPSW URL", isStatus: true)
-            var isOTA = false
-            let url = getFirmwareURL(&isOTA)
-            guard url != nil else {
-                Logger.log("Failed to find IPSW URL!", type: .error)
-                return
-            }
-            Logger.log("Successfully retrieved IPSW URL!", type: .continuous, isStatus: true)
             
             let fileManager = FileManager.default
             let docsDir = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0].path
-            try? fileManager.removeItem(atPath: docsDir + "/kernelcache")
             
-            installProgress = .downloadingKernel
-            
-            Logger.log("Downloading kernelcache", isStatus: true)
-            let ret = try await downloadKernelCacheAsync(url: url!, isOTA: isOTA, docsDir: docsDir)
-            if !ret {
-                print("Failed to download kernelcache file!")
+            if !grab_kernelcache(docsDir) {
+                installationError = InstallationError.failedToDownloadKernel
+                installProgress = .finished
                 return
             }
             

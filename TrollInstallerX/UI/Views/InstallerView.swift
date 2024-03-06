@@ -71,8 +71,6 @@ struct InstallerView: View {
         installProgress != .idle
     }
     
-    var requiresEnvironmentUpdate = false
-    
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -258,23 +256,19 @@ struct InstallerView: View {
                         }
                         
                     }, icon: {
-                        if !requiresEnvironmentUpdate {
-                            ZStack {
-                                switch installProgress {
-                                case .finished:
-                                    if installationError == nil {
-                                        Image(systemName: "lock.open")
-                                    } else {
-                                        Image(systemName: "lock")
-                                    }
-                                case .idle:
+                        ZStack {
+                            switch installProgress {
+                            case .finished:
+                                if installationError == nil {
                                     Image(systemName: "lock.open")
-                                default:
-                                    LoadingIndicator(animation: .doubleHelix, color: .white, size: .small)
+                                } else {
+                                    Image(systemName: "lock")
                                 }
+                            case .idle:
+                                Image(systemName: "lock.open")
+                            default:
+                                LoadingIndicator(animation: .doubleHelix, color: .white, size: .small)
                             }
-                        } else {
-                            Image(systemName: "doc.badge.arrow.up")
                         }
                     })
                     .foregroundColor(.white)
@@ -319,7 +313,7 @@ struct InstallerView: View {
                 Button {
                     verboseLoggingTemporary.toggle()
                 } label: {
-                    Label(title: { Text(verboseLoggingTemporary ? "Button_Hide_Logs_Title" : "Button_Show_Logs_Title") }, icon: {
+                    Label(title: { Text(verboseLoggingTemporary ? "Hide logs" : "Show logs") }, icon: {
                         Image(systemName: "scroll")
                     })
                     .foregroundColor(.white)
@@ -343,6 +337,7 @@ struct InstallerView: View {
         
         Task {
             installProgress = .downloadingKernel
+            Logger.log("Downloading kernel", isStatus: true)
             
             let fileManager = FileManager.default
             let docsDir = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0].path
@@ -353,10 +348,12 @@ struct InstallerView: View {
                 return
             }
             
+            let kernelPath = docsDir + "/kernelcache"
+            
             installProgress = .patchfinding
             
             Logger.log("Patchfinding kernel", isStatus: true)
-            patchfind_kernel(docsDir + "/kernelcache")
+            patchfind_kernel(kernelPath)
             
             installProgress = .exploiting
             Logger.log("Exploiting kernel", isStatus: true)

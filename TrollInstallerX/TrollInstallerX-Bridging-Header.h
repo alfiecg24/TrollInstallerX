@@ -14,7 +14,7 @@
 #include <libgrabkernel2/libgrabkernel2.h>
 
 // XPF patchfinder
-#include "patchfinding/patchfind.h"
+#include "patchfinder/patchfind.h"
 
 // MacDirtyCow
 #include "MacDirtyCow/grant_full_disk_access.h"
@@ -23,7 +23,5 @@
 // dmaFail
 
 // kfd
-
-CFPropertyListRef MGCopyAnswer(CFStringRef property);
 
 #endif /* TrollInstallerX_Bridging_Header_h */

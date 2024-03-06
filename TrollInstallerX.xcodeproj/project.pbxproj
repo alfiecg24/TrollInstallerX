@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		315AB88F2B7CD85C00DE2D4A /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 315AB88D2B7CD85C00DE2D4A /* libcurl.a */; };
 		315AB8902B7CD85C00DE2D4A /* libfragmentzip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 315AB88E2B7CD85C00DE2D4A /* libfragmentzip.a */; };
-		315AB8C72B7CE48600DE2D4A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 31792E992B77B93500D3DE29 /* libz.tbd */; };
 		315AB8FF2B7D0FFB00DE2D4A /* XPC.apinotes in Resources */ = {isa = PBXBuildFile; fileRef = 315AB8FC2B7D0FFB00DE2D4A /* XPC.apinotes */; };
 		315AB9022B7D101200DE2D4A /* libchoma.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 315AB9012B7D101200DE2D4A /* libchoma.a */; };
 		315AB9062B7D103000DE2D4A /* patchfind.c in Sources */ = {isa = PBXBuildFile; fileRef = 315AB9052B7D103000DE2D4A /* patchfind.c */; };
@@ -25,8 +24,9 @@
 		316D04562B7F8189001324BA /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316D04492B7F8188001324BA /* LogView.swift */; };
 		316D04572B7F8189001324BA /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316D044A2B7F8188001324BA /* PopupView.swift */; };
 		31792E772B77AF0000D3DE29 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31792E762B77AF0000D3DE29 /* IOKit.framework */; };
-		31792E982B77B93000D3DE29 /* libMobileGestalt.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 31792E972B77B91700D3DE29 /* libMobileGestalt.tbd */; };
-		3183E54D2B98FF66008CFD84 /* libgrabkernel2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3183E54C2B98FF66008CFD84 /* libgrabkernel2.a */; };
+		3183E5532B9902D2008CFD84 /* libgrabkernel2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3183E5522B9902D2008CFD84 /* libgrabkernel2.a */; };
+		3183E5542B9904DF008CFD84 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 31792E992B77B93500D3DE29 /* libz.tbd */; };
+		3183E5572B9905FA008CFD84 /* KernelExploit.c in Sources */ = {isa = PBXBuildFile; fileRef = 3183E5562B9905FA008CFD84 /* KernelExploit.c */; };
 		31BC0B152B95DB80000F404E /* vm_unaligned_copy_switch_race.c in Sources */ = {isa = PBXBuildFile; fileRef = 31BC0B0F2B95DB80000F404E /* vm_unaligned_copy_switch_race.c */; };
 		31BC0B162B95DB80000F404E /* helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BC0B122B95DB80000F404E /* helpers.m */; };
 		31BC0B172B95DB80000F404E /* grant_full_disk_access.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BC0B132B95DB80000F404E /* grant_full_disk_access.m */; };
@@ -125,7 +125,9 @@
 		31792E972B77B91700D3DE29 /* libMobileGestalt.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libMobileGestalt.tbd; path = usr/lib/libMobileGestalt.tbd; sourceTree = SDKROOT; };
 		31792E992B77B93500D3DE29 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		3183E5412B98FC1A008CFD84 /* libgrabkernel2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libgrabkernel2.h; sourceTree = "<group>"; };
-		3183E54C2B98FF66008CFD84 /* libgrabkernel2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libgrabkernel2.a; sourceTree = "<group>"; };
+		3183E5522B9902D2008CFD84 /* libgrabkernel2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libgrabkernel2.a; sourceTree = "<group>"; };
+		3183E5562B9905FA008CFD84 /* KernelExploit.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = KernelExploit.c; sourceTree = "<group>"; };
+		3183E5582B990705008CFD84 /* KernelExploit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KernelExploit.h; sourceTree = "<group>"; };
 		31BC0B0F2B95DB80000F404E /* vm_unaligned_copy_switch_race.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vm_unaligned_copy_switch_race.c; sourceTree = "<group>"; };
 		31BC0B102B95DB80000F404E /* vm_unaligned_copy_switch_race.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vm_unaligned_copy_switch_race.h; sourceTree = "<group>"; };
 		31BC0B112B95DB80000F404E /* helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = helpers.h; sourceTree = "<group>"; };
@@ -146,14 +148,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				31792E772B77AF0000D3DE29 /* IOKit.framework in Frameworks */,
+				3183E5542B9904DF008CFD84 /* libz.tbd in Frameworks */,
 				315AB8902B7CD85C00DE2D4A /* libfragmentzip.a in Frameworks */,
 				316B39172B7D16C700196729 /* libxpf.dylib in Frameworks */,
-				3183E54D2B98FF66008CFD84 /* libgrabkernel2.a in Frameworks */,
+				3183E5532B9902D2008CFD84 /* libgrabkernel2.a in Frameworks */,
 				316D041D2B7F77A5001324BA /* SwiftfulLoadingIndicators in Frameworks */,
-				31792E982B77B93000D3DE29 /* libMobileGestalt.tbd in Frameworks */,
 				315AB9022B7D101200DE2D4A /* libchoma.a in Frameworks */,
 				315AB88F2B7CD85C00DE2D4A /* libcurl.a in Frameworks */,
-				315AB8C72B7CE48600DE2D4A /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,7 +195,7 @@
 		315AB88C2B7CD85500DE2D4A /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				3183E54C2B98FF66008CFD84 /* libgrabkernel2.a */,
+				3183E5522B9902D2008CFD84 /* libgrabkernel2.a */,
 				316B39162B7D16C700196729 /* libxpf.dylib */,
 				315AB9012B7D101200DE2D4A /* libchoma.a */,
 				315AB88D2B7CD85C00DE2D4A /* libcurl.a */,
@@ -273,13 +274,13 @@
 			path = xpc;
 			sourceTree = "<group>";
 		};
-		315AB9032B7D102400DE2D4A /* patchfinding */ = {
+		315AB9032B7D102400DE2D4A /* patchfinder */ = {
 			isa = PBXGroup;
 			children = (
 				315AB9042B7D103000DE2D4A /* patchfind.h */,
 				315AB9052B7D103000DE2D4A /* patchfind.c */,
 			);
-			path = patchfinding;
+			path = patchfinder;
 			sourceTree = "<group>";
 		};
 		316D043C2B7F8188001324BA /* UI */ = {
@@ -342,6 +343,15 @@
 			path = libgrabkernel2;
 			sourceTree = "<group>";
 		};
+		3183E5552B9905ED008CFD84 /* Exploits */ = {
+			isa = PBXGroup;
+			children = (
+				3183E5562B9905FA008CFD84 /* KernelExploit.c */,
+				3183E5582B990705008CFD84 /* KernelExploit.h */,
+			);
+			path = Exploits;
+			sourceTree = "<group>";
+		};
 		31BC0B0C2B95DA29000F404E /* kfd */ = {
 			isa = PBXGroup;
 			children = (
@@ -389,12 +399,13 @@
 		31F44EAB2B77A7A300F20B2A /* TrollInstallerX */ = {
 			isa = PBXGroup;
 			children = (
+				3183E5552B9905ED008CFD84 /* Exploits */,
 				31BC0B182B95DE38000F404E /* Info.plist */,
 				31BC0B0E2B95DA37000F404E /* MacDirtyCow */,
 				31BC0B0D2B95DA30000F404E /* dmaFail */,
 				31BC0B0C2B95DA29000F404E /* kfd */,
 				316D043C2B7F8188001324BA /* UI */,
-				315AB9032B7D102400DE2D4A /* patchfinding */,
+				315AB9032B7D102400DE2D4A /* patchfinder */,
 				315AB8862B7CD7F800DE2D4A /* _external */,
 				31F44EAC2B77A7A300F20B2A /* TrollInstallerXApp.swift */,
 				31F44EB02B77A7A500F20B2A /* Assets.xcassets */,
@@ -493,6 +504,7 @@
 			files = (
 				316D04532B7F8189001324BA /* SettingsView.swift in Sources */,
 				316D04572B7F8189001324BA /* PopupView.swift in Sources */,
+				3183E5572B9905FA008CFD84 /* KernelExploit.c in Sources */,
 				316D044E2B7F8189001324BA /* Error++.swift in Sources */,
 				31F44EAD2B77A7A300F20B2A /* TrollInstallerXApp.swift in Sources */,
 				316D04512B7F8189001324BA /* AboutView.swift in Sources */,

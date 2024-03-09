@@ -52,5 +52,7 @@ uint64_t pa_index(uint64_t pa);
 uint64_t pai_to_pvh(uint64_t pai);
 uint64_t pvh_ptd(uint64_t pvh);
 void task_set_memory_ownership_transfer(uint64_t task, bool value);
+uint64_t mac_label_get(uint64_t label, int slot);
+void mac_label_set(uint64_t label, int slot, uint64_t value);
 
 #endif

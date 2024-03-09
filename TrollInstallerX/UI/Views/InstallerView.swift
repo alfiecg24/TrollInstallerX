@@ -40,7 +40,8 @@ struct InstallerView: View {
     }
     
     enum InstallationError: Error {
-        case failedToDownloadKernel, failedToPatchfind, failedToExploit, failedToBypassPPL, failedToDeinitKernelExploit, failedToDeinitPPLBypass
+        case failedToDownloadKernel, failedToPatchfind, failedToExploit, failedToBypassPPL, failedToDeinitKernelExploit, failedToDeinitPPLBypass, failedToEscalatePrivileges, failedToUnsandbox, failedToBuildPhysRWPrimitive,
+        failedToPlatformise
     }
     
     struct MenuOption: Identifiable, Equatable {
@@ -78,7 +79,7 @@ struct InstallerView: View {
                 let isPopupPresented = isSettingsPresented || isCreditsPresented
                 
                 
-                LinearGradient(colors: [Color("FirstColour"), Color("SecondColour")], startPoint: .topLeading, endPoint: .bottomTrailing)
+                LinearGradient(colors: [Color(hex: 0x00A8FF), Color(hex: 0x0C6BFF)], startPoint: .topLeading, endPoint: .bottomTrailing)
                         .ignoresSafeArea()
                     .frame(width: geometry.size.width, height: geometry.size.height)
                 
@@ -367,6 +368,7 @@ struct InstallerView: View {
                 Logger.log("Failed to gather kernel information", type: .error, isStatus: true)
                 installationError = InstallationError.failedToPatchfind
                 installProgress = .finished
+                return
             }
             
             Logger.log("Exploiting kernel", isStatus: true)
@@ -374,6 +376,7 @@ struct InstallerView: View {
                 Logger.log("Failed to exploit kernel", type: .error, isStatus: true)
                 installationError = InstallationError.failedToExploit
                 installProgress = .finished
+                return
             }
             
             installProgress = .bypassingPPL
@@ -384,20 +387,60 @@ struct InstallerView: View {
                 Logger.log("Failed to bypass PPL", type: .error, isStatus: true)
                 installationError = InstallationError.failedToBypassPPL
                 installProgress = .finished
+                return
             }
             
-            Logger.log("Deinitialising PPL bypass", isStatus: true)
+            if #available(iOS 16.0, *) {
+                initialise_kalloc_pt()
+            }
+            
+            if build_physrw_primitive() != 0 {
+                Logger.log("Failed to build physical R/W primitive", type: .error, isStatus: true)
+                installationError = InstallationError.failedToBuildPhysRWPrimitive
+                installProgress = .finished
+                return
+            }
+            
+            Logger.log("Cleaning up PPL bypass", isStatus: true)
             if PPLRW_deinit() != 0 {
                 Logger.log("Failed to deinitialise PPL bypass", type: .error, isStatus: true)
                 installationError = InstallationError.failedToDeinitPPLBypass
                 installProgress = .finished
+                return
             }
             
-            Logger.log("Deinitialising kernel exploit", isStatus: true)
+            Logger.log("Cleaning up kernel exploit", isStatus: true)
             if krw_deinit() != 0 {
                 Logger.log("Failed to deinitialise kernel exploit", type: .error, isStatus: true)
                 installationError = InstallationError.failedToDeinitKernelExploit
                 installProgress = .finished
+                return
+            }
+            
+            installProgress = .escalatingPrivileges
+            Logger.log("Escalating privileges", isStatus: true)
+            if get_root() != 0 {
+                Logger.log("Failed to escalate privileges", type: .error, isStatus: true)
+                installationError = InstallationError.failedToEscalatePrivileges
+                installProgress = .finished
+                return
+            }
+            
+            installProgress = .unsandboxing
+            Logger.log("Unsandboxing", isStatus: true)
+            unsandbox()
+            if !fileManager.isWritableFile(atPath: "/var/mobile") {
+                Logger.log("Failed to unsandbox", type: .error, isStatus: true)
+                installationError = InstallationError.failedToUnsandbox
+                installProgress = .finished
+                return
+            }
+            
+            if platformise() != 0 {
+                Logger.log("Failed to platformise", type: .error, isStatus: true)
+                installationError = InstallationError.failedToPlatformise
+                installProgress = .finished
+                return
             }
             
             Logger.log("Done!", type: .success, isStatus: true)

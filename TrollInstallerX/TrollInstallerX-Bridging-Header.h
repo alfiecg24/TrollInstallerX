@@ -17,7 +17,7 @@
 #include "patchfinder/patchfind.h"
 
 // Kernel information
-#include "Exploits/KernelExploit.h"
+#include "Exploits/Haxx.h"
 
 // MacDirtyCow
 #include "MacDirtyCow/grant_full_disk_access.h"

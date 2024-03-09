@@ -25,6 +25,7 @@
 		313059F52B9CC1F000120A3B /* dmaFail.c in Sources */ = {isa = PBXBuildFile; fileRef = 313059F32B9CC1F000120A3B /* dmaFail.c */; };
 		31305A202B9CC64C00120A3B /* XPC.apinotes in Resources */ = {isa = PBXBuildFile; fileRef = 31305A192B9CC64C00120A3B /* XPC.apinotes */; };
 		31305A3C2B9CC6EE00120A3B /* kfd.m in Sources */ = {isa = PBXBuildFile; fileRef = 31305A222B9CC6ED00120A3B /* kfd.m */; };
+		31305A402B9CDE5E00120A3B /* Color++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31305A3F2B9CDE5E00120A3B /* Color++.swift */; };
 		315AB88F2B7CD85C00DE2D4A /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 315AB88D2B7CD85C00DE2D4A /* libcurl.a */; };
 		315AB8902B7CD85C00DE2D4A /* libfragmentzip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 315AB88E2B7CD85C00DE2D4A /* libfragmentzip.a */; };
 		315AB9022B7D101200DE2D4A /* libchoma.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 315AB9012B7D101200DE2D4A /* libchoma.a */; };
@@ -43,7 +44,7 @@
 		31792E772B77AF0000D3DE29 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31792E762B77AF0000D3DE29 /* IOKit.framework */; };
 		3183E5532B9902D2008CFD84 /* libgrabkernel2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3183E5522B9902D2008CFD84 /* libgrabkernel2.a */; };
 		3183E5542B9904DF008CFD84 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 31792E992B77B93500D3DE29 /* libz.tbd */; };
-		3183E5572B9905FA008CFD84 /* KernelExploit.c in Sources */ = {isa = PBXBuildFile; fileRef = 3183E5562B9905FA008CFD84 /* KernelExploit.c */; };
+		3183E5572B9905FA008CFD84 /* Haxx.c in Sources */ = {isa = PBXBuildFile; fileRef = 3183E5562B9905FA008CFD84 /* Haxx.c */; };
 		31BC0B152B95DB80000F404E /* vm_unaligned_copy_switch_race.c in Sources */ = {isa = PBXBuildFile; fileRef = 31BC0B0F2B95DB80000F404E /* vm_unaligned_copy_switch_race.c */; };
 		31BC0B162B95DB80000F404E /* helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BC0B122B95DB80000F404E /* helpers.m */; };
 		31BC0B172B95DB80000F404E /* grant_full_disk_access.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BC0B132B95DB80000F404E /* grant_full_disk_access.m */; };
@@ -146,6 +147,8 @@
 		31305A392B9CC6ED00120A3B /* perf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = perf.h; sourceTree = "<group>"; };
 		31305A3A2B9CC6ED00120A3B /* info.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = info.h; sourceTree = "<group>"; };
 		31305A3B2B9CC6ED00120A3B /* libkfd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libkfd.h; sourceTree = "<group>"; };
+		31305A3F2B9CDE5E00120A3B /* Color++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color++.swift"; sourceTree = "<group>"; };
+		31305A412B9CE43000120A3B /* codesign.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = codesign.h; sourceTree = "<group>"; };
 		315AB8892B7CD81100DE2D4A /* libfragmentzip.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libfragmentzip.h; sourceTree = "<group>"; };
 		315AB88A2B7CD84900DE2D4A /* libfragmentzip.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfragmentzip.a; path = "../../Jailbreaks/Dopamine-2.0/Application/Dopamine/Dependencies/libfragmentzip.a"; sourceTree = "<group>"; };
 		315AB88B2B7CD84900DE2D4A /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = "../../Jailbreaks/Dopamine-2.0/Application/Dopamine/Dependencies/libcurl.a"; sourceTree = "<group>"; };
@@ -201,8 +204,8 @@
 		31792E992B77B93500D3DE29 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		3183E5412B98FC1A008CFD84 /* libgrabkernel2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libgrabkernel2.h; sourceTree = "<group>"; };
 		3183E5522B9902D2008CFD84 /* libgrabkernel2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libgrabkernel2.a; sourceTree = "<group>"; };
-		3183E5562B9905FA008CFD84 /* KernelExploit.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = KernelExploit.c; sourceTree = "<group>"; };
-		3183E5582B990705008CFD84 /* KernelExploit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KernelExploit.h; sourceTree = "<group>"; };
+		3183E5562B9905FA008CFD84 /* Haxx.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Haxx.c; sourceTree = "<group>"; };
+		3183E5582B990705008CFD84 /* Haxx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Haxx.h; sourceTree = "<group>"; };
 		31BC0B0F2B95DB80000F404E /* vm_unaligned_copy_switch_race.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vm_unaligned_copy_switch_race.c; sourceTree = "<group>"; };
 		31BC0B102B95DB80000F404E /* vm_unaligned_copy_switch_race.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vm_unaligned_copy_switch_race.h; sourceTree = "<group>"; };
 		31BC0B112B95DB80000F404E /* helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = helpers.h; sourceTree = "<group>"; };
@@ -296,6 +299,7 @@
 		313059F72B9CC25100120A3B /* libjailbreak */ = {
 			isa = PBXGroup;
 			children = (
+				31305A412B9CE43000120A3B /* codesign.h */,
 				313059C42B9CC0E100120A3B /* info.h */,
 				313059D82B9CC0E200120A3B /* jbclient_xpc.h */,
 				313059D92B9CC0E200120A3B /* jbserver.h */,
@@ -537,6 +541,7 @@
 			isa = PBXGroup;
 			children = (
 				316D04402B7F8188001324BA /* Error++.swift */,
+				31305A3F2B9CDE5E00120A3B /* Color++.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -579,8 +584,8 @@
 		3183E5552B9905ED008CFD84 /* Exploits */ = {
 			isa = PBXGroup;
 			children = (
-				3183E5562B9905FA008CFD84 /* KernelExploit.c */,
-				3183E5582B990705008CFD84 /* KernelExploit.h */,
+				3183E5562B9905FA008CFD84 /* Haxx.c */,
+				3183E5582B990705008CFD84 /* Haxx.h */,
 			);
 			path = Exploits;
 			sourceTree = "<group>";
@@ -735,10 +740,11 @@
 				316D04532B7F8189001324BA /* SettingsView.swift in Sources */,
 				313059E22B9CC0E200120A3B /* primitives_IOSurface.m in Sources */,
 				313059E92B9CC0E200120A3B /* trustcache.c in Sources */,
+				31305A402B9CDE5E00120A3B /* Color++.swift in Sources */,
 				313059E42B9CC0E200120A3B /* kernel.c in Sources */,
 				316D04572B7F8189001324BA /* PopupView.swift in Sources */,
 				313059EA2B9CC0E200120A3B /* primitives.c in Sources */,
-				3183E5572B9905FA008CFD84 /* KernelExploit.c in Sources */,
+				3183E5572B9905FA008CFD84 /* Haxx.c in Sources */,
 				316D044E2B7F8189001324BA /* Error++.swift in Sources */,
 				31F44EAD2B77A7A300F20B2A /* TrollInstallerXApp.swift in Sources */,
 				313059E62B9CC0E200120A3B /* util.m in Sources */,

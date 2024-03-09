@@ -7,6 +7,5 @@
 
 #import <Foundation/Foundation.h>
 
-// In this header, you should import all the public headers of your framework using statements like #import <kfd/PublicHeader.h>
-
-
+int krw_init(const char *flavor);
+int krw_deinit(void);

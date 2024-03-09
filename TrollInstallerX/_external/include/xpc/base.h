@@ -5,6 +5,8 @@
 
 #include <sys/cdefs.h>
 
+__BEGIN_DECLS
+
 #if !defined(__has_include)
 #define __has_include(x) 0
 #endif // !defined(__has_include)
@@ -32,8 +34,6 @@
 #ifndef __XPC_INDIRECT__
 #error "Please #include <xpc/xpc.h> instead of this file directly."
 #endif // __XPC_INDIRECT__ 
-
-__BEGIN_DECLS
 
 #pragma mark Attribute Shims
 #ifdef __GNUC__
@@ -238,9 +238,6 @@ __BEGIN_DECLS
 #else
 # define XPC_SWIFT_NAME(_name) // __has_attribute(swift_name)
 #endif
-
-#define XPC_SWIFT_UNAVAILABLE(msg) __swift_unavailable(msg)
-#define XPC_SWIFT_NOEXPORT XPC_SWIFT_UNAVAILABLE("Unavailable in Swift from the XPC C Module")
 
 __END_DECLS
 

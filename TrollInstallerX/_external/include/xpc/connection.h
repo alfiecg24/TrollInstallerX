@@ -782,7 +782,7 @@ xpc_connection_set_finalizer_f(xpc_connection_t connection,
  *
  * This API is not supported on embedded platforms and will return ENOTSUP. 
  *
- * @see https://developer.apple.com/documentation/technotes/tn3127-inside-code-signing-requirements
+ * @see https://developer.apple.com/library/archive/documentation/Security/Conceptual/CodeSigningGuide/RequirementLang/RequirementLang.html
  */
 __API_AVAILABLE(macos(12.0))
 XPC_EXPORT XPC_NONNULL_ALL XPC_WARN_RESULT

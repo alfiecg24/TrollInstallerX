@@ -36,11 +36,11 @@ struct InstallerView: View {
     */
     
     enum InstallationProgress: Equatable {
-        case idle, downloadingKernel, patchfinding, exploiting, unsandboxing, escalatingPrivileges, installing, finished
+        case idle, downloadingKernel, patchfinding, exploiting, bypassingPPL, unsandboxing, escalatingPrivileges, installing, finished
     }
     
     enum InstallationError: Error {
-        case failedToDownloadKernel
+        case failedToDownloadKernel, failedToPatchfind, failedToExploit, failedToBypassPPL, failedToDeinitKernelExploit, failedToDeinitPPLBypass
     }
     
     struct MenuOption: Identifiable, Equatable {
@@ -78,7 +78,7 @@ struct InstallerView: View {
                 let isPopupPresented = isSettingsPresented || isCreditsPresented
                 
                 
-                    LinearGradient(colors: [.blue, .purple], startPoint: .topLeading, endPoint: .bottomTrailing)
+                LinearGradient(colors: [Color("FirstColour"), Color("SecondColour")], startPoint: .topLeading, endPoint: .bottomTrailing)
                         .ignoresSafeArea()
                     .frame(width: geometry.size.width, height: geometry.size.height)
                 
@@ -241,6 +241,8 @@ struct InstallerView: View {
                             Text("Patchfinding")
                         case .exploiting:
                             Text("Exploiting")
+                        case .bypassingPPL:
+                            Text("Bypassing PPL")
                         case .unsandboxing:
                             Text("Unsandboxing")
                         case .escalatingPrivileges:
@@ -267,7 +269,7 @@ struct InstallerView: View {
                             case .idle:
                                 Image(systemName: "lock.open")
                             default:
-                                LoadingIndicator(animation: .doubleHelix, color: .white, size: .small)
+                                LoadingIndicator(animation: .threeBallsBouncing, color: .white, size: .small)
                             }
                         }
                     })
@@ -336,19 +338,22 @@ struct InstallerView: View {
     func beginInstall() {
         
         Task {
-            installProgress = .downloadingKernel
-            Logger.log("Downloading kernel", isStatus: true)
             
             let fileManager = FileManager.default
             let docsDir = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0].path
-            
-            if !grab_kernelcache(docsDir) {
-                installationError = InstallationError.failedToDownloadKernel
-                installProgress = .finished
-                return
-            }
-            
             let kernelPath = docsDir + "/kernelcache"
+            
+            
+            if !fileManager.fileExists(atPath: kernelPath) {
+                installProgress = .downloadingKernel
+                Logger.log("Downloading kernel", isStatus: true)
+                
+                if !grab_kernelcache(docsDir) {
+                    installationError = InstallationError.failedToDownloadKernel
+                    installProgress = .finished
+                    return
+                }
+            }
             
             installProgress = .patchfinding
             
@@ -356,7 +361,47 @@ struct InstallerView: View {
             patchfind_kernel(kernelPath)
             
             installProgress = .exploiting
+            
+            Logger.log("Gathering kernel information", isStatus: true)
+            if initialise_kernel_info(kernelPath) != 0 {
+                Logger.log("Failed to gather kernel information", type: .error, isStatus: true)
+                installationError = InstallationError.failedToPatchfind
+                installProgress = .finished
+            }
+            
             Logger.log("Exploiting kernel", isStatus: true)
+            if krw_init("landa") != 0 {
+                Logger.log("Failed to exploit kernel", type: .error, isStatus: true)
+                installationError = InstallationError.failedToExploit
+                installProgress = .finished
+            }
+            
+            installProgress = .bypassingPPL
+            Logger.log("Bypassing PPL", isStatus: true)
+            prepare_for_ppl_bypass()
+            
+            if PPLRW_init() != 0 {
+                Logger.log("Failed to bypass PPL", type: .error, isStatus: true)
+                installationError = InstallationError.failedToBypassPPL
+                installProgress = .finished
+            }
+            
+            Logger.log("Deinitialising PPL bypass", isStatus: true)
+            if PPLRW_deinit() != 0 {
+                Logger.log("Failed to deinitialise PPL bypass", type: .error, isStatus: true)
+                installationError = InstallationError.failedToDeinitPPLBypass
+                installProgress = .finished
+            }
+            
+            Logger.log("Deinitialising kernel exploit", isStatus: true)
+            if krw_deinit() != 0 {
+                Logger.log("Failed to deinitialise kernel exploit", type: .error, isStatus: true)
+                installationError = InstallationError.failedToDeinitKernelExploit
+                installProgress = .finished
+            }
+            
+            Logger.log("Done!", type: .success, isStatus: true)
+            installProgress = .finished
         }
     }
 }

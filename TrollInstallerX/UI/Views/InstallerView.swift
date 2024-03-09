@@ -11,15 +11,25 @@ import SwiftfulLoadingIndicators
 
 import SwiftUI
 
-func downloadKernelCacheAsync(url: String, isOTA: Bool, docsDir: String) async throws -> Bool {
-    let result = await withUnsafeContinuation { continuation in
-        DispatchQueue.global().async {
-            let resultCode = download_kernelcache(url, isOTA, docsDir)
-            continuation.resume(returning: resultCode)
-        }
-    }
-    return result
-}
+//func downloadTrollStore(docsDir: String) async throws -> Bool {
+//    let result = await withUnsafeContinuation { continuation in
+//        DispatchQueue.global().async {
+//            let resultCode = download_trollstore(docsDir)
+//            continuation.resume(returning: resultCode)
+//        }
+//    }
+//    return result
+//}
+//
+//func extractTrollStore(docsDir: String) async throws -> Bool {
+//    let result = await withUnsafeContinuation { continuation in
+//        DispatchQueue.global().async {
+//            let resultCode = extract_trollstore(docsDir)
+//            continuation.resume(returning: resultCode)
+//        }
+//    }
+//    return result
+//}
 
 struct InstallerView: View {
     
@@ -36,12 +46,12 @@ struct InstallerView: View {
     */
     
     enum InstallationProgress: Equatable {
-        case idle, downloadingKernel, patchfinding, exploiting, bypassingPPL, unsandboxing, escalatingPrivileges, installing, finished
+        case idle, preparing, downloadingKernel, patchfinding, exploiting, bypassingPPL, unsandboxing, escalatingPrivileges, installing, finished
     }
     
     enum InstallationError: Error {
         case failedToDownloadKernel, failedToPatchfind, failedToExploit, failedToBypassPPL, failedToDeinitKernelExploit, failedToDeinitPPLBypass, failedToEscalatePrivileges, failedToUnsandbox, failedToBuildPhysRWPrimitive,
-        failedToPlatformise
+        failedToPlatformise, failedToInstall, failedToExtract
     }
     
     struct MenuOption: Identifiable, Equatable {
@@ -236,6 +246,8 @@ struct InstallerView: View {
                         switch installProgress {
                         case .idle:
                             Text("Install TrollStore")
+                        case .preparing:
+                            Text("Preparing installatiom")
                         case .downloadingKernel:
                             Text("Downloading kernelcache")
                         case .patchfinding:
@@ -344,6 +356,14 @@ struct InstallerView: View {
             let docsDir = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0].path
             let kernelPath = docsDir + "/kernelcache"
             
+            installProgress = .preparing
+            Logger.log("Extracting TrollStore.tar", isStatus: true)
+            if !extractTrollStore(docsDir) {
+                Logger.log("Failed to extract TrollStore.tar", type: .error, isStatus: true)
+                installationError = InstallationError.failedToExtract
+                installProgress = .finished
+                return
+            }
             
             if !fileManager.fileExists(atPath: kernelPath) {
                 installProgress = .downloadingKernel
@@ -355,6 +375,7 @@ struct InstallerView: View {
                     return
                 }
             }
+            
             
             installProgress = .patchfinding
             
@@ -439,6 +460,15 @@ struct InstallerView: View {
             if platformise() != 0 {
                 Logger.log("Failed to platformise", type: .error, isStatus: true)
                 installationError = InstallationError.failedToPlatformise
+                installProgress = .finished
+                return
+            }
+            
+            installProgress = .installing
+            Logger.log("Installing TrollStore", isStatus: true)
+            if !install_trollstore(docsDir + "/trollstorehelper", Bundle.main.url(forResource: "TrollStore", withExtension: "tar")?.path) {
+                Logger.log("Failed to install TrollStore", type: .error, isStatus: true)
+                installationError = InstallationError.failedToInstall
                 installProgress = .finished
                 return
             }

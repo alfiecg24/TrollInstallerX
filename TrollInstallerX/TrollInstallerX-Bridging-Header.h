@@ -29,4 +29,8 @@
 // dmaFail
 #include "dmaFail/dmaFail.h"
 
+// TrollStore installation
+#include <libjailbreak/util.h>
+#include "TrollStore/install.h"
+
 #endif /* TrollInstallerX_Bridging_Header_h */

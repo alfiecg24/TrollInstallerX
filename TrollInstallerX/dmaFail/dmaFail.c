@@ -36,6 +36,7 @@ uint64_t gDMAMask = 0;
 
 static int physwritebuf_ppl(uint64_t physaddr, const void* input, size_t size);
 
+// Add a mapping in the kernel address space
 void addMapping(uint64_t addr)
 {
     for (int i = 0; i < CACHED_MAP_LEN; i++) {
@@ -57,6 +58,7 @@ void addMapping(uint64_t addr)
     }
 }
 
+// Remove mappings in the kernel address space
 void clearMappings(void)
 {
     for (int i = 0; i < CACHED_MAP_LEN; i++) {
@@ -68,6 +70,7 @@ void clearMappings(void)
     }
 }
 
+// Write to a mapped address
 void physwrite64_mapped(uint64_t addr, uint64_t val)
 {
     addMapping(addr);
@@ -81,6 +84,7 @@ void physwrite64_mapped(uint64_t addr, uint64_t val)
     }
 }
 
+// Read from a mapped address
 uint64_t physread64_mapped(uint64_t addr)
 {
     addMapping(addr);
@@ -123,6 +127,7 @@ uint32_t physread32_mapped(uint64_t addr)
     return 0;
 }
 
+// Halt CPU
 void ml_dbgwrap_halt_cpu(void)
 {
     if ((physread64_mapped(0x206040000) & DBGWRAP_DBGHALT) != 0) {
@@ -134,6 +139,7 @@ void ml_dbgwrap_halt_cpu(void)
     while ((physread64_mapped(0x206040000) & DBGWRAP_DBGACK) == 0) { }
 }
 
+// Unhalt CPI
 void ml_dbgwrap_unhalt_cpu(void)
 {
     physwrite64_mapped(0x206040000, ((physread64_mapped(0x206040000) & 0xFFFFFFFF2FFFFFFF) | 0x40000000));
@@ -143,6 +149,7 @@ void ml_dbgwrap_unhalt_cpu(void)
     while ((physread64_mapped(0x206040000) & DBGWRAP_DBGACK) != 0) { }
 }
 
+// Power on the GFX
 void gfx_power_init(void)
 {
     if ((~physread32_mapped(gGFXBase) & 0xF) != 0) {

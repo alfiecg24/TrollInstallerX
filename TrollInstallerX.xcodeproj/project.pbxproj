@@ -44,7 +44,7 @@
 		31792E772B77AF0000D3DE29 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31792E762B77AF0000D3DE29 /* IOKit.framework */; };
 		3183E5532B9902D2008CFD84 /* libgrabkernel2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3183E5522B9902D2008CFD84 /* libgrabkernel2.a */; };
 		3183E5542B9904DF008CFD84 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 31792E992B77B93500D3DE29 /* libz.tbd */; };
-		3183E5572B9905FA008CFD84 /* Haxx.c in Sources */ = {isa = PBXBuildFile; fileRef = 3183E5562B9905FA008CFD84 /* Haxx.c */; };
+		3183E5572B9905FA008CFD84 /* post_exploitation.c in Sources */ = {isa = PBXBuildFile; fileRef = 3183E5562B9905FA008CFD84 /* post_exploitation.c */; };
 		31BC0B152B95DB80000F404E /* vm_unaligned_copy_switch_race.c in Sources */ = {isa = PBXBuildFile; fileRef = 31BC0B0F2B95DB80000F404E /* vm_unaligned_copy_switch_race.c */; };
 		31BC0B162B95DB80000F404E /* helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BC0B122B95DB80000F404E /* helpers.m */; };
 		31BC0B172B95DB80000F404E /* grant_full_disk_access.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BC0B132B95DB80000F404E /* grant_full_disk_access.m */; };
@@ -207,8 +207,8 @@
 		31792E992B77B93500D3DE29 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		3183E5412B98FC1A008CFD84 /* libgrabkernel2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libgrabkernel2.h; sourceTree = "<group>"; };
 		3183E5522B9902D2008CFD84 /* libgrabkernel2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libgrabkernel2.a; sourceTree = "<group>"; };
-		3183E5562B9905FA008CFD84 /* Haxx.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Haxx.c; sourceTree = "<group>"; };
-		3183E5582B990705008CFD84 /* Haxx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Haxx.h; sourceTree = "<group>"; };
+		3183E5562B9905FA008CFD84 /* post_exploitation.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = post_exploitation.c; sourceTree = "<group>"; };
+		3183E5582B990705008CFD84 /* post_exploitation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = post_exploitation.h; sourceTree = "<group>"; };
 		31BC0B0F2B95DB80000F404E /* vm_unaligned_copy_switch_race.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vm_unaligned_copy_switch_race.c; sourceTree = "<group>"; };
 		31BC0B102B95DB80000F404E /* vm_unaligned_copy_switch_race.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vm_unaligned_copy_switch_race.h; sourceTree = "<group>"; };
 		31BC0B112B95DB80000F404E /* helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = helpers.h; sourceTree = "<group>"; };
@@ -594,13 +594,13 @@
 			path = libgrabkernel2;
 			sourceTree = "<group>";
 		};
-		3183E5552B9905ED008CFD84 /* Exploits */ = {
+		3183E5552B9905ED008CFD84 /* Post-exploitation */ = {
 			isa = PBXGroup;
 			children = (
-				3183E5562B9905FA008CFD84 /* Haxx.c */,
-				3183E5582B990705008CFD84 /* Haxx.h */,
+				3183E5562B9905FA008CFD84 /* post_exploitation.c */,
+				3183E5582B990705008CFD84 /* post_exploitation.h */,
 			);
-			path = Exploits;
+			path = "Post-exploitation";
 			sourceTree = "<group>";
 		};
 		31BC0B0C2B95DA29000F404E /* kfd */ = {
@@ -668,7 +668,7 @@
 				31D54F9C2B9D10DC00C55FEC /* TrollStore */,
 				313059F22B9CC1DC00120A3B /* dmaFail */,
 				313059B92B9CC0C500120A3B /* libjailbreak */,
-				3183E5552B9905ED008CFD84 /* Exploits */,
+				3183E5552B9905ED008CFD84 /* Post-exploitation */,
 				31BC0B182B95DE38000F404E /* Info.plist */,
 				31BC0B0E2B95DA37000F404E /* MacDirtyCow */,
 				31BC0B0C2B95DA29000F404E /* kfd */,
@@ -779,7 +779,7 @@
 				31D54FAB2B9D144400C55FEC /* install.m in Sources */,
 				316D04572B7F8189001324BA /* PopupView.swift in Sources */,
 				313059EA2B9CC0E200120A3B /* primitives.c in Sources */,
-				3183E5572B9905FA008CFD84 /* Haxx.c in Sources */,
+				3183E5572B9905FA008CFD84 /* post_exploitation.c in Sources */,
 				316D044E2B7F8189001324BA /* Error++.swift in Sources */,
 				31F44EAD2B77A7A300F20B2A /* TrollInstallerXApp.swift in Sources */,
 				313059E62B9CC0E200120A3B /* util.m in Sources */,

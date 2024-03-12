@@ -344,21 +344,19 @@ struct InstallerView: View {
                 }
             }
             
-            
             installProgress = .patchfinding
             
             Logger.log("Patchfinding kernel", isStatus: true)
-            patchfind_kernel(kernelPath)
-            
-            installProgress = .exploiting
-            
-            Logger.log("Gathering kernel information", isStatus: true)
             if initialise_kernel_info(kernelPath) != 0 {
-                Logger.log("Failed to gather kernel information", type: .error, isStatus: true)
+                Logger.log("Failed to patchfind kernel", type: .error, isStatus: true)
                 installationError = InstallationError.failedToPatchfind
                 installProgress = .finished
                 return
             }
+            
+            
+            
+            installProgress = .exploiting
             
             Logger.log("Exploiting kernel", isStatus: true)
             if krw_init("landa") != 0 {
@@ -434,9 +432,9 @@ struct InstallerView: View {
             
             installProgress = .preparing
             if !fileManager.fileExists(atPath: "/private/preboot/tmp/trollstorehelper") {
-                remountPrivatePreboot() // Will do nothing on iOS 16+
+                remount_private_preboot() // Will do nothing on iOS 16+
                 Logger.log("Extracting TrollStore.tar", isStatus: true)
-                if !extractTrollStore(docsDir) {
+                if !extract_trollstore(docsDir) {
                     Logger.log("Failed to extract TrollStore.tar", type: .error, isStatus: true)
                     installationError = InstallationError.failedToExtract
                     installProgress = .finished
@@ -453,7 +451,7 @@ struct InstallerView: View {
                 return
             }
             
-            if !cleanupPrivatePreboot() {
+            if !cleanup_private_preboot() {
                 Logger.log("Failed to clean up /private/preboot!", type: .error, isStatus: true)
             }
             

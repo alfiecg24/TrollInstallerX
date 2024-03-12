@@ -13,7 +13,9 @@
 
 #include "install.h"
 
-NSString* getNSStringFromFile(int fd)
+
+// get_NSString_from_file and run_as_root taken from original TrollInstaller v1
+NSString* get_NSString_from_file(int fd)
 {
     NSMutableString* ms = [NSMutableString new];
     ssize_t num_read;
@@ -27,7 +29,7 @@ NSString* getNSStringFromFile(int fd)
     return ms.copy;
 }
 
-int runBinary(NSString* path, NSArray* args, NSString** output)
+int run_as_root(NSString* path, NSArray* args, NSString** output)
 {
     NSMutableArray* argsM = args.mutableCopy;
     [argsM insertObject:path.lastPathComponent atIndex:0];
@@ -78,22 +80,22 @@ int runBinary(NSString* path, NSArray* args, NSString** output)
     close(out[1]);
     if(output)
         {
-            *output = getNSStringFromFile(out[0]);
+            *output = get_NSString_from_file(out[0]);
         }
         
         return WEXITSTATUS(status);
     }
 
-bool remountPrivatePrebootInternal(void) {
-    return runBinary(@"/sbin/mount", @[@"-u", @"-w", @"/private/preboot"], nil);
+bool remount_private_preboot_internal(void) {
+    return run_as_root(@"/sbin/mount", @[@"-u", @"-w", @"/private/preboot"], nil);
 }
 
-bool remountPrivatePreboot(void) {
+bool remount_private_preboot(void) {
     // Only remount if we are on iOS 15 or below
     if (@available(iOS 16, *)) {
         // Do nothing
     } else {
-        if (!remountPrivatePrebootInternal()) {
+        if (!remount_private_preboot_internal()) {
             printf("Failed to remount /private/preboot\n");
             return false;
         }
@@ -109,7 +111,7 @@ bool install_trollstore(NSString *tar) {
     NSString *helperPath = @"/private/preboot/tmp/trollstorehelper";
     chmod(helperPath.UTF8String, 0755);
     chown(helperPath.UTF8String, 0, 0);
-    int ret = runBinary(helperPath, @[@"install-trollstore", tar], &stdout);
+    int ret = run_as_root(helperPath, @[@"install-trollstore", tar], &stdout);
     printf("trollstorehelper output: %s\n", [stdout UTF8String]);
     return ret == 0;
 }

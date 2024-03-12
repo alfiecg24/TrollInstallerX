@@ -9,15 +9,19 @@ import Foundation
 
 // "https://github.com/opa334/TrollStore/releases/latest/download/TrollStore.tar"
 
-func extractTrollStore(_ docsDir: String) -> Bool {
+func extract_trollstore(_ docsDir: String) -> Bool {
     let fileManager = FileManager.default
     let tarPath = Bundle.main.url(forResource: "TrollStore", withExtension: "tar")?.path
     let extractPath = "/private/preboot/tmp/TrollStore"
+    
+    // Extract the .tar
     if libarchive_unarchive(tarPath, extractPath) != 0 {
         return false
     }
     
     let trollHelperPath = "/private/preboot/tmp/trollstorehelper"
+    
+    // If it already the user is probably retrying after a failed attempt
     if !fileManager.fileExists(atPath: trollHelperPath) {
         do {
             try fileManager.copyItem(atPath: extractPath + "/TrollStore.app/trollstorehelper", toPath: trollHelperPath)
@@ -45,7 +49,7 @@ func extractTrollStore(_ docsDir: String) -> Bool {
     return true
 }
 
-func cleanupPrivatePreboot() -> Bool {
+func cleanup_private_preboot() -> Bool {
     // Remove /private/preboot/tmp
     let fileManager = FileManager.default
     do {

@@ -9,44 +9,67 @@
 #include <time.h>
 #include <sys/mman.h>
 
-int patchfind_kernel(const char *kernelPath) {
-    if (xpf_start_with_kernel_path(kernelPath) == 0) {
-        printf("Starting XPF with %s (%s)\n", kernelPath, gXPF.kernelVersionString);
-        clock_t t = clock();
-        
-        printf("Kernel base: 0x%llx\n", gXPF.kernelBase);
-        printf("Kernel entry: 0x%llx\n", gXPF.kernelEntry);
-        xpf_print_all_items();
-        
-        xpc_object_t serializedSystemInfo = xpf_construct_offset_dictionary((const char* []) {
+#include <libjailbreak/info.h>
+#include <libjailbreak/translation.h>
+
+xpc_object_t _systemInfoXdict;
+
+int initialise_kernel_info(const char *kernelPath) {
+    int r = xpf_start_with_kernel_path(kernelPath);
+    if (r == 0) {
+        char *sets[] = {
             "translation",
             "trustcache",
+            "sandbox",
             "physmap",
             "struct",
             "physrw",
-            NULL
-        });
-        if (serializedSystemInfo) {
-            xpc_dictionary_apply(serializedSystemInfo, ^bool(const char *key, xpc_object_t value) {
+            "perfkrw",
+            NULL,
+            NULL,
+            NULL,
+        };
+        
+        uint32_t idx = 7;
+        if (xpf_set_is_supported("devmode")) {
+            sets[idx++] = "devmode";
+        }
+        
+        _systemInfoXdict = xpf_construct_offset_dictionary((const char **)sets);
+        if (_systemInfoXdict) {
+            xpc_dictionary_set_uint64(_systemInfoXdict, "kernelConstant.staticBase", gXPF.kernelBase);
+            printf("System Info:\n");
+            xpc_dictionary_apply(_systemInfoXdict, ^bool(const char *key, xpc_object_t value) {
                 if (xpc_get_type(value) == XPC_TYPE_UINT64) {
                     printf("0x%016llx <- %s\n", xpc_uint64_get_value(value), key);
                 }
                 return true;
             });
-            xpc_release(serializedSystemInfo);
         }
-        else {
-            printf("XPF Error: %s\n", xpf_get_error());
+        if (!_systemInfoXdict) {
+            return -1;
         }
-        
-        t = clock() - t;
-        double time_taken = ((double)t)/CLOCKS_PER_SEC;
-        printf("XPF finished in %lf seconds\n", time_taken);
         xpf_stop();
-        return 0;
-    }
-    else {
-        printf("Failed to start XPF: %s\n", xpf_get_error());
+    } else {
+        xpf_stop();
         return -1;
     }
+    
+    jbinfo_initialize_dynamic_offsets(_systemInfoXdict);
+    jbinfo_initialize_hardcoded_offsets();
+    _systemInfoXdict = jbinfo_get_serialized();
+    
+    if (_systemInfoXdict) {
+        printf("System Info libjailbreak:\n");
+        xpc_dictionary_apply(_systemInfoXdict, ^bool(const char *key, xpc_object_t value) {
+            if (xpc_get_type(value) == XPC_TYPE_UINT64) {
+                if (xpc_uint64_get_value(value)) {
+                    printf("0x%016llx <- %s\n", xpc_uint64_get_value(value), key);
+                }
+            }
+            return true;
+        });
+    }
+    
+    return 0;
 }

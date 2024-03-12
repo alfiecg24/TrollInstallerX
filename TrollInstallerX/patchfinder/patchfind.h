@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include <xpf/xpf.h>
 
-int patchfind_kernel(const char *kernelPath);
+//int patchfind_kernel(const char *kernelPath);
+int initialise_kernel_info(const char *kernelPath);
 
 #endif /* patchfind_h */

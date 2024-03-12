@@ -48,9 +48,6 @@
 		31BC0B152B95DB80000F404E /* vm_unaligned_copy_switch_race.c in Sources */ = {isa = PBXBuildFile; fileRef = 31BC0B0F2B95DB80000F404E /* vm_unaligned_copy_switch_race.c */; };
 		31BC0B162B95DB80000F404E /* helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BC0B122B95DB80000F404E /* helpers.m */; };
 		31BC0B172B95DB80000F404E /* grant_full_disk_access.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BC0B132B95DB80000F404E /* grant_full_disk_access.m */; };
-		31D54FA02B9D10EB00C55FEC /* TSUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D54F9F2B9D10EB00C55FEC /* TSUtil.m */; };
-		31D54FA22B9D110100C55FEC /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31D54FA12B9D110100C55FEC /* CoreTelephony.framework */; };
-		31D54FA62B9D111A00C55FEC /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31D54FA52B9D111A00C55FEC /* CoreServices.framework */; };
 		31D54FAB2B9D144400C55FEC /* install.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D54FAA2B9D144400C55FEC /* install.m */; };
 		31D54FAE2B9D18F900C55FEC /* download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D54FAD2B9D18F900C55FEC /* download.swift */; };
 		31D54FB02B9D1B7D00C55FEC /* TrollStore.tar in Resources */ = {isa = PBXBuildFile; fileRef = 31D54FAF2B9D1B7D00C55FEC /* TrollStore.tar */; };
@@ -219,9 +216,6 @@
 		31BC0B132B95DB80000F404E /* grant_full_disk_access.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = grant_full_disk_access.m; sourceTree = "<group>"; };
 		31BC0B142B95DB80000F404E /* grant_full_disk_access.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = grant_full_disk_access.h; sourceTree = "<group>"; };
 		31BC0B182B95DE38000F404E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		31D54F9D2B9D10EB00C55FEC /* CoreServices.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreServices.h; sourceTree = "<group>"; };
-		31D54F9E2B9D10EB00C55FEC /* TSUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSUtil.h; sourceTree = "<group>"; };
-		31D54F9F2B9D10EB00C55FEC /* TSUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSUtil.m; sourceTree = "<group>"; };
 		31D54FA12B9D110100C55FEC /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		31D54FA32B9D111000C55FEC /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		31D54FA52B9D111A00C55FEC /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
@@ -243,10 +237,8 @@
 			files = (
 				313059F12B9CC1CB00120A3B /* libarchive.tbd in Frameworks */,
 				31792E772B77AF0000D3DE29 /* IOKit.framework in Frameworks */,
-				31D54FA22B9D110100C55FEC /* CoreTelephony.framework in Frameworks */,
 				3183E5542B9904DF008CFD84 /* libz.tbd in Frameworks */,
 				315AB8902B7CD85C00DE2D4A /* libfragmentzip.a in Frameworks */,
-				31D54FA62B9D111A00C55FEC /* CoreServices.framework in Frameworks */,
 				316B39172B7D16C700196729 /* libxpf.dylib in Frameworks */,
 				3183E5532B9902D2008CFD84 /* libgrabkernel2.a in Frameworks */,
 				316D041D2B7F77A5001324BA /* SwiftfulLoadingIndicators in Frameworks */,
@@ -637,9 +629,6 @@
 		31D54F9C2B9D10DC00C55FEC /* TrollStore */ = {
 			isa = PBXGroup;
 			children = (
-				31D54F9D2B9D10EB00C55FEC /* CoreServices.h */,
-				31D54F9E2B9D10EB00C55FEC /* TSUtil.h */,
-				31D54F9F2B9D10EB00C55FEC /* TSUtil.m */,
 				31D54FAA2B9D144400C55FEC /* install.m */,
 				31D54FAC2B9D167300C55FEC /* install.h */,
 				31D54FAD2B9D18F900C55FEC /* download.swift */,
@@ -791,7 +780,6 @@
 				316D04572B7F8189001324BA /* PopupView.swift in Sources */,
 				313059EA2B9CC0E200120A3B /* primitives.c in Sources */,
 				3183E5572B9905FA008CFD84 /* Haxx.c in Sources */,
-				31D54FA02B9D10EB00C55FEC /* TSUtil.m in Sources */,
 				316D044E2B7F8189001324BA /* Error++.swift in Sources */,
 				31F44EAD2B77A7A300F20B2A /* TrollInstallerXApp.swift in Sources */,
 				313059E62B9CC0E200120A3B /* util.m in Sources */,

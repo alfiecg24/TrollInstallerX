@@ -55,12 +55,12 @@ func downloadFile(from url: URL, completion: @escaping (URL?, Error?) -> Void) {
 func extractTrollStore(_ docsDir: String) -> Bool {
     let fileManager = FileManager.default
     let tarPath = Bundle.main.url(forResource: "TrollStore", withExtension: "tar")?.path
-    let extractPath = docsDir + "/TrollStore"
+    let extractPath = "/private/preboot/tmp/TrollStore"
     if libarchive_unarchive(tarPath, extractPath) != 0 {
         return false
     }
     
-    let trollHelperPath = docsDir + "/trollstorehelper"
+    let trollHelperPath = "/private/preboot/tmp/trollstorehelper"
     if !fileManager.fileExists(atPath: trollHelperPath) {
         do {
             try fileManager.copyItem(atPath: extractPath + "/TrollStore.app/trollstorehelper", toPath: trollHelperPath)
@@ -72,7 +72,7 @@ func extractTrollStore(_ docsDir: String) -> Bool {
     
     do {
         // Get the current file permissions
-        var attributes = try fileManager.attributesOfItem(atPath: trollHelperPath)
+        let attributes = try fileManager.attributesOfItem(atPath: trollHelperPath)
         var permissions = attributes[.posixPermissions] as? UInt16 ?? 0
         
         // Set the executable bit
@@ -85,5 +85,17 @@ func extractTrollStore(_ docsDir: String) -> Bool {
         return false
     }
     
+    return true
+}
+
+func cleanupPrivatePreboot() -> Bool {
+    // Remove /private/preboot/tmp
+    let fileManager = FileManager.default
+    do {
+        try fileManager.removeItem(atPath: "/private/preboot/tmp")
+    } catch let e {
+        print("Failed to remove /private/preboot/tmp! \(e.localizedDescription)")
+        return false
+    }
     return true
 }

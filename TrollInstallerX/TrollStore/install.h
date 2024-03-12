@@ -8,6 +8,7 @@
 #ifndef install_h
 #define install_h
 
-bool install_trollstore(NSString *helper, NSString *tar);
+bool remountPrivatePreboot(void);
+bool install_trollstore(NSString *tar);
 
 #endif /* install_h */

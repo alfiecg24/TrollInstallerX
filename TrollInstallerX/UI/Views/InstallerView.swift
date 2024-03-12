@@ -9,28 +9,6 @@ import SwiftUI
 import UIKit
 import SwiftfulLoadingIndicators
 
-import SwiftUI
-
-//func downloadTrollStore(docsDir: String) async throws -> Bool {
-//    let result = await withUnsafeContinuation { continuation in
-//        DispatchQueue.global().async {
-//            let resultCode = download_trollstore(docsDir)
-//            continuation.resume(returning: resultCode)
-//        }
-//    }
-//    return result
-//}
-//
-//func extractTrollStore(docsDir: String) async throws -> Bool {
-//    let result = await withUnsafeContinuation { continuation in
-//        DispatchQueue.global().async {
-//            let resultCode = extract_trollstore(docsDir)
-//            continuation.resume(returning: resultCode)
-//        }
-//    }
-//    return result
-//}
-
 struct InstallerView: View {
     
     /*
@@ -152,7 +130,7 @@ struct InstallerView: View {
                 Image("TrollStore")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
-                    .frame(maxWidth: 100)
+                    .frame(maxWidth: 85)
                     .cornerRadius(15.0)
                     .padding([.top, .horizontal])
                 
@@ -166,9 +144,6 @@ struct InstallerView: View {
                 Text("made by Alfie CG")
                     .font(.subheadline)
                     .foregroundColor(.white.opacity(0.5))
-                Text("DO NOT USE ICRAZEWARE")
-                    .font(.subheadline)
-                    .foregroundColor(.white.opacity(0.5))
             }
         .padding()
         .frame(maxWidth: 340, maxHeight: nil)
@@ -180,7 +155,6 @@ struct InstallerView: View {
         VStack {
             let menuOptions: [MenuOption] = [
                 .init(id: "settings", imageName: "gearshape", title: NSLocalizedString("Settings", comment: "")),
-                .init(id: "kernelcache", imageName: "folder.badge.plus", title: NSLocalizedString("Select kernelcache", comment: "")),
                 .init(id: "credits", imageName: "info.circle", title: NSLocalizedString("Credits", comment: "")),
             ]
             ForEach(menuOptions) { option in
@@ -246,8 +220,9 @@ struct InstallerView: View {
                         switch installProgress {
                         case .idle:
                             Text("Install TrollStore")
+                                .padding(.vertical, 5)
                         case .preparing:
-                            Text("Preparing installatiom")
+                            Text("Preparing installation")
                         case .downloadingKernel:
                             Text("Downloading kernelcache")
                         case .patchfinding:
@@ -352,18 +327,11 @@ struct InstallerView: View {
         
         Task {
             
+            Logger.log("Starting installation", isStatus: true)
+            
             let fileManager = FileManager.default
             let docsDir = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0].path
             let kernelPath = docsDir + "/kernelcache"
-            
-            installProgress = .preparing
-            Logger.log("Extracting TrollStore.tar", isStatus: true)
-            if !extractTrollStore(docsDir) {
-                Logger.log("Failed to extract TrollStore.tar", type: .error, isStatus: true)
-                installationError = InstallationError.failedToExtract
-                installProgress = .finished
-                return
-            }
             
             if !fileManager.fileExists(atPath: kernelPath) {
                 installProgress = .downloadingKernel
@@ -464,13 +432,29 @@ struct InstallerView: View {
                 return
             }
             
+            installProgress = .preparing
+            if !fileManager.fileExists(atPath: "/private/preboot/tmp/trollstorehelper") {
+                remountPrivatePreboot() // Will do nothing on iOS 16+
+                Logger.log("Extracting TrollStore.tar", isStatus: true)
+                if !extractTrollStore(docsDir) {
+                    Logger.log("Failed to extract TrollStore.tar", type: .error, isStatus: true)
+                    installationError = InstallationError.failedToExtract
+                    installProgress = .finished
+                    return
+                }
+            }
+            
             installProgress = .installing
             Logger.log("Installing TrollStore", isStatus: true)
-            if !install_trollstore(docsDir + "/trollstorehelper", Bundle.main.url(forResource: "TrollStore", withExtension: "tar")?.path) {
+            if !install_trollstore(Bundle.main.url(forResource: "TrollStore", withExtension: "tar")?.path) {
                 Logger.log("Failed to install TrollStore", type: .error, isStatus: true)
                 installationError = InstallationError.failedToInstall
                 installProgress = .finished
                 return
+            }
+            
+            if !cleanupPrivatePreboot() {
+                Logger.log("Failed to clean up /private/preboot!", type: .error, isStatus: true)
             }
             
             Logger.log("Done!", type: .success, isStatus: true)

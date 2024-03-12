@@ -49,7 +49,7 @@
 		31BC0B162B95DB80000F404E /* helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BC0B122B95DB80000F404E /* helpers.m */; };
 		31BC0B172B95DB80000F404E /* grant_full_disk_access.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BC0B132B95DB80000F404E /* grant_full_disk_access.m */; };
 		31D54FAB2B9D144400C55FEC /* install.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D54FAA2B9D144400C55FEC /* install.m */; };
-		31D54FAE2B9D18F900C55FEC /* download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D54FAD2B9D18F900C55FEC /* download.swift */; };
+		31D54FAE2B9D18F900C55FEC /* extract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D54FAD2B9D18F900C55FEC /* extract.swift */; };
 		31D54FB02B9D1B7D00C55FEC /* TrollStore.tar in Resources */ = {isa = PBXBuildFile; fileRef = 31D54FAF2B9D1B7D00C55FEC /* TrollStore.tar */; };
 		31F44EAD2B77A7A300F20B2A /* TrollInstallerXApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F44EAC2B77A7A300F20B2A /* TrollInstallerXApp.swift */; };
 		31F44EB12B77A7A500F20B2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31F44EB02B77A7A500F20B2A /* Assets.xcassets */; };
@@ -221,7 +221,7 @@
 		31D54FA52B9D111A00C55FEC /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		31D54FAA2B9D144400C55FEC /* install.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = install.m; sourceTree = "<group>"; };
 		31D54FAC2B9D167300C55FEC /* install.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = install.h; sourceTree = "<group>"; };
-		31D54FAD2B9D18F900C55FEC /* download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = download.swift; sourceTree = "<group>"; };
+		31D54FAD2B9D18F900C55FEC /* extract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extract.swift; sourceTree = "<group>"; };
 		31D54FAF2B9D1B7D00C55FEC /* TrollStore.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = TrollStore.tar; sourceTree = "<group>"; };
 		31F44EA92B77A7A300F20B2A /* TrollInstallerX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrollInstallerX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		31F44EAC2B77A7A300F20B2A /* TrollInstallerXApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrollInstallerXApp.swift; sourceTree = "<group>"; };
@@ -631,7 +631,7 @@
 			children = (
 				31D54FAA2B9D144400C55FEC /* install.m */,
 				31D54FAC2B9D167300C55FEC /* install.h */,
-				31D54FAD2B9D18F900C55FEC /* download.swift */,
+				31D54FAD2B9D18F900C55FEC /* extract.swift */,
 			);
 			path = TrollStore;
 			sourceTree = "<group>";
@@ -789,7 +789,7 @@
 				313059E82B9CC0E200120A3B /* physrw.c in Sources */,
 				316D04562B7F8189001324BA /* LogView.swift in Sources */,
 				313059E12B9CC0E200120A3B /* kalloc_pt.m in Sources */,
-				31D54FAE2B9D18F900C55FEC /* download.swift in Sources */,
+				31D54FAE2B9D18F900C55FEC /* extract.swift in Sources */,
 				313059E02B9CC0E200120A3B /* jbclient_xpc.c in Sources */,
 				31BC0B162B95DB80000F404E /* helpers.m in Sources */,
 				313059E72B9CC0E200120A3B /* info.c in Sources */,

@@ -1,5 +1,5 @@
 //
-//  download.swift
+//  extract.swift
 //  TrollInstallerX
 //
 //  Created by Alfie on 09/03/2024.
@@ -8,49 +8,6 @@
 import Foundation
 
 // "https://github.com/opa334/TrollStore/releases/latest/download/TrollStore.tar"
-
-func downloadTrollStore(_ docsDir: String) -> Bool {
-    let url = URL(string: "https://github.com/opa334/TrollStore/releases/latest/download/TrollStore.tar")
-    var ret = false
-    let task = URLSession.shared.downloadTask(with: url!) { localURL, urlResponse, error in
-        if let localURL = localURL {
-            if let docsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-                let destURL = docsURL.appendingPathComponent("TrollStore.tar")
-                do {
-                    try FileManager.default.moveItem(at: localURL, to: destURL)
-                    ret = true
-                } catch (let writeError) {
-                    print("Error writing file \(destURL) : \(writeError)")
-                }
-            }
-        }
-    }
-    task.resume()
-    return ret
-}
-
-func downloadFile(from url: URL, completion: @escaping (URL?, Error?) -> Void) {
-    let task = URLSession.shared.downloadTask(with: url) { (tempURL, response, error) in
-        guard let tempURL = tempURL else {
-            completion(nil, error)
-            return
-        }
-        
-        // Create a destination URL to move the downloaded file
-        let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let destinationURL = documentsURL.appendingPathComponent(url.lastPathComponent)
-        
-        // Move the downloaded file from the temporary location to the destination URL
-        do {
-            try FileManager.default.moveItem(at: tempURL, to: destinationURL)
-            completion(destinationURL, nil)
-        } catch {
-            completion(nil, error)
-        }
-    }
-    
-    task.resume()
-}
 
 func extractTrollStore(_ docsDir: String) -> Bool {
     let fileManager = FileManager.default

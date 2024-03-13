@@ -30,8 +30,6 @@
 		315AB8902B7CD85C00DE2D4A /* libfragmentzip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 315AB88E2B7CD85C00DE2D4A /* libfragmentzip.a */; };
 		315AB9022B7D101200DE2D4A /* libchoma.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 315AB9012B7D101200DE2D4A /* libchoma.a */; };
 		315AB9062B7D103000DE2D4A /* patchfind.c in Sources */ = {isa = PBXBuildFile; fileRef = 315AB9052B7D103000DE2D4A /* patchfind.c */; };
-		316B39172B7D16C700196729 /* libxpf.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 316B39162B7D16C700196729 /* libxpf.dylib */; };
-		316B39182B7D16D000196729 /* libxpf.dylib in Copy Files */ = {isa = PBXBuildFile; fileRef = 316B39162B7D16C700196729 /* libxpf.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		316D041D2B7F77A5001324BA /* SwiftfulLoadingIndicators in Frameworks */ = {isa = PBXBuildFile; productRef = 316D041C2B7F77A5001324BA /* SwiftfulLoadingIndicators */; };
 		316D044D2B7F8189001324BA /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316D043E2B7F8188001324BA /* Logger.swift */; };
 		316D044E2B7F8189001324BA /* Error++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316D04402B7F8188001324BA /* Error++.swift */; };
@@ -45,6 +43,10 @@
 		3183E5532B9902D2008CFD84 /* libgrabkernel2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3183E5522B9902D2008CFD84 /* libgrabkernel2.a */; };
 		3183E5542B9904DF008CFD84 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 31792E992B77B93500D3DE29 /* libz.tbd */; };
 		3183E5572B9905FA008CFD84 /* post_exploitation.c in Sources */ = {isa = PBXBuildFile; fileRef = 3183E5562B9905FA008CFD84 /* post_exploitation.c */; };
+		3190C3962BA254D3005D4EAB /* libxpf.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3190C3952BA254D3005D4EAB /* libxpf.dylib */; };
+		3190C3982BA25526005D4EAB /* libxpf.dylib in Copy Files */ = {isa = PBXBuildFile; fileRef = 3190C3952BA254D3005D4EAB /* libxpf.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		3190C3A12BA25610005D4EAB /* namecache.m in Sources */ = {isa = PBXBuildFile; fileRef = 3190C3A02BA25610005D4EAB /* namecache.m */; };
+		3190C3A32BA2561B005D4EAB /* offsets.m in Sources */ = {isa = PBXBuildFile; fileRef = 3190C3A22BA2561B005D4EAB /* offsets.m */; };
 		31BC0B152B95DB80000F404E /* vm_unaligned_copy_switch_race.c in Sources */ = {isa = PBXBuildFile; fileRef = 31BC0B0F2B95DB80000F404E /* vm_unaligned_copy_switch_race.c */; };
 		31BC0B162B95DB80000F404E /* helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BC0B122B95DB80000F404E /* helpers.m */; };
 		31BC0B172B95DB80000F404E /* grant_full_disk_access.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BC0B132B95DB80000F404E /* grant_full_disk_access.m */; };
@@ -57,23 +59,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		316B390A2B7D116300196729 /* Embed Libraries */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Libraries";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		316B390B2B7D12CD00196729 /* Copy Files */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 7;
 			files = (
-				316B39182B7D16D000196729 /* libxpf.dylib in Copy Files */,
+				3190C3982BA25526005D4EAB /* libxpf.dylib in Copy Files */,
 			);
 			name = "Copy Files";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -168,11 +160,6 @@
 		315AB8BE2B7CDCA800DE2D4A /* typecheck-gcc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "typecheck-gcc.h"; sourceTree = "<group>"; };
 		315AB8BF2B7CDCA800DE2D4A /* multi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = multi.h; sourceTree = "<group>"; };
 		315AB8C02B7CDCA800DE2D4A /* urlapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = urlapi.h; sourceTree = "<group>"; };
-		315AB8CE2B7D0FCB00DE2D4A /* non_ppl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = non_ppl.h; sourceTree = "<group>"; };
-		315AB8CF2B7D0FCB00DE2D4A /* common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
-		315AB8D02B7D0FCB00DE2D4A /* ppl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ppl.h; sourceTree = "<group>"; };
-		315AB8D12B7D0FCB00DE2D4A /* decompress.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = decompress.h; sourceTree = "<group>"; };
-		315AB8D22B7D0FCB00DE2D4A /* xpf.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = xpf.h; sourceTree = "<group>"; };
 		315AB8E42B7D0FFB00DE2D4A /* MachOLoadCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MachOLoadCommand.h; sourceTree = "<group>"; };
 		315AB8E52B7D0FFB00DE2D4A /* MemoryStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryStream.h; sourceTree = "<group>"; };
 		315AB8E62B7D0FFB00DE2D4A /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
@@ -192,7 +179,6 @@
 		315AB9012B7D101200DE2D4A /* libchoma.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libchoma.a; sourceTree = "<group>"; };
 		315AB9042B7D103000DE2D4A /* patchfind.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = patchfind.h; sourceTree = "<group>"; };
 		315AB9052B7D103000DE2D4A /* patchfind.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = patchfind.c; sourceTree = "<group>"; };
-		316B39162B7D16C700196729 /* libxpf.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libxpf.dylib; sourceTree = "<group>"; };
 		316D043E2B7F8188001324BA /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		316D04402B7F8188001324BA /* Error++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Error++.swift"; sourceTree = "<group>"; };
 		316D04442B7F8188001324BA /* AboutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
@@ -209,6 +195,16 @@
 		3183E5522B9902D2008CFD84 /* libgrabkernel2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libgrabkernel2.a; sourceTree = "<group>"; };
 		3183E5562B9905FA008CFD84 /* post_exploitation.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = post_exploitation.c; sourceTree = "<group>"; };
 		3183E5582B990705008CFD84 /* post_exploitation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = post_exploitation.h; sourceTree = "<group>"; };
+		3190C3952BA254D3005D4EAB /* libxpf.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libxpf.dylib; sourceTree = "<group>"; };
+		3190C39A2BA25589005D4EAB /* common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
+		3190C39B2BA25589005D4EAB /* ppl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ppl.h; sourceTree = "<group>"; };
+		3190C39C2BA25589005D4EAB /* xpf.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = xpf.h; sourceTree = "<group>"; };
+		3190C39D2BA25589005D4EAB /* non_ppl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = non_ppl.h; sourceTree = "<group>"; };
+		3190C39E2BA25589005D4EAB /* decompress.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = decompress.h; sourceTree = "<group>"; };
+		3190C3A02BA25610005D4EAB /* namecache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = namecache.m; sourceTree = "<group>"; };
+		3190C3A22BA2561B005D4EAB /* offsets.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = offsets.m; sourceTree = "<group>"; };
+		3190C3A42BA25621005D4EAB /* offsets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = offsets.h; sourceTree = "<group>"; };
+		3190C3A52BA258DA005D4EAB /* namecache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = namecache.h; sourceTree = "<group>"; };
 		31BC0B0F2B95DB80000F404E /* vm_unaligned_copy_switch_race.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vm_unaligned_copy_switch_race.c; sourceTree = "<group>"; };
 		31BC0B102B95DB80000F404E /* vm_unaligned_copy_switch_race.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vm_unaligned_copy_switch_race.h; sourceTree = "<group>"; };
 		31BC0B112B95DB80000F404E /* helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = helpers.h; sourceTree = "<group>"; };
@@ -236,10 +232,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				313059F12B9CC1CB00120A3B /* libarchive.tbd in Frameworks */,
+				3190C3962BA254D3005D4EAB /* libxpf.dylib in Frameworks */,
 				31792E772B77AF0000D3DE29 /* IOKit.framework in Frameworks */,
 				3183E5542B9904DF008CFD84 /* libz.tbd in Frameworks */,
 				315AB8902B7CD85C00DE2D4A /* libfragmentzip.a in Frameworks */,
-				316B39172B7D16C700196729 /* libxpf.dylib in Frameworks */,
 				3183E5532B9902D2008CFD84 /* libgrabkernel2.a in Frameworks */,
 				316D041D2B7F77A5001324BA /* SwiftfulLoadingIndicators in Frameworks */,
 				315AB9022B7D101200DE2D4A /* libchoma.a in Frameworks */,
@@ -417,12 +413,12 @@
 		315AB8872B7CD7FF00DE2D4A /* include */ = {
 			isa = PBXGroup;
 			children = (
+				3190C3992BA25575005D4EAB /* xpf */,
 				313059ED2B9CC11700120A3B /* libarchive */,
 				3183E5402B98FC1A008CFD84 /* libgrabkernel2 */,
 				315AB9002B7D100400DE2D4A /* launch.h */,
 				315AB8E32B7D0FFB00DE2D4A /* choma */,
 				315AB8F32B7D0FFB00DE2D4A /* xpc */,
-				315AB8CD2B7D0FB900DE2D4A /* xpf */,
 				315AB8B52B7CDCA800DE2D4A /* curl */,
 				315AB8882B7CD80300DE2D4A /* libfragmentzip */,
 			);
@@ -440,8 +436,8 @@
 		315AB88C2B7CD85500DE2D4A /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				3190C3952BA254D3005D4EAB /* libxpf.dylib */,
 				3183E5522B9902D2008CFD84 /* libgrabkernel2.a */,
-				316B39162B7D16C700196729 /* libxpf.dylib */,
 				315AB9012B7D101200DE2D4A /* libchoma.a */,
 				315AB88D2B7CD85C00DE2D4A /* libcurl.a */,
 				315AB88E2B7CD85C00DE2D4A /* libfragmentzip.a */,
@@ -465,18 +461,6 @@
 				315AB8C02B7CDCA800DE2D4A /* urlapi.h */,
 			);
 			path = curl;
-			sourceTree = "<group>";
-		};
-		315AB8CD2B7D0FB900DE2D4A /* xpf */ = {
-			isa = PBXGroup;
-			children = (
-				315AB8CF2B7D0FCB00DE2D4A /* common.h */,
-				315AB8D12B7D0FCB00DE2D4A /* decompress.h */,
-				315AB8CE2B7D0FCB00DE2D4A /* non_ppl.h */,
-				315AB8D02B7D0FCB00DE2D4A /* ppl.h */,
-				315AB8D22B7D0FCB00DE2D4A /* xpf.h */,
-			);
-			path = xpf;
 			sourceTree = "<group>";
 		};
 		315AB8E32B7D0FFB00DE2D4A /* choma */ = {
@@ -603,6 +587,29 @@
 			path = "Post-exploitation";
 			sourceTree = "<group>";
 		};
+		3190C3992BA25575005D4EAB /* xpf */ = {
+			isa = PBXGroup;
+			children = (
+				3190C39A2BA25589005D4EAB /* common.h */,
+				3190C39E2BA25589005D4EAB /* decompress.h */,
+				3190C39D2BA25589005D4EAB /* non_ppl.h */,
+				3190C39B2BA25589005D4EAB /* ppl.h */,
+				3190C39C2BA25589005D4EAB /* xpf.h */,
+			);
+			path = xpf;
+			sourceTree = "<group>";
+		};
+		3190C39F2BA255F5005D4EAB /* Namecache */ = {
+			isa = PBXGroup;
+			children = (
+				3190C3A02BA25610005D4EAB /* namecache.m */,
+				3190C3A52BA258DA005D4EAB /* namecache.h */,
+				3190C3A22BA2561B005D4EAB /* offsets.m */,
+				3190C3A42BA25621005D4EAB /* offsets.h */,
+			);
+			path = Namecache;
+			sourceTree = "<group>";
+		};
 		31BC0B0C2B95DA29000F404E /* kfd */ = {
 			isa = PBXGroup;
 			children = (
@@ -664,6 +671,7 @@
 		31F44EAB2B77A7A300F20B2A /* TrollInstallerX */ = {
 			isa = PBXGroup;
 			children = (
+				3190C39F2BA255F5005D4EAB /* Namecache */,
 				31D54FA92B9D13C400C55FEC /* Resources */,
 				31D54F9C2B9D10DC00C55FEC /* TrollStore */,
 				313059F22B9CC1DC00120A3B /* dmaFail */,
@@ -701,7 +709,6 @@
 				31F44EA52B77A7A300F20B2A /* Sources */,
 				31F44EA62B77A7A300F20B2A /* Frameworks */,
 				31F44EA72B77A7A300F20B2A /* Resources */,
-				316B390A2B7D116300196729 /* Embed Libraries */,
 				316B390B2B7D12CD00196729 /* Copy Files */,
 			);
 			buildRules = (
@@ -776,6 +783,7 @@
 				313059E92B9CC0E200120A3B /* trustcache.c in Sources */,
 				31305A402B9CDE5E00120A3B /* Color++.swift in Sources */,
 				313059E42B9CC0E200120A3B /* kernel.c in Sources */,
+				3190C3A32BA2561B005D4EAB /* offsets.m in Sources */,
 				31D54FAB2B9D144400C55FEC /* install.m in Sources */,
 				316D04572B7F8189001324BA /* PopupView.swift in Sources */,
 				313059EA2B9CC0E200120A3B /* primitives.c in Sources */,
@@ -802,6 +810,7 @@
 				313059E52B9CC0E200120A3B /* translation.c in Sources */,
 				315AB9062B7D103000DE2D4A /* patchfind.c in Sources */,
 				31305A3C2B9CC6EE00120A3B /* kfd.m in Sources */,
+				3190C3A12BA25610005D4EAB /* namecache.m in Sources */,
 				316D04522B7F8189001324BA /* InstallerView.swift in Sources */,
 				31BC0B152B95DB80000F404E /* vm_unaligned_copy_switch_race.c in Sources */,
 			);

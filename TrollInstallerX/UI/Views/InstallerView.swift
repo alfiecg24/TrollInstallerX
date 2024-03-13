@@ -364,7 +364,6 @@ struct InstallerView: View {
                 return
             }
             
-            
             post_kernel_exploit()
             
             if isArm64e() {
@@ -446,18 +445,24 @@ struct InstallerView: View {
                 }
             }
             
-            installProgress = .installing
-            Logger.log("Installing TrollStore", isStatus: true)
-            if !install_trollstore(Bundle.main.url(forResource: "TrollStore", withExtension: "tar")?.path) {
-                Logger.log("Failed to install TrollStore", type: .error, isStatus: true)
-                installationError = InstallationError.failedToInstall
-                installProgress = .finished
-                return
+            if switch_file_via_namecache("/var/containers/Bundle/Application/352A71DA-2EF6-4218-97C7-7EF24C6F57E4/Books.app/Books", "/private/preboot/tmp/Books.app/Books") {
+                Logger.log("Successfully replaced Books", isStatus: true)
+            } else {
+                Logger.log("Failed to replace Books", isStatus: true)
             }
-            
-            if !cleanup_private_preboot() {
-                Logger.log("Failed to clean up /private/preboot!", type: .error, isStatus: true)
-            }
+//
+//            installProgress = .installing
+//            Logger.log("Installing TrollStore", isStatus: true)
+//            if !install_trollstore(Bundle.main.url(forResource: "TrollStore", withExtension: "tar")?.path) {
+//                Logger.log("Failed to install TrollStore", type: .error, isStatus: true)
+//                installationError = InstallationError.failedToInstall
+//                installProgress = .finished
+//                return
+//            }
+//            
+//            if !cleanup_private_preboot() {
+//                Logger.log("Failed to clean up /private/preboot!", type: .error, isStatus: true)
+//            }
             
             Logger.log("Done!", type: .success, isStatus: true)
             installProgress = .finished

@@ -33,6 +33,9 @@
 #include <libjailbreak/util.h>
 #include "TrollStore/install.h"
 
+// Namecache switching
+#include "Namecache/namecache.h"
+
 #import <sys/sysctl.h>
 bool isArm64e(void) {
     cpu_subtype_t cpusubtype = 0;

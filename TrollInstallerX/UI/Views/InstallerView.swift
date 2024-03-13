@@ -355,7 +355,6 @@ struct InstallerView: View {
             }
             
             
-            
             installProgress = .exploiting
             
             Logger.log("Exploiting kernel", isStatus: true)
@@ -366,15 +365,17 @@ struct InstallerView: View {
                 return
             }
             
-            installProgress = .bypassingPPL
-            Logger.log("Bypassing PPL", isStatus: true)
-            prepare_for_ppl_bypass()
-            
-            if PPLRW_init() != 0 {
-                Logger.log("Failed to bypass PPL", type: .error, isStatus: true)
-                installationError = InstallationError.failedToBypassPPL
-                installProgress = .finished
-                return
+            if gXPF.kernelIsArm64e {
+                installProgress = .bypassingPPL
+                Logger.log("Bypassing PPL", isStatus: true)
+                prepare_for_ppl_bypass()
+                
+                if PPLRW_init() != 0 {
+                    Logger.log("Failed to bypass PPL", type: .error, isStatus: true)
+                    installationError = InstallationError.failedToBypassPPL
+                    installProgress = .finished
+                    return
+                }
             }
             
             if #available(iOS 16.0, *) {
@@ -388,12 +389,14 @@ struct InstallerView: View {
                 return
             }
             
-            Logger.log("Cleaning up PPL bypass", isStatus: true)
-            if PPLRW_deinit() != 0 {
-                Logger.log("Failed to deinitialise PPL bypass", type: .error, isStatus: true)
-                installationError = InstallationError.failedToDeinitPPLBypass
-                installProgress = .finished
-                return
+            if gXPF.kernelIsArm64e {
+                Logger.log("Cleaning up PPL bypass", isStatus: true)
+                if PPLRW_deinit() != 0 {
+                    Logger.log("Failed to deinitialise PPL bypass", type: .error, isStatus: true)
+                    installationError = InstallationError.failedToDeinitPPLBypass
+                    installProgress = .finished
+                    return
+                }
             }
             
             Logger.log("Cleaning up kernel exploit", isStatus: true)

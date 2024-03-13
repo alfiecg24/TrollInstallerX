@@ -33,4 +33,12 @@
 #include <libjailbreak/util.h>
 #include "TrollStore/install.h"
 
+#import <sys/sysctl.h>
+bool isArm64e(void) {
+    cpu_subtype_t cpusubtype = 0;
+    size_t len = sizeof(cpusubtype);
+    if (sysctlbyname("hw.cpusubtype", &cpusubtype, &len, NULL, 0) == -1) { return NO; }
+    return (cpusubtype & ~CPU_SUBTYPE_MASK) == CPU_SUBTYPE_ARM64E;
+}
+
 #endif /* TrollInstallerX_Bridging_Header_h */

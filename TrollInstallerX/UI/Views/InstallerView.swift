@@ -354,7 +354,6 @@ struct InstallerView: View {
                 return
             }
             
-            
             installProgress = .exploiting
             
             Logger.log("Exploiting kernel", isStatus: true)
@@ -365,10 +364,12 @@ struct InstallerView: View {
                 return
             }
             
-            if gXPF.kernelIsArm64e {
+            
+            post_kernel_exploit()
+            
+            if isArm64e() {
                 installProgress = .bypassingPPL
                 Logger.log("Bypassing PPL", isStatus: true)
-                prepare_for_ppl_bypass()
                 
                 if PPLRW_init() != 0 {
                     Logger.log("Failed to bypass PPL", type: .error, isStatus: true)
@@ -389,7 +390,7 @@ struct InstallerView: View {
                 return
             }
             
-            if gXPF.kernelIsArm64e {
+            if isArm64e() {
                 Logger.log("Cleaning up PPL bypass", isStatus: true)
                 if PPLRW_deinit() != 0 {
                     Logger.log("Failed to deinitialise PPL bypass", type: .error, isStatus: true)

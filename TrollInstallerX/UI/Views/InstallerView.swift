@@ -378,7 +378,7 @@ struct InstallerView: View {
                 installProgress = .downloadingKernel
                 Logger.log("Downloading kernel", isStatus: true)
                 
-                if !grab_kernelcache(docsDir) {
+                if !grab_kernelcache(kernelPath) {
                     installationError = InstallationError.failedToDownloadKernel
                     installProgress = .finished
                     return

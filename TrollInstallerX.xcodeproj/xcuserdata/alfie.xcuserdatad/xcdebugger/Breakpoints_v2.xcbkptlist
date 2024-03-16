@@ -20,5 +20,435 @@
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DA5F868F-5791-42A5-8DB0-CE66B8B32349"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TrollInstallerX/Namecache/namecache.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
+            landmarkName = "funVnodeUnRedirect(vnode, orig_to_v_data)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D9852B0C-ADC5-4DE1-A95C-45FF17BEEAAA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TrollInstallerX/Namecache/namecache.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
+            landmarkName = "funVnodeUnRedirect(vnode, orig_to_v_data)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0E974EE0-AA88-450A-8AE2-56A1B4E7E3AE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TrollInstallerX/Namecache/namecache.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
+            landmarkName = "funVnodeUnRedirect(vnode, orig_to_v_data)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8EA56C51-48AC-4F9E-869E-518F67D65928"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TrollInstallerX/Namecache/namecache.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
+            landmarkName = "funVnodeUnRedirect(vnode, orig_to_v_data)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F8BD3D02-7769-4F53-B072-49FDD9C40C7E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TrollInstallerX/Namecache/namecache.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "142"
+            endingLineNumber = "142"
+            landmarkName = "funVnodeUnRedirect(vnode, orig_to_v_data)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "564FD832-1DA9-4413-8042-1847F909892F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TrollInstallerX/Namecache/namecache.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "funVnodeUnRedirect(vnode, orig_to_v_data)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "32BCA08F-10ED-4004-8F7C-13F33BE1894D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TrollInstallerX/Namecache/namecache.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
+            landmarkName = "funVnodeUnRedirect(vnode, orig_to_v_data)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2051B578-F22A-419D-984A-316C57F77678"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TrollInstallerX/Namecache/namecache.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
+            landmarkName = "funVnodeUnRedirect(vnode, orig_to_v_data)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3E12184A-1918-4F27-ACE2-76345A55F78E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TrollInstallerX/Namecache/namecache.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "149"
+            endingLineNumber = "149"
+            landmarkName = "funVnodeUnRedirect(vnode, orig_to_v_data)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "24051391-8646-422E-A802-69FE60975CB9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TrollInstallerX/Namecache/namecache.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "280"
+            endingLineNumber = "280"
+            landmarkName = "funVnodeChown(filename, uid, gid)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8910DFCB-2F8D-4DEB-A4BD-C69D9936D8C5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TrollInstallerX/libjailbreak/src/primitives.c"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "kreadbuf(kaddr, output, size)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "99ABACCF-2D3F-43DA-B24B-DA45F0C2F1BB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TrollInstallerX/Namecache/namecache.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "313"
+            endingLineNumber = "313"
+            landmarkName = "funVnodeChmod(filename, mode)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "99ABACCF-2D3F-43DA-B24B-DA45F0C2F1BB - 4ed2f687186aeb03"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "funVnodeChmod"
+                  moduleName = "TrollInstallerX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Development/iOS/TrollInstallerX/TrollInstallerX/Namecache/namecache.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "322"
+                  endingLineNumber = "322"
+                  offsetFromSymbolStart = "32">
+               </Location>
+               <Location
+                  uuid = "99ABACCF-2D3F-43DA-B24B-DA45F0C2F1BB - 4ed2f687186aeb03"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "funVnodeChmod"
+                  moduleName = "TrollInstallerX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Development/iOS/TrollInstallerX/TrollInstallerX/Namecache/namecache.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "322"
+                  endingLineNumber = "322"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E3EDC78D-14CA-4D29-AB7A-66A2389C32E7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TrollInstallerX/Namecache/namecache.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "319"
+            endingLineNumber = "319"
+            landmarkName = "funVnodeChmod(filename, mode)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "39D02971-9F04-4F1C-9D65-80E90831896F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TrollInstallerX/Namecache/namecache.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "320"
+            endingLineNumber = "320"
+            landmarkName = "funVnodeChmod(filename, mode)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "39D02971-9F04-4F1C-9D65-80E90831896F - 4ed2f687186ae81c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "funVnodeChmod"
+                  moduleName = "TrollInstallerX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Development/iOS/TrollInstallerX/TrollInstallerX/Namecache/namecache.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "329"
+                  endingLineNumber = "329"
+                  offsetFromSymbolStart = "112">
+               </Location>
+               <Location
+                  uuid = "39D02971-9F04-4F1C-9D65-80E90831896F - 4ed2f687186ae83b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "funVnodeChmod"
+                  moduleName = "TrollInstallerX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Development/iOS/TrollInstallerX/TrollInstallerX/Namecache/namecache.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "330"
+                  endingLineNumber = "330"
+                  offsetFromSymbolStart = "116">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3B362434-8258-4993-BCB4-7384EFBD162D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TrollInstallerX/Namecache/namecache.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "323"
+            endingLineNumber = "323"
+            landmarkName = "funVnodeChmod(filename, mode)"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "3B362434-8258-4993-BCB4-7384EFBD162D - 4ed2f687186ae8b7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "funVnodeChmod"
+                  moduleName = "TrollInstallerX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Development/iOS/TrollInstallerX/TrollInstallerX/Namecache/namecache.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "334"
+                  endingLineNumber = "334"
+                  offsetFromSymbolStart = "196">
+               </Location>
+               <Location
+                  uuid = "3B362434-8258-4993-BCB4-7384EFBD162D - 4ed2f687186ae8d6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "funVnodeChmod"
+                  moduleName = "TrollInstallerX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Development/iOS/TrollInstallerX/TrollInstallerX/Namecache/namecache.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "335"
+                  endingLineNumber = "335"
+                  offsetFromSymbolStart = "200">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F7B6B10F-2B05-41C4-B1B7-F249EEF40EB1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TrollInstallerX/Namecache/namecache.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
+            landmarkName = "funVnodeUnRedirect(vnode, orig_to_v_data)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "679478FA-AEF5-4BD2-BFD8-BEF36F723D6D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TrollInstallerX/Namecache/namecache.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "370"
+            endingLineNumber = "370"
+            landmarkName = "tests()"
+            landmarkType = "9">
+            <Locations>
+               <Location
+                  uuid = "679478FA-AEF5-4BD2-BFD8-BEF36F723D6D - 60a93e826a16d1f3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "tests"
+                  moduleName = "TrollInstallerX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Development/iOS/TrollInstallerX/TrollInstallerX/Namecache/namecache.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "367"
+                  endingLineNumber = "367"
+                  offsetFromSymbolStart = "632">
+               </Location>
+               <Location
+                  uuid = "679478FA-AEF5-4BD2-BFD8-BEF36F723D6D - 60a93e826a16d1f3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "tests"
+                  moduleName = "TrollInstallerX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Development/iOS/TrollInstallerX/TrollInstallerX/Namecache/namecache.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "367"
+                  endingLineNumber = "367"
+                  offsetFromSymbolStart = "652">
+               </Location>
+               <Location
+                  uuid = "679478FA-AEF5-4BD2-BFD8-BEF36F723D6D - 60a93e826a16d056"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "tests"
+                  moduleName = "TrollInstallerX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Development/iOS/TrollInstallerX/TrollInstallerX/Namecache/namecache.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "370"
+                  endingLineNumber = "370"
+                  offsetFromSymbolStart = "668">
+               </Location>
+               <Location
+                  uuid = "679478FA-AEF5-4BD2-BFD8-BEF36F723D6D - 60a93e826a16d077"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "tests"
+                  moduleName = "TrollInstallerX"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Development/iOS/TrollInstallerX/TrollInstallerX/Namecache/namecache.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "371"
+                  endingLineNumber = "371"
+                  offsetFromSymbolStart = "688">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

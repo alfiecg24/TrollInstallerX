@@ -19,9 +19,11 @@ struct AboutView: View {
         ("felix-pb", "http://github.com/felix-pb"), /* kfd */
         ("kok3shidoll", "http://github.com/kok3shidoll"), /* arm64 stuff */
         ("Kaspersky", "http://securelist.com/operation-triangulation-the-last-hardware-mystery/111669/"), /* dmaFail */
+        ("wh1te4ever", "http://github.com/wh1te4ever"), /* kfund */
         ("Zhuowei", "http://github.com/zhuowei"), /* tccd sandbox escape */
         ("dhinakg", "http://github.com/dhinakg"), /* memory hogger */
         ("staturnz", "http://github.com/staturnzz"), /* patchfinding */
+        ("aaronp613", "http://x.com/aaronp613"), /* logo */
         ("sourcelocation", "http://github.com/sourcelocation") /* UI */
     ]
     

@@ -27,6 +27,29 @@ struct SettingsView: View {
                 VStack {
                     VStack(spacing: 20) {
                         VStack(spacing: 10) {
+                            Button(action: {
+                                let generator = UINotificationFeedbackGenerator()
+                                let fm = FileManager.default
+                                let docs = fm.urls(for: .documentDirectory, in: .userDomainMask)[0]
+                                do {
+                                    try fm.removeItem(at: docs.appendingPathComponent("kernelcache"))
+                                    generator.notificationOccurred(.success)
+                                } catch let e {
+                                    print("Failed to remove kernelcache - \(e)")
+                                    generator.notificationOccurred(.error)
+                                }
+                            }, label: {
+                                VStack(alignment: .leading) {
+                                    ZStack {
+                                        RoundedRectangle(cornerRadius: 10)
+                                            .foregroundColor(.secondary.opacity(0.2))
+                                            .frame(maxHeight: 35)
+
+                                        Text("Clear cached downloads")
+                                    }
+                                }
+                            })
+                            .padding(.bottom, 10)
                             Toggle("Verbose logging", isOn: $verboseLogs)
                             Toggle("Force offline patchfinder", isOn: $usePerfPatchfinder)
                         }

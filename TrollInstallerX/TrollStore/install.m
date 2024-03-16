@@ -86,7 +86,7 @@ int run_as_root(NSString* path, NSArray* args, NSString** output)
         return WEXITSTATUS(status);
     }
 
-bool remount_private_preboot_internal(void) {
+int remount_private_preboot_internal(void) {
     return run_as_root(@"/sbin/mount", @[@"-u", @"-w", @"/private/preboot"], nil);
 }
 
@@ -95,7 +95,8 @@ bool remount_private_preboot(void) {
     if (@available(iOS 16, *)) {
         // Do nothing
     } else {
-        if (!remount_private_preboot_internal()) {
+        int ret = remount_private_preboot_internal();
+        if (ret != 0) {
             printf("Failed to remount /private/preboot\n");
             return false;
         }

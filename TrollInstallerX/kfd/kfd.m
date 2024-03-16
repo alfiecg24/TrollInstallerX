@@ -5,7 +5,6 @@
 #import <libjailbreak/primitives_external.h>
 #import <os/proc.h>
 
-
 uint64_t gKfd = 0;
 
 uint8_t kfd_kread8(uint64_t where) {

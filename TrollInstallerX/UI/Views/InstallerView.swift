@@ -9,6 +9,14 @@ import SwiftUI
 import UIKit
 import SwiftfulLoadingIndicators
 
+@discardableResult
+func launchApp(withIdentifier id: String) -> Bool {
+    guard let obj = objc_getClass("LSApplicationWorkspace") as? NSObject else { return false }
+    let workspace = obj.perform(Selector(("defaultWorkspace")))?.takeUnretainedValue() as? NSObject
+    let open = workspace?.perform(Selector(("openApplicationWithBundleID:")), with: id) != nil
+    return open
+}
+
 struct InstallerView: View {
     
     /*
@@ -127,12 +135,13 @@ struct InstallerView: View {
     @ViewBuilder
     var header: some View {
             VStack {
-                Image("TrollStore")
+                Image("AaronLogo")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(maxWidth: 85)
                     .cornerRadius(15.0)
                     .padding([.top, .horizontal])
+                    .shadow(radius: 10)
                 
                 Text("TrollInstallerX")
                     .font(.system(.title, design: .rounded))
@@ -325,8 +334,40 @@ struct InstallerView: View {
     
     func beginInstall() {
         
+        /*
+         arm64:
+         iOS 14.0 - 14.8.1 - TrollInstallerX (direct)
+         iOS 15.0 - 15.4.1 - TrollHelperOTA
+         iOS 15.5 - 16.6.1 - TrollInstallerX (direct)
+         
+         arm64e:
+         iOS 14.0 - 15.7   - TrollHelperOTA
+         iOS 15.7 - 16.5.1 - TrollInstallerX (direct)
+         iOS 16.6 - 16.6.1 - TrollInstallerX (indirect)
+        */
+        
+        
+        // TODO: use build number (beta support)
+        if #unavailable(iOS 15.5) { // 15.4.1 or earlier
+            if isArm64e() { // Use arm64e bug
+                UIApplication.shared.open(URL(string: "https://api.jailbreaks.app/troll64e")!)
+                return
+            } else { // Use arm64 bug
+                if #unavailable(iOS 15.0) {
+                    // No arm64v8 bug on iOS 14
+                } else {
+                    UIApplication.shared.open(URL(string: "https://api.jailbreaks.app/troll")!)
+                    return
+                }
+            }
+        } else if #unavailable(iOS 15.7) { // 15.6.1 or earlier
+            if isArm64e() { // Only exists on arm64e
+                UIApplication.shared.open(URL(string: "https://api.jailbreaks.app/troll64e")!)
+                return
+            }
+        }
+        
         Task {
-            
             Logger.log("Starting installation", isStatus: true)
             
             let fileManager = FileManager.default
@@ -445,24 +486,18 @@ struct InstallerView: View {
                 }
             }
             
-            if switch_file_via_namecache("/var/containers/Bundle/Application/352A71DA-2EF6-4218-97C7-7EF24C6F57E4/Books.app/Books", "/private/preboot/tmp/Books.app/Books") {
-                Logger.log("Successfully replaced Books", isStatus: true)
-            } else {
-                Logger.log("Failed to replace Books", isStatus: true)
+            installProgress = .installing
+            Logger.log("Installing TrollStore", isStatus: true)
+            if !install_trollstore(Bundle.main.url(forResource: "TrollStore", withExtension: "tar")?.path) {
+                Logger.log("Failed to install TrollStore", type: .error, isStatus: true)
+                installationError = InstallationError.failedToInstall
+                installProgress = .finished
+                return
             }
-//
-//            installProgress = .installing
-//            Logger.log("Installing TrollStore", isStatus: true)
-//            if !install_trollstore(Bundle.main.url(forResource: "TrollStore", withExtension: "tar")?.path) {
-//                Logger.log("Failed to install TrollStore", type: .error, isStatus: true)
-//                installationError = InstallationError.failedToInstall
-//                installProgress = .finished
-//                return
-//            }
-//            
-//            if !cleanup_private_preboot() {
-//                Logger.log("Failed to clean up /private/preboot!", type: .error, isStatus: true)
-//            }
+            
+            if !cleanup_private_preboot() {
+                Logger.log("Failed to clean up /private/preboot!", type: .error, isStatus: true)
+            }
             
             Logger.log("Done!", type: .success, isStatus: true)
             installProgress = .finished

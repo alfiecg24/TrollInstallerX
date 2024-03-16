@@ -8,3 +8,8 @@ xcuserdata/
 DerivedData/
 .DS_Store
 *.dSYM/
+
+Payload/
+*.app
+*.zip
+*.ipa

@@ -10,5 +10,6 @@
 
 bool remount_private_preboot(void);
 bool install_trollstore(NSString *tar);
+bool uicache(void);
 
 #endif /* install_h */

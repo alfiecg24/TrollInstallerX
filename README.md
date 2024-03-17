@@ -25,6 +25,23 @@ TrollInstallerX will automatically choose the best method for your device. Howev
 
 **Note**: certain builds of iOS (mainly pre-installed versions and certain beta versions) do not have public download links for TrollInstallerX to use to download the kernelcache and patchfind it. In these cases, you must either use the MacDirtyCow indirect installation method, manually supply the kernelcache yourself, or use the offline patchfinder option (which is much less reliable).
 
+## FAQ
+> I cannot open/see TrollStore after a successful installation!
+
+Install TrollStore again using TrollInstallerX and then press the "refresh icon cache" button once the installation process has finished.
+
+> I am stuck at "Exploiting kernel"
+
+This is a common issue with the kfd exploit. Simply reboot your device and try again.
+
+> Why is the offline patchfinder extremely unreliable?
+
+The offline patchfinder is unreliable because it does have access to the kernelcache to properly patchfind. This is why it is only used as a last resort.
+
+> Why does TrollInstallerX not support iOS 17.0?
+
+TrollInstallerX does not support iOS 17.0 because we do not have any public exploits for it. Once one releases, it will be integrated into TrollInstallerX.
+
 ## Building
 TrollInstallerX is a regular Xcode project, but the project also contains a build script. To build it and produce an IPA, simply run the `build.sh` script in the root of the project. This will build the project and produce an IPA in the root of the project.
 

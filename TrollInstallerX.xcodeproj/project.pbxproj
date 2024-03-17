@@ -50,6 +50,7 @@
 		31BC0B152B95DB80000F404E /* vm_unaligned_copy_switch_race.c in Sources */ = {isa = PBXBuildFile; fileRef = 31BC0B0F2B95DB80000F404E /* vm_unaligned_copy_switch_race.c */; };
 		31BC0B162B95DB80000F404E /* helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BC0B122B95DB80000F404E /* helpers.m */; };
 		31BC0B172B95DB80000F404E /* grant_full_disk_access.m in Sources */ = {isa = PBXBuildFile; fileRef = 31BC0B132B95DB80000F404E /* grant_full_disk_access.m */; };
+		31C606C72BA789F20042815A /* find.m in Sources */ = {isa = PBXBuildFile; fileRef = 31C606C62BA789F20042815A /* find.m */; };
 		31D54FAB2B9D144400C55FEC /* install.m in Sources */ = {isa = PBXBuildFile; fileRef = 31D54FAA2B9D144400C55FEC /* install.m */; };
 		31D54FAE2B9D18F900C55FEC /* extract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D54FAD2B9D18F900C55FEC /* extract.swift */; };
 		31D54FB02B9D1B7D00C55FEC /* TrollStore.tar in Resources */ = {isa = PBXBuildFile; fileRef = 31D54FAF2B9D1B7D00C55FEC /* TrollStore.tar */; };
@@ -212,6 +213,7 @@
 		31BC0B132B95DB80000F404E /* grant_full_disk_access.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = grant_full_disk_access.m; sourceTree = "<group>"; };
 		31BC0B142B95DB80000F404E /* grant_full_disk_access.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = grant_full_disk_access.h; sourceTree = "<group>"; };
 		31BC0B182B95DE38000F404E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		31C606C62BA789F20042815A /* find.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = find.m; sourceTree = "<group>"; };
 		31D54FA12B9D110100C55FEC /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		31D54FA32B9D111000C55FEC /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		31D54FA52B9D111A00C55FEC /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
@@ -639,6 +641,7 @@
 				31D54FAA2B9D144400C55FEC /* install.m */,
 				31D54FAC2B9D167300C55FEC /* install.h */,
 				31D54FAD2B9D18F900C55FEC /* extract.swift */,
+				31C606C62BA789F20042815A /* find.m */,
 			);
 			path = TrollStore;
 			sourceTree = "<group>";
@@ -788,6 +791,7 @@
 				316D04572B7F8189001324BA /* PopupView.swift in Sources */,
 				313059EA2B9CC0E200120A3B /* primitives.c in Sources */,
 				3183E5572B9905FA008CFD84 /* post_exploitation.c in Sources */,
+				31C606C72BA789F20042815A /* find.m in Sources */,
 				316D044E2B7F8189001324BA /* Error++.swift in Sources */,
 				31F44EAD2B77A7A300F20B2A /* TrollInstallerXApp.swift in Sources */,
 				313059E62B9CC0E200120A3B /* util.m in Sources */,

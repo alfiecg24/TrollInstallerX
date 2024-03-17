@@ -83,6 +83,8 @@ struct InstallerView: View {
     
     @AppStorage("ignoreTrollHelperOTA") var ignoreTrollHelperOTA: Bool = false
     
+    @State private var hasExecutionPrimitives: Bool = false
+    
     @AppStorage("verboseLogging") var verboseLogging: Bool = false
     @State var verboseLoggingTemporary: Bool = false
     
@@ -346,6 +348,30 @@ struct InstallerView: View {
                     )
                     .opacity(installationError != nil ? 1 : 0)
                 }
+            } else if hasExecutionPrimitives {
+                Button(action: {
+                    let generator = UINotificationFeedbackGenerator()
+                    if uicache() {
+                        generator.notificationOccurred(.success)
+                    } else {
+                        generator.notificationOccurred(.error)
+                    }
+                }, label: {
+                    VStack(alignment: .leading) {
+                        ZStack {
+                            RoundedRectangle(cornerRadius: 10)
+                                .foregroundColor(.secondary.opacity(0.2))
+                                .frame(maxHeight: 35)
+                            
+                                .frame(maxWidth: 200)
+
+                            Text("Refresh icon cache")
+                            
+                                .foregroundColor(.white)
+                        }
+                    }
+                })
+                .padding(.bottom, 10)
             }
         case .idle:
             Group {}
@@ -510,6 +536,11 @@ struct InstallerView: View {
             }
             
             Logger.log("Done!", type: .success, isStatus: true)
+            
+            withAnimation {
+                hasExecutionPrimitives = true
+            }
+            
             installProgress = .finished
         }
     }

@@ -12,6 +12,7 @@
 #import <sys/stat.h>
 
 #include "install.h"
+#include "find.h"
 
 
 // get_NSString_from_file and run_as_root taken from original TrollInstaller v1
@@ -36,7 +37,7 @@ int run_as_root(NSString* path, NSArray* args, NSString** output)
     
     NSUInteger argCount = [argsM count];
     char **argsC = (char **)malloc((argCount + 1) * sizeof(char*));
-
+    
     for (NSUInteger i = 0; i < argCount; i++)
     {
         argsC[i] = strdup([[argsM objectAtIndex:i] UTF8String]);
@@ -79,12 +80,12 @@ int run_as_root(NSString* path, NSArray* args, NSString** output)
     
     close(out[1]);
     if(output)
-        {
-            *output = get_NSString_from_file(out[0]);
-        }
-        
-        return WEXITSTATUS(status);
+    {
+        *output = get_NSString_from_file(out[0]);
     }
+    
+    return WEXITSTATUS(status);
+}
 
 int remount_private_preboot_internal(void) {
     return run_as_root(@"/sbin/mount", @[@"-u", @"-w", @"/private/preboot"], nil);
@@ -113,6 +114,20 @@ bool install_trollstore(NSString *tar) {
     chmod(helperPath.UTF8String, 0755);
     chown(helperPath.UTF8String, 0, 0);
     int ret = run_as_root(helperPath, @[@"install-trollstore", tar], &stdout);
+    printf("trollstorehelper output: %s\n", [stdout UTF8String]);
+    return ret == 0;
+}
+
+bool uicache(void) {
+    NSString *stdout;
+    NSString *helperPath = find_trollstore_helper_path();
+    if (helperPath == nil) {
+        printf("Failed to find trollstorehelper\n");
+        return false;
+    }
+    NSLog(@"Found trollstorehelper at %@", helperPath);
+    int ret = run_as_root(helperPath, @[@"refresh-all"], &stdout);
+    
     printf("trollstorehelper output: %s\n", [stdout UTF8String]);
     return ret == 0;
 }

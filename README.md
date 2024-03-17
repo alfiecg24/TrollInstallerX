@@ -38,6 +38,12 @@ This is a common issue with the kfd exploit. Simply reboot your device and try a
 
 The offline patchfinder is unreliable because it does not have access to the kernelcache to properly patchfind. This is why it is only used as a last resort.
 
+> When I press "Install TrollStore" the app just opens something in my browser?
+
+On iOS 15.0 - 15.4.1 (arm64) and iOS 14.0 - 15.6.1 (arm64e), TrollStore can be installed via TrollHelperOTA - a 100% reliable and preferred installation method that doesn't require an app be sideloaded whatsoever.
+
+If you would to use TrollInstallerX regardless to install TrollStore, however, there's an option to disable the redirect to TrollHelperOTA in TrollInstallerX's settings.
+
 > Why does TrollInstallerX not support iOS 17.0?
 
 TrollInstallerX does not support iOS 17.0 because we do not have any public exploits for it. Once one releases, it will be integrated into TrollInstallerX.

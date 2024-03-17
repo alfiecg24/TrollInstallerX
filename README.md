@@ -8,15 +8,15 @@ TrollInstallerX is a universal TrollStore installer. It focuses on being extreme
 
 TrollInstallerX supports all devices running iOS 14.0 - 16.6.1, both arm64 and arm64e. It makes use of three different methods to install TrollStore, depending on what you choose. These methods are:
 * **MacDirtyCow indirect installation**: using CVE-2022-46689, TrollInstallerX can overwrite a system application with TrollHelper, and then open that application for you to install TrollStore. The benefit of this method is that it has a 100% success rate, however, it does not allow for a direct installation of TrollStore straight from the installer.
-  * Supports iOS 15.0 - 16.1.1.
+  * Supports iOS 15.0 - 15.7.1, iOS 16.0 - 16.1.2.
 
 * **kfd + dmaFail direct installation**: using the [kfd](https://github.com/felix-pb/kfd) kernel exploit, along with the [dmaFail](https://github.com/opa334/Dopamine/blob/2.x/Application/Dopamine/Exploits/dmaFail/dmaFail.c) PPL bypass on iOS 15.2+ arm64e devices, TrollInstallerX can install TrollStore directly onto the device without having to leave the installer. This is the easiest and fastest method, however, can be subject to exploit failures.
   * Supports iOS 14.0 - 16.6.1 (arm64) and iOS 14.0 - 16.5.1 (arm64e).
-    * **Note**: A15 and A16 devices on iOS 16.5.1 do not support this method.
+    * **Note**: A15, A16, and M2 devices on iOS 16.5.1 do not support this method.
 
-* **kfd indirect installation**: Using the [kfd](https://github.com/felix-pb/kfd) kernel exploit, TrollInstallerX can overwrite a system application with TrollHelper, and then open that application for you to install TrollStore. This method only exists due to the lack of a PPL bypass on iOS 16.6 and above.
-  * Supports iOS 16.6 - 16.6.1 (arm64e).
-    * **Note**: This method is the only method that supports A15 and A16 devices on iOS 16.5.1.
+* **kfd indirect installation**: Using the [kfd](https://github.com/felix-pb/kfd) kernel exploit, TrollInstallerX can overwrite a system application with TrollHelper, and then open that application for you to install TrollStore. This method only exists due to both the lack of a PPL bypass on iOS 16.6 and above, as well as the fact that dmaFail is non-functional on A15, A16, and M2 devices on iOS 16.5.1.
+  * Supports iOS 16.5.1 - 16.6.1 (arm64e).
+    * **Note**: This method is the only method that supports A15, A16, and M2 devices on iOS 16.5.1.
 
 ## Usage
 TrollInstallerX is extremely easy to use. Simply download the latest release from the [Releases](https://github.com/alfiecg24/TrollInstallerX/releases) page, and sideload it using your preferred method. Once installed, open the app and press the "Install TrollStore" button. From there, TrollStore will be installed onto your device.
@@ -36,7 +36,7 @@ This is a common issue with the kfd exploit. Simply reboot your device and try a
 
 > Why is the offline patchfinder extremely unreliable?
 
-The offline patchfinder is unreliable because it does have access to the kernelcache to properly patchfind. This is why it is only used as a last resort.
+The offline patchfinder is unreliable because it does not have access to the kernelcache to properly patchfind. This is why it is only used as a last resort.
 
 > Why does TrollInstallerX not support iOS 17.0?
 

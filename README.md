@@ -28,7 +28,7 @@ TrollInstallerX will automatically choose the best method for your device. Howev
 ## FAQ
 > I cannot open/see TrollStore after a successful installation!
 
-Install TrollStore again using TrollInstallerX and then press the "refresh icon cache" button once the installation process has finished.
+If you are on a version that supports direct installation of TrollStore, press the "refresh icon cache" button that appears at the end of a successful installation. If you're on iOS 16.6 - 16.6.1 on arm64e, you will have to install again and refresh app registrations from TrollHelper.
 
 > I am stuck at "Exploiting kernel"
 

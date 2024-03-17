@@ -12,6 +12,10 @@ struct SettingsView: View {
     var totalJailbreaks: Int = 0
     var successfulJailbreaks: Int = 0
     
+    @State private var supportsOTA = false
+    @State private var otaURL: URL? = nil
+    
+    @AppStorage("ignoreTrollHelperOTA") var ignoreTrollHelperOTA: Bool = false
     @AppStorage("verboseLogging") var verboseLogs: Bool = false
     @AppStorage("usePerfPatchfinder") var usePerfPatchfinder: Bool = false
     
@@ -50,6 +54,10 @@ struct SettingsView: View {
                                 }
                             })
                             .padding(.bottom, 10)
+                            
+                            if supportsOTA {
+                                Toggle("Ignore TrollHelperOTA", isOn: $ignoreTrollHelperOTA)
+                            }
                             Toggle("Verbose logging", isOn: $verboseLogs)
                             Toggle("Force offline patchfinder", isOn: $usePerfPatchfinder)
                         }
@@ -73,6 +81,9 @@ struct SettingsView: View {
                     .padding(.top, 2)
                 }
                 .foregroundColor(.white)
+                .onAppear {
+                    (supportsOTA, otaURL) = supportsTrollHelperOTA()
+                }
         }
     }
 }

@@ -17,6 +17,26 @@ func launchApp(withIdentifier id: String) -> Bool {
     return open
 }
 
+func supportsTrollHelperOTA() -> (Bool, URL?) {
+    // TODO: use build number (beta support)
+    if #unavailable(iOS 15.5) { // 15.4.1 or earlier
+        if isArm64e() { // Use arm64e bug
+            return (true, URL(string: "https://api.jailbreaks.app/troll64e")!)
+        } else { // Use arm64 bug
+            if #unavailable(iOS 15.0) {
+                // No arm64v8 bug on iOS 14
+            } else {
+                return (true, URL(string: "https://api.jailbreaks.app/troll")!)
+            }
+        }
+    } else if #unavailable(iOS 15.7) { // 15.6.1 or earlier
+        if isArm64e() { // Only exists on arm64e
+            return (true, URL(string: "https://api.jailbreaks.app/troll64e")!)
+        }
+    }
+    return (false, nil)
+}
+
 struct InstallerView: View {
     
     /*
@@ -60,6 +80,8 @@ struct InstallerView: View {
     
     @State var installProgress: InstallationProgress = .idle
     @State var installationError: Error?
+    
+    @AppStorage("ignoreTrollHelperOTA") var ignoreTrollHelperOTA: Bool = false
     
     @AppStorage("verboseLogging") var verboseLogging: Bool = false
     @State var verboseLoggingTemporary: Bool = false
@@ -346,26 +368,14 @@ struct InstallerView: View {
          iOS 16.6 - 16.6.1 - TrollInstallerX (indirect)
         */
         
-        
-        // TODO: use build number (beta support)
-        if #unavailable(iOS 15.5) { // 15.4.1 or earlier
-            if isArm64e() { // Use arm64e bug
-                UIApplication.shared.open(URL(string: "https://api.jailbreaks.app/troll64e")!)
-                return
-            } else { // Use arm64 bug
-                if #unavailable(iOS 15.0) {
-                    // No arm64v8 bug on iOS 14
-                } else {
-                    UIApplication.shared.open(URL(string: "https://api.jailbreaks.app/troll")!)
-                    return
-                }
-            }
-        } else if #unavailable(iOS 15.7) { // 15.6.1 or earlier
-            if isArm64e() { // Only exists on arm64e
-                UIApplication.shared.open(URL(string: "https://api.jailbreaks.app/troll64e")!)
-                return
-            }
+        var supportsOTA = false
+        var otaURL: URL? = nil
+        (supportsOTA, otaURL) = supportsTrollHelperOTA()
+        if supportsOTA && !ignoreTrollHelperOTA {
+            UIApplication.shared.open(otaURL!)
+            return
         }
+        
         
         Task {
             Logger.log("Starting installation", isStatus: true)

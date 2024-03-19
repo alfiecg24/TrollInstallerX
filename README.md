@@ -26,23 +26,23 @@ TrollInstallerX will automatically choose the best method for your device. Howev
 **Note**: certain builds of iOS (mainly pre-installed versions and certain beta versions) do not have public download links for TrollInstallerX to use to download the kernelcache and patchfind it. In these cases, you must either use the MacDirtyCow indirect installation method, manually supply the kernelcache yourself, or use the offline patchfinder option (which is much less reliable).
 
 ## FAQ
-> I cannot open/see TrollStore after a successful installation!
-
-If you are on a version that supports direct installation of TrollStore, press the "refresh icon cache" button that appears at the end of a successful installation. If you're on iOS 16.6 - 16.6.1 on arm64e, you will have to install again and refresh app registrations from TrollHelper.
-
-> I am stuck at "Exploiting kernel"
+> Why am I stuck at "Exploiting kernel"?
 
 This is a common issue with the kfd exploit. Simply reboot your device and try again.
 
-> Why is the offline patchfinder extremely unreliable?
-
-The offline patchfinder is unreliable because it does not have access to the kernelcache to properly patchfind. This is why it is only used as a last resort.
-
-> When I press "Install TrollStore" the app just opens something in my browser?
+> Why does pressing "Install TrollStore" open something in my browser?
 
 On iOS 15.0 - 15.4.1 (arm64) and iOS 14.0 - 15.6.1 (arm64e), TrollStore can be installed via TrollHelperOTA - a 100% reliable and preferred installation method that doesn't require an app be sideloaded whatsoever.
 
 If you would to use TrollInstallerX regardless to install TrollStore, however, there's an option to disable the redirect to TrollHelperOTA in TrollInstallerX's settings.
+
+> Why can I not open/see TrollStore after a successful installation?
+
+If you are on a version that supports direct installation of TrollStore, press the "refresh icon cache" button that appears at the end of a successful installation. If you're on iOS 16.6 - 16.6.1 on arm64e, you will have to install again and refresh app registrations from TrollHelper.
+
+> Why is the offline patchfinder extremely unreliable?
+
+The offline patchfinder is unreliable because it does not have access to the kernelcache to properly patchfind. This is why it is only used as a last resort.
 
 > Why does TrollInstallerX not support iOS 17.0?
 

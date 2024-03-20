@@ -23,7 +23,7 @@ TrollInstallerX is extremely easy to use. Simply download the latest release fro
 
 TrollInstallerX will automatically choose the best method for your device. However, in some cases, you may want to choose a specific method. To do this, simply open the settings view and select the method you want to use. Once you have selected the method, press the "Install TrollStore" button and TrollInstallerX will use the method you have chosen.
 
-**Note**: certain builds of iOS (mainly pre-installed versions and certain beta versions) do not have public download links for TrollInstallerX to use to download the kernelcache and patchfind it. In these cases, you must either use the MacDirtyCow indirect installation method, manually supply the kernelcache yourself, or use the offline patchfinder option (which is much less reliable).
+**Note**: iOS 16.2 - 16.6.1 require an internet connection in order for TrollInstallerX to download the kernelcache and patchfind it. If your device is unable to obtain a reliable internet connection, you will need to manually supply the kernelcache yourself.
 
 ## FAQ
 > Why am I stuck at "Exploiting kernel"?
@@ -40,9 +40,11 @@ If you would to use TrollInstallerX regardless to install TrollStore, however, t
 
 If you are on a version that supports direct installation of TrollStore, press the "refresh icon cache" button that appears at the end of a successful installation. If you're on iOS 16.6 - 16.6.1 on arm64e, you will have to install again and refresh app registrations from TrollHelper.
 
-> Why is the offline patchfinder extremely unreliable?
+> Why am I getting an error about not being able to patchfind?
 
-The offline patchfinder is unreliable because it does not have access to the kernelcache to properly patchfind. This is why it is only used as a last resort.
+Either:
+- You're on iOS 16.2 - 16.6.1, and are not connected to the internet, or;
+- You're using a Yellow iPhone 14 or Yellow iPhone 14 Plus on iOS 16.3 (20D50), in which case, [open a GitHub Issue](https://github.com/alfiecg24/TrollInstallerX/issues/new/choose).
 
 > Why does TrollInstallerX not support iOS 17.0?
 
@@ -59,7 +61,7 @@ TrollInstallerX wouldn't have been possible without the work of the following pe
 * [Kaspersky](https://securelist.com/operation-triangulation-the-last-hardware-mystery/111669/) for Operation Triangulation
 * [wh1te4ever](https://github.com/wh1te4ever) for [kfund](https://github.com/wh1te4ever/kfund)
 * [Zhuowei](https://github.com/zhuowei) for the tccd unsandboxing method
-* [dhinakg](https://github.com/dhinakg) for the memory hogger and help with [libgrabkernel2](https://github.com/alfiecg24/libgrabkernel2)
+* [dhinakg](https://github.com/dhinakg) for the memory hogger, the MacDirtyCow kernelcache grabber method, and help with [libgrabkernel2](https://github.com/alfiecg24/libgrabkernel2)
 * [staturnz](https://github.com/staturnzz) for work on the kernel patchfinder
 * [aaronp613](https://x.com/aaronp613) for the TrollInstallerX icon
 * [sourcelocation](https://github.com/sourcelocation) for the original Dopamine UI

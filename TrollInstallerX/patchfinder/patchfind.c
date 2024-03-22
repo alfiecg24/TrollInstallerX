@@ -2,7 +2,7 @@
 //  patchfind.c
 //  TrollInstallerX
 //
-//  Created by Alfie on 14/02/2024.
+//  Created by Alfie on 22/03/2024.
 //
 
 #include "patchfind.h"
@@ -14,7 +14,7 @@
 
 xpc_object_t _systemInfoXdict;
 
-int initialise_kernel_info(const char *kernelPath) {
+bool initialise_kernel_info(const char *kernelPath) {
     int r = xpf_start_with_kernel_path(kernelPath);
     if (r == 0) {
         char *sets[] = {
@@ -47,12 +47,12 @@ int initialise_kernel_info(const char *kernelPath) {
             });
         }
         if (!_systemInfoXdict) {
-            return -1;
+            return false;
         }
         xpf_stop();
     } else {
         xpf_stop();
-        return -1;
+        return false;
     }
     
     jbinfo_initialize_dynamic_offsets(_systemInfoXdict);
@@ -71,5 +71,5 @@ int initialise_kernel_info(const char *kernelPath) {
         });
     }
     
-    return 0;
+    return true;
 }

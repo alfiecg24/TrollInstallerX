@@ -1,47 +1,24 @@
 //
-//  TrollInstallerX-Bridging-Header.h
-//  TrollInstallerX
-//
-//  Created by Alfie on 10/02/2024.
+//  Use this file to import your target's public headers that you would like to expose to Swift.
 //
 
-#ifndef TrollInstallerX_Bridging_Header_h
-#define TrollInstallerX_Bridging_Header_h
+#include "Exploits/MacDirtyCow/grant_full_disk_access.h"
+#include "Exploits/MacDirtyCow/kernel_find.h"
 
-#include <Foundation/Foundation.h>
+#include "Exploits/dmaFail/dmaFail.h"
 
-// Kernel grabber
-#include <libgrabkernel2/libgrabkernel2.h>
+#include "Exploits/kfd/kfd.h"
 
-// XPF patchfinder
-#include "patchfinder/patchfind.h"
+#include "Installer/escalate.h"
 
-// Kernel information
-#include "Post-Exploitation/post_exploitation.h"
+#include "External/include/libgrabkernel2/libgrabkernel2.h"
 
-// MacDirtyCow
-#include "MacDirtyCow/grant_full_disk_access.h"
-#include "MacDirtyCow/vm_unaligned_copy_switch_race.h"
+#include "Patchfinder/patchfind.h"
 
-// kfd
-#include "kfd/kfd.h"
+#include <libjailbreak/kalloc_pt.h>
 
-// dmaFail
-#include "dmaFail/dmaFail.h"
+#include "Installer/remount.h"
 
-// TrollStore installation
-#include <libjailbreak/util.h>
-#include "TrollStore/install.h"
+#include <libjailbreak/Util.h>
 
-// Namecache switching
-#include "Namecache/namecache.h"
-
-#import <sys/sysctl.h>
-bool isArm64e(void) {
-    cpu_subtype_t cpusubtype = 0;
-    size_t len = sizeof(cpusubtype);
-    if (sysctlbyname("hw.cpusubtype", &cpusubtype, &len, NULL, 0) == -1) { return NO; }
-    return (cpusubtype & ~CPU_SUBTYPE_MASK) == CPU_SUBTYPE_ARM64E;
-}
-
-#endif /* TrollInstallerX_Bridging_Header_h */
+#include "Installer/install.h"

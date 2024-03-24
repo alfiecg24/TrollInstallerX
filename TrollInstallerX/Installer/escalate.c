@@ -38,15 +38,19 @@ bool get_root_krw(bool iOS14) {
     int backup_groupSize;
     gid_t backup_groupList[200];
     
+    // Get the address of our (TrollInstallerX) proc structure
     uint64_t proc = gSystemInfo.kernelConstant.currentProc;
     
     printf("Attempting Xina escalation method...\n");
     
     backup_groupSize = getgroups(200, &backup_groupList[0]);
+    
+    // Get the original posix_cred
     backup_cred = proc_get_posix_cred(proc, iOS14);
     
     struct k_posix_cred zero_cred = {0};
     
+    // Set new cred with everything zeroed (sandbox, root etc.)
     printf("Setting posix cred to zero cred\n");
     usleep(1000);
     proc_set_posix_cred(proc, zero_cred, iOS14);
@@ -57,6 +61,7 @@ bool get_root_krw(bool iOS14) {
         return false;
     }
     
+    // Root?
     int uid = getuid();
     printf("getuid() -> %d\n", uid);
     

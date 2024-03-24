@@ -19,7 +19,6 @@
 		316661552BAD8BB8009D22D8 /* kernel_find.m in Sources */ = {isa = PBXBuildFile; fileRef = 3166614E2BAD8BB8009D22D8 /* kernel_find.m */; };
 		316661562BAD8BB8009D22D8 /* grant_full_disk_access.m in Sources */ = {isa = PBXBuildFile; fileRef = 316661502BAD8BB8009D22D8 /* grant_full_disk_access.m */; };
 		316661572BAD8BB8009D22D8 /* vm_unaligned_copy_switch_race.c in Sources */ = {isa = PBXBuildFile; fileRef = 316661532BAD8BB8009D22D8 /* vm_unaligned_copy_switch_race.c */; };
-		3166616A2BAD8F75009D22D8 /* Overwrite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316661692BAD8F75009D22D8 /* Overwrite.swift */; };
 		3166616D2BAD916A009D22D8 /* dmaFail.c in Sources */ = {isa = PBXBuildFile; fileRef = 3166616C2BAD916A009D22D8 /* dmaFail.c */; };
 		316661932BAD918E009D22D8 /* signatures.m in Sources */ = {isa = PBXBuildFile; fileRef = 316661852BAD918E009D22D8 /* signatures.m */; };
 		316661942BAD918E009D22D8 /* physrw_pte.c in Sources */ = {isa = PBXBuildFile; fileRef = 316661862BAD918E009D22D8 /* physrw_pte.c */; };
@@ -45,6 +44,7 @@
 		31ABE97F2BAD96C2003C35E0 /* UIDevice++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ABE97E2BAD96C2003C35E0 /* UIDevice++.swift */; };
 		31ABE9812BAD9821003C35E0 /* libxpf.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 316661D02BAD9221009D22D8 /* libxpf.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		31ABE9832BAD997C003C35E0 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ABE9822BAD997C003C35E0 /* MainView.swift */; };
+		31BA7FF62BAF0CB00061DC7A /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BA7FF52BAF0CB00061DC7A /* PopupView.swift */; };
 		31F859CA2BADEC6E00A74022 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F859C92BADEC6E00A74022 /* LogView.swift */; };
 		31F859CC2BADEC8E00A74022 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F859CB2BADEC8E00A74022 /* Logger.swift */; };
 		31F859CE2BADFA0600A74022 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F859CD2BADFA0600A74022 /* MenuView.swift */; };
@@ -105,7 +105,6 @@
 		316661652BAD8BF5009D22D8 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		316661662BAD8BF5009D22D8 /* activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = activity.h; sourceTree = "<group>"; };
 		316661672BAD8BF5009D22D8 /* base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = base.h; sourceTree = "<group>"; };
-		316661692BAD8F75009D22D8 /* Overwrite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Overwrite.swift; sourceTree = "<group>"; };
 		3166616B2BAD916A009D22D8 /* dmaFail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dmaFail.h; sourceTree = "<group>"; };
 		3166616C2BAD916A009D22D8 /* dmaFail.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dmaFail.c; sourceTree = "<group>"; };
 		316661712BAD918E009D22D8 /* codesign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = codesign.h; sourceTree = "<group>"; };
@@ -186,6 +185,7 @@
 		31ABE97C2BAD953F003C35E0 /* escalate.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = escalate.c; sourceTree = "<group>"; };
 		31ABE97E2BAD96C2003C35E0 /* UIDevice++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice++.swift"; sourceTree = "<group>"; };
 		31ABE9822BAD997C003C35E0 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		31BA7FF52BAF0CB00061DC7A /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 		31F859C92BADEC6E00A74022 /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
 		31F859CB2BADEC8E00A74022 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		31F859CD2BADFA0600A74022 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
@@ -292,6 +292,7 @@
 			children = (
 				31ABE9822BAD997C003C35E0 /* MainView.swift */,
 				31F859CD2BADFA0600A74022 /* MenuView.swift */,
+				31BA7FF52BAF0CB00061DC7A /* PopupView.swift */,
 				31F859C92BADEC6E00A74022 /* LogView.swift */,
 			);
 			path = UI;
@@ -359,7 +360,6 @@
 				3166614E2BAD8BB8009D22D8 /* kernel_find.m */,
 				316661532BAD8BB8009D22D8 /* vm_unaligned_copy_switch_race.c */,
 				316661522BAD8BB8009D22D8 /* vm_unaligned_copy_switch_race.h */,
-				316661692BAD8F75009D22D8 /* Overwrite.swift */,
 			);
 			path = MacDirtyCow;
 			sourceTree = "<group>";
@@ -745,7 +745,6 @@
 				316661962BAD918E009D22D8 /* util.c in Sources */,
 				31ABE97D2BAD953F003C35E0 /* escalate.c in Sources */,
 				31ABE97F2BAD96C2003C35E0 /* UIDevice++.swift in Sources */,
-				3166616A2BAD8F75009D22D8 /* Overwrite.swift in Sources */,
 				31F85A022BAE126800A74022 /* run.m in Sources */,
 				316661932BAD918E009D22D8 /* signatures.m in Sources */,
 				3166619D2BAD918E009D22D8 /* kalloc_pt.m in Sources */,
@@ -767,6 +766,7 @@
 				316661A02BAD918E009D22D8 /* translation.c in Sources */,
 				31F859CE2BADFA0600A74022 /* MenuView.swift in Sources */,
 				31F859EE2BAE022C00A74022 /* Installation.swift in Sources */,
+				31BA7FF62BAF0CB00061DC7A /* PopupView.swift in Sources */,
 				316661992BAD918E009D22D8 /* info.c in Sources */,
 				316661442BAD889C009D22D8 /* Version.swift in Sources */,
 				316661402BAD862C009D22D8 /* Device.swift in Sources */,

@@ -18,7 +18,10 @@
 #include <libjailbreak/kalloc_pt.h>
 
 #include "Installer/remount.h"
+#include "Installer/run.h"
 
 #include <libjailbreak/Util.h>
 
 #include "Installer/install.h"
+
+int64_t sandbox_extension_consume(const char* token);

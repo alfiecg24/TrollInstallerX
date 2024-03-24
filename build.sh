@@ -10,4 +10,5 @@ cp -r TrollInstallerX.app Payload
 zip -qry TrollInstallerX.ipa Payload
 popd
 cp DerivedData/TrollInstallerX/Build/Products/Release-iphoneos/TrollInstallerX.ipa .
+rm -rf Payload
 open -R TrollInstallerX.ipa

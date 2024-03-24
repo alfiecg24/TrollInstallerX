@@ -53,15 +53,11 @@ class Logger: ObservableObject {
     static var shared = Logger()
     
     static func log(_ logMessage: String, type: LogType? = .info) {
-//        DispatchQueue.global(qos: .background).async {
-//            DispatchQueue.main.async {
                 NSLog(logMessage)
                 UIImpactFeedbackGenerator().impactOccurred()
                 withAnimation {
                     shared.logItems.append(LogItem(message: logMessage, type: type ?? .info))
                     shared.logString.append(logMessage + "\n")
                 }
-//            }
-//        }
     }
 }

@@ -43,4 +43,8 @@ struct Version: Comparable, Equatable {
         return (rhs.patch != nil)
     }
     
+    func supportsMajorVersion(_ version: Int) -> Bool {
+        return self.major >= version
+    }
+    
 }

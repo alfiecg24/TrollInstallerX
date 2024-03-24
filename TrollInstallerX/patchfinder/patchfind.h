@@ -11,6 +11,6 @@
 #include <stdio.h>
 #include <xpf/xpf.h>
 
-bool initialise_kernel_info(const char *kernelPath);
+bool initialise_kernel_info(const char *kernelPath, bool iOS14);
 
 #endif /* patchfind_h */

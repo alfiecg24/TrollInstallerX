@@ -6,11 +6,8 @@
 ## Overview
 TrollInstallerX is a universal TrollStore installer. It focuses on being extremely reliable and easy to use. It is also very fast, being able to install TrollStore in a matter of seconds on the latest devices.
 
-TrollInstallerX supports all devices running iOS 14.0 - 16.6.1, both arm64 and arm64e. It makes use of three different methods to install TrollStore, depending on what you choose. These methods are:
-* **MacDirtyCow indirect installation**: using CVE-2022-46689, TrollInstallerX can overwrite a system application with TrollHelper, and then open that application for you to install TrollStore. The benefit of this method is that it has a 100% success rate, however, it does not allow for a direct installation of TrollStore straight from the installer.
-  * Supports iOS 15.0 - 15.7.1, iOS 16.0 - 16.1.2.
-
-* **kfd + dmaFail direct installation**: using the [kfd](https://github.com/felix-pb/kfd) kernel exploit, along with the [dmaFail](https://github.com/opa334/Dopamine/blob/2.x/Application/Dopamine/Exploits/dmaFail/dmaFail.c) PPL bypass on iOS 15.2+ arm64e devices, TrollInstallerX can install TrollStore directly onto the device without having to leave the installer. This is the easiest and fastest method, however, can be subject to exploit failures.
+TrollInstallerX supports all devices running iOS 14.0 - 16.6.1, both arm64 and arm64e. It makes use of one of two different methods to install TrollStore, depending on what device and iOS you have. These methods are:
+* **kfd + dmaFail direct installation**: using the [kfd](https://github.com/felix-pb/kfd) kernel exploit, along with the [dmaFail](https://github.com/opa334/Dopamine/blob/2.x/Application/Dopamine/Exploits/dmaFail/dmaFail.c) PPL bypass on iOS 15.2+ arm64e devices, TrollInstallerX can install TrollStore directly onto the device without having to leave the installer.
   * Supports iOS 14.0 - 16.6.1 (arm64) and iOS 14.0 - 16.5.1 (arm64e).
     * **Note**: A15, A16, and M2 devices on iOS 16.5.1 do not support this method.
 

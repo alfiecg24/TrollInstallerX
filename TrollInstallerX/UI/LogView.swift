@@ -41,11 +41,13 @@ struct LogView: View {
                         }
                     }
                     .onAppear {
-                        if logger.logItems.count > 0 {
-                            withAnimation {
-                                proxy.scrollTo(logger.logItems[0].id, anchor: .bottom)
+                        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { _ in
+                            if logger.logItems.count > 0 {
+                                withAnimation {
+                                    proxy.scrollTo(logger.logItems[0].id, anchor: .bottom)
+                                }
                             }
-                        }
+                        })
                     }
                 }
             }

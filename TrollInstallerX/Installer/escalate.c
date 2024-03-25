@@ -31,12 +31,13 @@ bool build_physrw_primitive(void) {
     return r == 0;
 }
 
+struct k_posix_cred backup_cred;
+int backup_groupSize;
+gid_t backup_groupList[200];
+
 // 14.0 - 15.1.1 (arm64e)
 // 14.0 - 14.8.1 (arm64)
 bool get_root_krw(bool iOS14) {
-    struct k_posix_cred backup_cred;
-    int backup_groupSize;
-    gid_t backup_groupList[200];
     
     // Get the address of our (TrollInstallerX) proc structure
     uint64_t proc = gSystemInfo.kernelConstant.currentProc;
@@ -44,8 +45,6 @@ bool get_root_krw(bool iOS14) {
     printf("Attempting Xina escalation method...\n");
     
     backup_groupSize = getgroups(200, &backup_groupList[0]);
-    
-    // Get the original posix_cred
     backup_cred = proc_get_posix_cred(proc, iOS14);
     
     struct k_posix_cred zero_cred = {0};
@@ -66,6 +65,26 @@ bool get_root_krw(bool iOS14) {
     printf("getuid() -> %d\n", uid);
     
     return uid == 0;
+}
+
+bool drop_root_krw(bool iOS14) {
+    if (getuid() != 0) return true;
+    printf("Dropping root...\n");
+    
+    // Get the address of our (TrollInstallerX) proc structure
+    uint64_t proc = gSystemInfo.kernelConstant.currentProc;
+    
+    int error = setgroups(backup_groupSize, backup_groupList);
+    if (error) {
+        printf("setgroups failed with error code %d\n", error);
+    }
+    
+    proc_set_posix_cred(proc, backup_cred, iOS14);
+    
+    uid_t uid = getuid();
+    printf("getuid() -> %d\n", uid);
+    
+    return true;
 }
 
 // 15.2 - 16.5.1 (arm64e)

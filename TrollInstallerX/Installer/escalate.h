@@ -14,6 +14,7 @@ void post_kernel_exploit(bool iOS14);
 bool build_physrw_primitive(void);
 
 bool get_root_krw(bool iOS14);
+bool drop_root_krw(bool iOS14);
 bool get_root_pplrw(void);
 bool unsandbox(void);
 bool platformise(void);

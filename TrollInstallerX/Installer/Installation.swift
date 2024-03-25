@@ -59,7 +59,7 @@ func cleanup_private_preboot() -> Bool {
 
 func doInstall(_ device: Device) async {
     
-    let exploit = landa
+    let exploit = physpuppet
     
     let iOS14 = !device.version.supportsMajorVersion(15)
     let supportsFullPhysRW = (device.isArm64e && device.version >= Version(major: 15, minor: 2)) || (!device.isArm64e && device.version.supportsMajorVersion(15))
@@ -111,9 +111,7 @@ func doInstall(_ device: Device) async {
                 return
             }
         }
-    }
-    
-    if supportsFullPhysRW {
+        
         Logger.log("Deinitialising kernel exploit (\(exploit.name))")
         if !exploit.deinitialise!() {
             Logger.log("Failed to deinitialise \(exploit.name)", type: .error)
@@ -166,6 +164,13 @@ func doInstall(_ device: Device) async {
     if !cleanup_private_preboot() {
         Logger.log("Failed to clean up /private/preboot", type: .error)
         return
+    }
+    
+    if !supportsFullPhysRW {
+        if !drop_root_krw(iOS14) {
+            Logger.log("Failed to drop root privileges", type: .error)
+            return
+        }
     }
     
     Logger.log("Successfully installed TrollStore", type: .success)

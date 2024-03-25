@@ -30,10 +30,13 @@ struct MainView: View {
                             .frame(maxWidth: 100, maxHeight: 100)
                             .shadow(radius: 10)
                         Text("TrollInstallerX")
-                            .font(.system(size: 35, weight: .semibold, design: .rounded))
+                            .font(.system(size: 30, weight: .semibold, design: .rounded))
                             .foregroundColor(.white)
                         Text("By Alfie CG")
-                            .font(.system(size: 20, weight: .semibold, design: .rounded))
+                            .font(.system(size: 17, weight: .semibold, design: .rounded))
+                            .foregroundColor(.white.opacity(0.5))
+                        Text("iOS 14.0 - 16.6.1")
+                            .font(.system(size: 14, weight: .semibold, design: .rounded))
                             .foregroundColor(.white.opacity(0.5))
                         
                         if !isInstalling {
@@ -41,6 +44,7 @@ struct MainView: View {
                                 .frame(maxWidth: geometry.size.width / 1.5, maxHeight: geometry.size.height / 4)
                                 .transition(.scale)
                                 .padding()
+                                .shadow(radius: 10)
                         }
                         
                         ZStack {

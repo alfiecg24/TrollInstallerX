@@ -49,6 +49,7 @@ struct MainView: View {
                                 .frame(maxWidth: isInstalling ? geometry.size.width / 1.2 : geometry.size.width / 2)
                                 .frame(maxHeight: isInstalling ? geometry.size.height / 1.75 : 60)
                                 .transition(.scale)
+                                .shadow(radius: 10)
                             if isInstalling {
                                 LogView()
                                     .padding()

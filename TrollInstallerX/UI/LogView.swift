@@ -14,7 +14,7 @@ struct LogView: View {
                                             title: {
                                                 Text(log.message)
                                                     .font(.system(size: 13, weight: .regular, design: .rounded))
-                                                    .shadow(radius: 5)
+                                                    .shadow(radius: 2)
                                             },
                                             icon: {
                                                 Image(systemName: log.image)

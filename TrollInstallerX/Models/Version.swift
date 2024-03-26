@@ -47,4 +47,10 @@ struct Version: Comparable, Equatable {
         return self.major >= version
     }
     
+    var readableString: String {
+        var str = "\(major).\(minor)"
+        if (self.patch != nil) { str += ".\(patch!)" }
+        return str
+    }
+    
 }

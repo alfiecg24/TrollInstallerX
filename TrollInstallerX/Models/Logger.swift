@@ -35,7 +35,7 @@ struct LogItem: Identifiable, Equatable {
     var colour: Color {
         switch self.type {
         case .success:
-            return .green
+            return .init(hex: 0x08d604)
         case .warning:
             return .yellow
         case .error:

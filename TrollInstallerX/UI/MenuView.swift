@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct MenuView: View {
+    @Binding var isShowingSettings: Bool
+    @Binding var isShowingCredits: Bool
+    @Binding var isShowingMDCAlert: Bool
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -15,7 +18,12 @@ struct MenuView: View {
                     .foregroundColor(.white.opacity(0.15))
                 VStack {
                     Button(action: {
-                        UIImpactFeedbackGenerator().impactOccurred()
+                        if !isShowingCredits && !isShowingSettings && !isShowingMDCAlert {
+                            UIImpactFeedbackGenerator().impactOccurred()
+                            withAnimation {
+                                isShowingSettings = true
+                            }
+                        }
                     }, label: {
                         HStack {
                             Label(
@@ -45,7 +53,12 @@ struct MenuView: View {
                     Divider()
                     
                     Button(action: {
-                        UIImpactFeedbackGenerator().impactOccurred()
+                        if !isShowingCredits && !isShowingSettings && !isShowingMDCAlert {
+                            UIImpactFeedbackGenerator().impactOccurred()
+                            withAnimation {
+                                isShowingCredits = true
+                            }
+                        }
                     }, label: {
                         HStack {
                             Label(
@@ -77,8 +90,3 @@ struct MenuView: View {
         }
     }
 }
-
-#Preview {
-    MenuView()
-}
- 

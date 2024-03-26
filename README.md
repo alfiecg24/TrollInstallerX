@@ -54,11 +54,11 @@ TrollInstallerX is a regular Xcode project, but the project also contains a buil
 TrollInstallerX wouldn't have been possible without the work of the following people:
 * [opa334](https://x.com/opa334dev) for [Dopamine](https://github.com/opa334/Dopamine), the dmaFail exploit and the kernel patchfinder
 * [felix-pb](https://github.com/felix-pb) for the kfd exploits
-* [kok3shidoll](https://github.com/kok3shidoll) for lots of work on arm64 support for Dopamine
 * [Kaspersky](https://securelist.com/operation-triangulation-the-last-hardware-mystery/111669/) for Operation Triangulation
+* [kok3shidoll](https://github.com/kok3shidoll) for lots of work on arm64 support for Dopamine
 * [wh1te4ever](https://github.com/wh1te4ever) for [kfund](https://github.com/wh1te4ever/kfund)
-* [xina520](https://x.com/xina520) for the kernel read/write-only privilege escalation method
 * [Zhuowei](https://github.com/zhuowei) for the tccd unsandboxing method
+* [xina520](https://x.com/xina520) for the kernel read/write-only privilege escalation method
 * [dhinakg](https://github.com/dhinakg) for the memory hogger, the MacDirtyCow kernelcache grabber method, and help with [libgrabkernel2](https://github.com/alfiecg24/libgrabkernel2)
 * [staturnz](https://github.com/staturnzz) for work on the kernel patchfinder
 * [aaronp613](https://x.com/aaronp613) for the TrollInstallerX icon

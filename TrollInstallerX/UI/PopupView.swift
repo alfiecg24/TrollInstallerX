@@ -9,10 +9,12 @@ import SwiftUI
 
 struct PopupView<Content: View>: View {
     @Binding var isShowingAlert: Bool
+    let shouldAllowDismiss: Bool
     var content: Content
     
-    init(isShowingAlert: Binding<Bool>, @ViewBuilder content: () -> Content) {
+    init(isShowingAlert: Binding<Bool>, shouldAllowDismiss: Bool = true, @ViewBuilder content: () -> Content) {
         self._isShowingAlert = isShowingAlert
+        self.shouldAllowDismiss = shouldAllowDismiss
         self.content = content()
     }
     
@@ -26,8 +28,10 @@ struct PopupView<Content: View>: View {
                     .foregroundColor(.white.opacity(0.000001))
                     .ignoresSafeArea()
                     .onTapGesture {
-                        withAnimation {
-                            isShowingAlert.toggle()
+                        if shouldAllowDismiss {
+                            withAnimation {
+                                isShowingAlert.toggle()
+                            }
                         }
                     }
                 
@@ -38,10 +42,15 @@ struct PopupView<Content: View>: View {
                     .transition(.scale)
                 
                 
-                // Custom view
-                content
-                    .frame(maxWidth: geometry.size.width / 1.35)
-                    .frame(maxHeight: geometry.size.height / 1.75)
+                VStack {
+                    // Custom view
+                    content
+                        .frame(maxWidth: geometry.size.width / 1.35)
+                        .frame(maxHeight: geometry.size.height / 1.75)
+                }
+                .frame(maxWidth: geometry.size.width / 1.2)
+                .frame(maxHeight: geometry.size.height / 1.75)
+                .transition(.scale)
                 
             }
         }

@@ -15,6 +15,7 @@ struct MainView: View {
     @State private var device: Device?
     
     @State private var isShowingMDCAlert = false
+    @State private var isShowingOTAAlert = false
     
     @State private var isShowingSettings = false
     @State private var isShowingCredits = false
@@ -43,7 +44,7 @@ struct MainView: View {
                             .foregroundColor(.white.opacity(0.5))
                         
                         if !isInstalling {
-                            MenuView(isShowingSettings: $isShowingSettings, isShowingCredits: $isShowingCredits, isShowingMDCAlert: $isShowingMDCAlert)
+                            MenuView(isShowingSettings: $isShowingSettings, isShowingCredits: $isShowingCredits, isShowingMDCAlert: $isShowingMDCAlert, isShowingOTAAlert: $isShowingOTAAlert)
                                 .frame(maxWidth: geometry.size.width / 1.5, maxHeight: geometry.size.height / 4)
                                 .transition(.scale)
                                 .padding()
@@ -72,7 +73,7 @@ struct MainView: View {
                             }
                             else {
                                 Button(action: {
-                                    if !isShowingCredits && !isShowingSettings && !isShowingMDCAlert {
+                                    if !isShowingCredits && !isShowingSettings && !isShowingMDCAlert && !isShowingOTAAlert {
                                         UIImpactFeedbackGenerator().impactOccurred()
                                         withAnimation {
                                             isInstalling.toggle()
@@ -87,48 +88,17 @@ struct MainView: View {
                             }
                         }.padding()
                     }
-                    .blur(radius: (isShowingMDCAlert || isShowingSettings || isShowingCredits) ? 10 : 0)
+                    .blur(radius: (isShowingMDCAlert || isShowingOTAAlert || isShowingSettings || isShowingCredits) ? 10 : 0)
+                }
+                if isShowingOTAAlert {
+                    PopupView(isShowingAlert: $isShowingOTAAlert, content: {
+                        TrollHelperOTAView(arm64eVersion: .constant(false))
+                    })
                 }
                 if isShowingMDCAlert {
-                    PopupView(isShowingAlert: $isShowingMDCAlert, content: {
-                        VStack {
-                            Text("Unsandboxing")
-                                .font(.system(size: 23, weight: .semibold, design: .rounded))
-                                .foregroundColor(.white)
-                                .padding()
-                            Text("TrollInstallerX uses the 100% reliable MacDirtyCow exploit to unsandbox and copy the kernelcache. Press the button below to run the exploit - you only need to do this once.")
-                                .font(.system(size: 16, weight: .regular, design: .rounded))
-                                .multilineTextAlignment(.center)
-                                .foregroundColor(.white)
-                            Button(action: {
-                                UIImpactFeedbackGenerator().impactOccurred()
-                                grant_full_disk_access({ error in
-                                    if let error = error {
-                                        Logger.log("Failed to exploit with MacDirtyCow!")
-                                        NSLog("Failed to MacDirtyCow - \(error.localizedDescription)")
-                                    }
-                                    withAnimation {
-                                        isShowingMDCAlert = false
-                                    }
-                                })
-                            }, label: {
-                                ZStack {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .frame(width: geometry.size.width / 3)
-                                        .frame(height: 50)
-                                        .foregroundColor(.white.opacity(0.2))
-                                        .shadow(radius: 10)
-                                    Text("Unsandbox")
-                                        .font(.system(size: 20, weight: .semibold, design: .rounded))
-                                        .foregroundColor(.white)
-                                        .padding()
-                                }
-                            })
-                            .padding(.vertical)
-                        }
-                        .padding()
+                    PopupView(isShowingAlert: $isShowingMDCAlert, shouldAllowDismiss: false, content: {
+                        UnsandboxView(isShowingMDCAlert: $isShowingMDCAlert)
                     })
-                    .frame(width: geometry.size.width, height: geometry.size.height)
                 }
                 if isShowingSettings {
                     PopupView(isShowingAlert: $isShowingSettings, content: {
@@ -150,7 +120,16 @@ struct MainView: View {
             .onAppear {
                 device = initDevice()
                 withAnimation {
-                    isShowingMDCAlert = !checkForMDCUnsandbox() && MacDirtyCow.supports(device!)
+//                    isShowingMDCAlert = !checkForMDCUnsandbox() && MacDirtyCow.supports(device!)
+                    isShowingOTAAlert = device!.supportsOTA
+                    if !isShowingOTAAlert { isShowingMDCAlert = !checkForMDCUnsandbox() && MacDirtyCow.supports(device!) }
+                }
+            }
+            .onChange(of: isShowingOTAAlert) { _ in
+                if !checkForMDCUnsandbox() && MacDirtyCow.supports(device!) && !isShowingOTAAlert && device!.supportsOTA { // User has just dismissed alert
+                    withAnimation {
+                        isShowingMDCAlert = true
+                    }
                 }
             }
         }

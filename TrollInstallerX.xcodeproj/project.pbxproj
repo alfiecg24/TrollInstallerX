@@ -42,6 +42,8 @@
 		316661D72BAD93AB009D22D8 /* libarchive.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 316661D62BAD939E009D22D8 /* libarchive.tbd */; };
 		319CE2992BB31A8500189EDE /* CreditsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319CE2982BB31A8500189EDE /* CreditsView.swift */; };
 		319CE29B2BB31ABB00189EDE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319CE29A2BB31ABB00189EDE /* SettingsView.swift */; };
+		319CE29D2BB31ED400189EDE /* UnsandboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319CE29C2BB31ED400189EDE /* UnsandboxView.swift */; };
+		319CE29F2BB31F7300189EDE /* TrollHelperOTAView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319CE29E2BB31F7300189EDE /* TrollHelperOTAView.swift */; };
 		31ABE97D2BAD953F003C35E0 /* escalate.c in Sources */ = {isa = PBXBuildFile; fileRef = 31ABE97C2BAD953F003C35E0 /* escalate.c */; };
 		31ABE97F2BAD96C2003C35E0 /* UIDevice++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ABE97E2BAD96C2003C35E0 /* UIDevice++.swift */; };
 		31ABE9812BAD9821003C35E0 /* libxpf.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 316661D02BAD9221009D22D8 /* libxpf.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -185,6 +187,8 @@
 		316661D62BAD939E009D22D8 /* libarchive.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libarchive.tbd; path = usr/lib/libarchive.tbd; sourceTree = SDKROOT; };
 		319CE2982BB31A8500189EDE /* CreditsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsView.swift; sourceTree = "<group>"; };
 		319CE29A2BB31ABB00189EDE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		319CE29C2BB31ED400189EDE /* UnsandboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsandboxView.swift; sourceTree = "<group>"; };
+		319CE29E2BB31F7300189EDE /* TrollHelperOTAView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrollHelperOTAView.swift; sourceTree = "<group>"; };
 		31ABE97B2BAD953F003C35E0 /* escalate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = escalate.h; sourceTree = "<group>"; };
 		31ABE97C2BAD953F003C35E0 /* escalate.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = escalate.c; sourceTree = "<group>"; };
 		31ABE97E2BAD96C2003C35E0 /* UIDevice++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice++.swift"; sourceTree = "<group>"; };
@@ -296,6 +300,8 @@
 			children = (
 				31ABE9822BAD997C003C35E0 /* MainView.swift */,
 				319CE29A2BB31ABB00189EDE /* SettingsView.swift */,
+				319CE29E2BB31F7300189EDE /* TrollHelperOTAView.swift */,
+				319CE29C2BB31ED400189EDE /* UnsandboxView.swift */,
 				319CE2982BB31A8500189EDE /* CreditsView.swift */,
 				31F859CD2BADFA0600A74022 /* MenuView.swift */,
 				31BA7FF52BAF0CB00061DC7A /* PopupView.swift */,
@@ -751,6 +757,7 @@
 				316661982BAD918E009D22D8 /* trustcache.c in Sources */,
 				316661962BAD918E009D22D8 /* util.c in Sources */,
 				31ABE97D2BAD953F003C35E0 /* escalate.c in Sources */,
+				319CE29D2BB31ED400189EDE /* UnsandboxView.swift in Sources */,
 				31ABE97F2BAD96C2003C35E0 /* UIDevice++.swift in Sources */,
 				31F85A022BAE126800A74022 /* run.m in Sources */,
 				316661932BAD918E009D22D8 /* signatures.m in Sources */,
@@ -778,6 +785,7 @@
 				316661992BAD918E009D22D8 /* info.c in Sources */,
 				316661442BAD889C009D22D8 /* Version.swift in Sources */,
 				316661402BAD862C009D22D8 /* Device.swift in Sources */,
+				319CE29F2BB31F7300189EDE /* TrollHelperOTAView.swift in Sources */,
 				3166619C2BAD918E009D22D8 /* jbserver.c in Sources */,
 				316661462BAD8AF8009D22D8 /* Install.swift in Sources */,
 				316661542BAD8BB8009D22D8 /* helpers.m in Sources */,

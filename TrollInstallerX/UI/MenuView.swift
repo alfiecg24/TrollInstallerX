@@ -11,6 +11,7 @@ struct MenuView: View {
     @Binding var isShowingSettings: Bool
     @Binding var isShowingCredits: Bool
     @Binding var isShowingMDCAlert: Bool
+    @Binding var isShowingOTAAlert: Bool
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -18,7 +19,7 @@ struct MenuView: View {
                     .foregroundColor(.white.opacity(0.15))
                 VStack {
                     Button(action: {
-                        if !isShowingCredits && !isShowingSettings && !isShowingMDCAlert {
+                        if !isShowingCredits && !isShowingSettings && !isShowingMDCAlert && !isShowingOTAAlert {
                             UIImpactFeedbackGenerator().impactOccurred()
                             withAnimation {
                                 isShowingSettings = true
@@ -53,7 +54,7 @@ struct MenuView: View {
                     Divider()
                     
                     Button(action: {
-                        if !isShowingCredits && !isShowingSettings && !isShowingMDCAlert {
+                        if !isShowingCredits && !isShowingSettings && !isShowingMDCAlert && !isShowingOTAAlert {
                             UIImpactFeedbackGenerator().impactOccurred()
                             withAnimation {
                                 isShowingCredits = true

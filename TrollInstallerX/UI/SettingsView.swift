@@ -55,13 +55,11 @@ struct SettingsView: View {
                         .font(.system(size: 17, weight: .regular, design: .rounded))
                         .foregroundColor(.white)
                 })
-//                .padding(.horizontal)
                 Toggle(isOn: $ignoreTrollHelperOTA, label: {
                     Text("Ignore TrollHelperOTA")
                         .font(.system(size: 17, weight: .regular, design: .rounded))
                         .foregroundColor(.white)
                 })
-//                .padding(.horizontal)
             }.padding()
         }
     }

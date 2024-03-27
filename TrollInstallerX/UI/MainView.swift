@@ -20,6 +20,9 @@ struct MainView: View {
     @State private var isShowingSettings = false
     @State private var isShowingCredits = false
     
+    @State private var installedSuccessfully = false
+    @State private var installationFinished = false
+    
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -28,24 +31,27 @@ struct MainView: View {
                         .ignoresSafeArea()
                         .frame(width: geometry.size.width, height: geometry.size.height)
                     VStack {
-                        Image("Icon")
-                            .resizable()
-                            .cornerRadius(10)
-                            .frame(maxWidth: 100, maxHeight: 100)
-                            .shadow(radius: 10)
-                        Text("TrollInstallerX")
-                            .font(.system(size: 30, weight: .semibold, design: .rounded))
-                            .foregroundColor(.white)
-                        Text("By Alfie CG")
-                            .font(.system(size: 17, weight: .semibold, design: .rounded))
-                            .foregroundColor(.white.opacity(0.5))
-                        Text("iOS 14.0 - 16.6.1")
-                            .font(.system(size: 14, weight: .semibold, design: .rounded))
-                            .foregroundColor(.white.opacity(0.5))
+                        VStack {
+                            Image("Icon")
+                                .resizable()
+                                .cornerRadius(10)
+                                .frame(maxWidth: 100, maxHeight: 100)
+                                .shadow(radius: 10)
+                            Text("TrollInstallerX")
+                                .font(.system(size: 30, weight: .semibold, design: .rounded))
+                                .foregroundColor(.white)
+                            Text("By Alfie CG")
+                                .font(.system(size: 17, weight: .semibold, design: .rounded))
+                                .foregroundColor(.white.opacity(0.5))
+                            Text("iOS 14.0 - 16.6.1")
+                                .font(.system(size: 14, weight: .semibold, design: .rounded))
+                                .foregroundColor(.white.opacity(0.5))
+                        }
+                        .padding(.vertical)
                         
                         if !isInstalling {
                             MenuView(isShowingSettings: $isShowingSettings, isShowingCredits: $isShowingCredits, isShowingMDCAlert: $isShowingMDCAlert, isShowingOTAAlert: $isShowingOTAAlert)
-                                .frame(maxWidth: geometry.size.width / 1.5, maxHeight: geometry.size.height / 4)
+                                .frame(maxWidth: geometry.size.width / 1.2, maxHeight: geometry.size.height / 4)
                                 .transition(.scale)
                                 .padding()
                                 .shadow(radius: 10)
@@ -54,22 +60,15 @@ struct MainView: View {
                         ZStack {
                             RoundedRectangle(cornerRadius: 10)
                                 .foregroundColor(.white.opacity(0.15))
-                                .frame(maxWidth: isInstalling ? geometry.size.width / 1.2 : geometry.size.width / 2)
-                                .frame(maxHeight: isInstalling ? geometry.size.height / 1.75 : 60)
+                                .frame(maxWidth: geometry.size.width / 1.2)
+                                .frame(maxHeight: isInstalling ? (installedSuccessfully ? geometry.size.height / 2.25 : geometry.size.height / 1.75) : 60)
                                 .transition(.scale)
                                 .shadow(radius: 10)
                             if isInstalling {
-                                LogView()
+                                LogView(installationFinished: $installationFinished)
                                     .padding()
-                                    .frame(maxWidth: isInstalling ? geometry.size.width / 1.2 : geometry.size.width / 2)
-                                    .frame(maxHeight: isInstalling ? geometry.size.height / 1.75 : 60)
-                                    .contextMenu {
-                                        Button {
-                                            UIPasteboard.general.string = Logger.shared.logString
-                                        } label: {
-                                            Label("Copy to clipboard", systemImage: "doc.on.doc")
-                                        }
-                                    }
+                                    .frame(maxWidth: geometry.size.width / 1.2)
+                                    .frame(maxHeight: installedSuccessfully ? geometry.size.height / 2.25 : geometry.size.height / 1.75)
                             }
                             else {
                                 Button(action: {
@@ -84,9 +83,41 @@ struct MainView: View {
                                             .font(.system(size: 20, weight: .semibold, design: .rounded))
                                             .foregroundColor(.white)
                                             .padding()
+                                            .frame(maxWidth: geometry.size.width / 1.2)
+                                            .frame(maxHeight: 60)
                                 })
+                                .frame(maxWidth: geometry.size.width / 1.2)
+                                .frame(maxHeight: 60)
                             }
                         }.padding()
+                        
+                        
+                        if installedSuccessfully && (!device!.isArm64e || device!.version < Version("16.6")) {
+                            Button(action: {
+                                if !isShowingCredits && !isShowingSettings && !isShowingMDCAlert && !isShowingOTAAlert {
+                                    UIImpactFeedbackGenerator().impactOccurred()
+                                    Logger.log("Attempting to refresh icon cache, please wait...")
+                                    if !uicache() {
+                                        Logger.log("Failed to refresh icon cache", type: .error)
+                                    }
+                                }
+                            }, label: {
+                                ZStack {
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .foregroundColor(.white.opacity(0.15))
+                                        .frame(maxWidth: geometry.size.width / 1.2)
+                                        .frame(maxHeight: 60)
+                                        .transition(.scale)
+                                        .shadow(radius: 10)
+                                    Text("Refresh icon cache")
+                                        .font(.system(size: 20, weight: .semibold, design: .rounded))
+                                        .foregroundColor(.white)
+                                        .padding()
+                                }
+                            })
+                            .frame(maxWidth: geometry.size.width / 1.2)
+                            .frame(maxHeight: 60)
+                        }
                     }
                     .blur(radius: (isShowingMDCAlert || isShowingOTAAlert || isShowingSettings || isShowingCredits) ? 10 : 0)
                 }
@@ -114,13 +145,16 @@ struct MainView: View {
             }
             .onChange(of: isInstalling) { _ in
                 Task {
-                    await doInstall(device!)
+                    installedSuccessfully = await doInstall(device!)
+                    installationFinished = true
+                    if !installedSuccessfully {
+                        Logger.log("Failed to install TrollStore", type: .error)
+                    }
                 }
             }
             .onAppear {
                 device = initDevice()
                 withAnimation {
-//                    isShowingMDCAlert = !checkForMDCUnsandbox() && MacDirtyCow.supports(device!)
                     isShowingOTAAlert = device!.supportsOTA
                     if !isShowingOTAAlert { isShowingMDCAlert = !checkForMDCUnsandbox() && MacDirtyCow.supports(device!) }
                 }

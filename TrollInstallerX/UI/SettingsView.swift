@@ -13,7 +13,6 @@ struct SettingsView: View {
     
     @AppStorage("exploitFlavour") var exploitFlavour: String = "landa"
     @AppStorage("verbose") var verbose: Bool = false
-    @AppStorage("ignoreTrollHelperOTA") var ignoreTrollHelperOTA: Bool = false
         
     var body: some View {
         VStack(spacing: 10) {
@@ -52,11 +51,6 @@ struct SettingsView: View {
             VStack {
                 Toggle(isOn: $verbose, label: {
                     Text("Verbose logging")
-                        .font(.system(size: 17, weight: .regular, design: .rounded))
-                        .foregroundColor(.white)
-                })
-                Toggle(isOn: $ignoreTrollHelperOTA, label: {
-                    Text("Ignore TrollHelperOTA")
                         .font(.system(size: 17, weight: .regular, design: .rounded))
                         .foregroundColor(.white)
                 })

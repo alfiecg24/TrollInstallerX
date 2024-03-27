@@ -17,6 +17,7 @@ enum LogType {
 struct LogItem: Identifiable, Equatable {
     let message: String
     let type: LogType
+    let date: Date = Date()
     var id = UUID()
     
     var image: String {
@@ -53,11 +54,15 @@ class Logger: ObservableObject {
     static var shared = Logger()
     
     static func log(_ logMessage: String, type: LogType? = .info) {
-        NSLog(logMessage)
+        let newItem = LogItem(message: logMessage, type: type ?? .info)
+        print(logMessage)
         UIImpactFeedbackGenerator().impactOccurred()
-        withAnimation {
-            shared.logItems.append(LogItem(message: logMessage, type: type ?? .info))
-            shared.logString.append(logMessage + "\n")
+        DispatchQueue.main.async {
+            withAnimation {
+                shared.logItems.append(newItem)
+                shared.logString.append(logMessage + "\n")
+                shared.logItems.sort(by: { $0.date < $1.date })
+            }
         }
     }
 }

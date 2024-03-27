@@ -71,7 +71,7 @@ func modelIdentifier() -> String {
     return String(bytes: Data(bytes: &sysinfo.machine, count: Int(_SYS_NAMELEN)), encoding: .ascii)!.trimmingCharacters(in: .controlCharacters)
 }
 
-func doInstall(_ device: Device) async {
+func doInstall(_ device: Device) async -> Bool {
     
     let exploit = selectExploit(device)
     
@@ -83,20 +83,20 @@ func doInstall(_ device: Device) async {
     if !iOS14 {
         if !(getKernel(device)) {
             Logger.log("Failed to get kernel", type: .error)
-            return
+            return false
         }
     }
     
     Logger.log("Gathering kernel information")
     if !initialise_kernel_info(kernelPath, iOS14) {
         Logger.log("Failed to patchfind kernel", type: .error)
-        return
+        return false
     }
     
     Logger.log("Exploiting kernel (\(exploit.name))")
     if !exploit.initialise!() {
         Logger.log("Failed to exploit the kernel", type: .error)
-        return
+        return false
     }
     Logger.log("Successfully exploited the kernel", type: .success)
     post_kernel_exploit(iOS14)
@@ -106,7 +106,7 @@ func doInstall(_ device: Device) async {
             Logger.log("Bypassing PPL (\(dmaFail.name))")
             if !dmaFail.initialise!() {
                 Logger.log("Failed to bypass PPL", type: .error)
-                return
+                return false
             }
             Logger.log("Successfully bypassed PPL", type: .success)
         }
@@ -117,43 +117,43 @@ func doInstall(_ device: Device) async {
         
         if !build_physrw_primitive() {
             Logger.log("Failed to build physical R/W primitive", type: .error)
-            return
+            return false
         }
         
         if device.isArm64e {
             Logger.log("Deinitialising PPL bypass (\(dmaFail.name))")
             if !dmaFail.deinitialise!() {
                 Logger.log("Failed to deinitialise \(dmaFail.name)", type: .error)
-                return
+                return false
             }
         }
         
         Logger.log("Deinitialising kernel exploit (\(exploit.name))")
         if !exploit.deinitialise!() {
             Logger.log("Failed to deinitialise \(exploit.name)", type: .error)
-            return
+            return false
         }
         
         Logger.log("Unsandboxing")
         if !unsandbox() {
             Logger.log("Failed to unsandbox", type: .error)
-            return
+            return false
         }
         
         Logger.log("Escalating privileges")
         if !get_root_pplrw() {
             Logger.log("Failed to escalate privileges", type: .error)
-            return
+            return false
         }
         if !platformise() {
             Logger.log("Failed to platformise", type: .error)
-            return
+            return false
         }
     } else {
         Logger.log("Unsandboxing and escalating privileges")
         if !get_root_krw(iOS14) {
             Logger.log("Failed to unsandbox and escalate privileges", type: .error)
-            return
+            return false
         }
     }
 
@@ -162,34 +162,37 @@ func doInstall(_ device: Device) async {
         Logger.log("Extracting TrollStore.tar")
         if !extract_trollstore() {
             Logger.log("Failed to extract TrollStore.tar", type: .error)
-            return
+            return false
         }
     }
     
     Logger.log("Installing TrollStore")
     if !install_trollstore(Bundle.main.bundlePath + "/TrollStore.tar") {
         Logger.log("Failed to install TrollStore", type: .error)
-        return
+        return false
     }
     
     if !cleanup_private_preboot() {
         Logger.log("Failed to clean up /private/preboot", type: .error)
-        return
+        return false
     }
     
     if !supportsFullPhysRW {
         if !drop_root_krw(iOS14) {
             Logger.log("Failed to drop root privileges", type: .error)
-            return
+            return false
         }
         Logger.log("Deinitialising kernel exploit (\(exploit.name))")
         if !exploit.deinitialise!() {
             Logger.log("Failed to deinitialise \(exploit.name)", type: .error)
-            return
+            return false
         }
     }
     
-    Logger.log("Successfully installed TrollStore", type: .success)
+//    for i in 0...25 {
+//        Logger.log("Successfully installed TrollStore [\(i)]")
+//        usleep(10000)
+//    }
     
-    return
+    return true
 }

@@ -65,7 +65,7 @@ int run_as_root(NSString* path, NSArray* args, NSString** output)
     do
     {
         if (waitpid(task_pid, &status, 0) != -1) {
-            //printf("Child status %dn", WEXITSTATUS(status));
+        printf("Child status %d\n", WEXITSTATUS(status));
         } else
         {
             perror("waitpid");

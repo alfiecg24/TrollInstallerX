@@ -189,5 +189,10 @@ func doInstall(_ device: Device) async -> Bool {
         }
     }
     
+//    for x in 0...10 {
+//        Logger.log("Message \(x)")
+//        usleep(50000)
+//    }
+    
     return true
 }

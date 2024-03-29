@@ -14,12 +14,8 @@ struct CreditsView: View {
                 .font(.system(size: 23, weight: .semibold, design: .rounded))
                 .foregroundColor(.white)
                 .padding()
-            Text("TrollInstallerX wouldn't have been possible without these developers:")
-                .font(.system(size: 16, weight: .regular, design: .rounded))
-                .multilineTextAlignment(.center)
-                .foregroundColor(.white)
             
-            VStack(spacing: 5) {
+            VStack(spacing: 3) {
                 HStack {
                     Link(destination: URL(string: "https://x.com/opa334dev")!, label: {
                         HStack {

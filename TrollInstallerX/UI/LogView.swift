@@ -3,7 +3,6 @@ import SwiftUI
 struct LogView: View {
     @StateObject var logger = Logger.shared
     @Binding var installationFinished: Bool
-    @State private var stopScrolling = false
     
     @AppStorage("verbose") var verbose: Bool = false
     
@@ -24,6 +23,7 @@ struct LogView: View {
                             Text(stderrString)
                                 .font(.system(size: 10, weight: .regular, design: .monospaced))
                                 .multilineTextAlignment(.leading)
+                                .foregroundColor(.white)
                                 .id(verboseID)
                             Spacer()
                         }
@@ -82,45 +82,22 @@ struct LogView: View {
                         .onChange(of: geometry.size.height) { newHeight in
                             DispatchQueue.main.async {
                                 withAnimation {
-                                    proxy.scrollTo(logger.logItems.last!.id, anchor: .top)
+                                    proxy.scrollTo(logger.logItems.last!.id, anchor: .bottom)
                                 }
                             }
                         }
                         
-                        //                        .frame(width: geometry.size.width, height: geometry.size.height)
                         .onChange(of: logger.logItems) { _ in
                             DispatchQueue.main.async {
-                                withAnimation {
-                                    proxy.scrollTo(logger.logItems.last!.id, anchor: .top)
-                                }
-                            }
-                        }
-                        .onAppear {
-                            DispatchQueue.global().async {
-                                Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { _ in
-                                    if logger.logItems.count > 0 {
-                                        print("Most recent: \(logger.logItems.last!.message)")
-                                    }
-                                    if installationFinished && !stopScrolling {
-                                        Timer.scheduledTimer(withTimeInterval: 10.0, repeats: false, block: { _ in
-                                            print("Stopping scrolling")
-                                            stopScrolling = true
-                                        })
-                                    }
-                                    if !stopScrolling {
-                                        if logger.logItems.count > 0 {
-                                            withAnimation {
-                                                proxy.scrollTo(logger.logItems.last!.id, anchor: .top)
-                                            }
-                                        }
-                                    }
-                                })
+//                                withAnimation {
+                                    proxy.scrollTo(logger.logItems.last!.id, anchor: .bottom)
+//                                }
                             }
                         }
                     }
                 }
                 
-                .frame(height: geometry.size.height)
+//                .frame(height: geometry.size.height)
             }
             //            .frame(width: geometry.size.width, height: geometry.size.height)
             .contextMenu {

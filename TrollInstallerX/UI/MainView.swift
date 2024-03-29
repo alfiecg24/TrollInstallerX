@@ -33,7 +33,7 @@ struct MainView: View {
                         VStack {
                             Image("Icon")
                                 .resizable()
-                                .cornerRadius(10)
+                                .cornerRadius(22)
                                 .frame(maxWidth: 100, maxHeight: 100)
                                 .shadow(radius: 10)
                             Text("TrollInstallerX")

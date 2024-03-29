@@ -178,6 +178,7 @@
 		319CE29A2BB31ABB00189EDE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		319CE29C2BB31ED400189EDE /* UnsandboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsandboxView.swift; sourceTree = "<group>"; };
 		319CE29E2BB31F7300189EDE /* TrollHelperOTAView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrollHelperOTAView.swift; sourceTree = "<group>"; };
+		31A4BCC92BB759AC008C125C /* private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = private.h; sourceTree = "<group>"; };
 		31A57C132BB62B3F00311C2E /* base.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = base.h; sourceTree = "<group>"; };
 		31A57C142BB62B3F00311C2E /* debug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = debug.h; sourceTree = "<group>"; };
 		31A57C152BB62B3F00311C2E /* endpoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = endpoint.h; sourceTree = "<group>"; };
@@ -548,6 +549,7 @@
 		31A57C072BB62A4C00311C2E /* xpc */ = {
 			isa = PBXGroup;
 			children = (
+				31A4BCC92BB759AC008C125C /* private.h */,
 				318298502BB70D7800B9DB42 /* module.modulemap */,
 				31A57C182BB62B3F00311C2E /* activity.h */,
 				31A57C1A2BB62B3F00311C2E /* availability.h */,

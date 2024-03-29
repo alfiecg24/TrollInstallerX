@@ -149,6 +149,7 @@ struct MainView: View {
                     if !installedSuccessfully {
                         Logger.log("Failed to install TrollStore", type: .error)
                     }
+                    print("All done!")
                 }
             }
             .onAppear {

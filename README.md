@@ -62,4 +62,5 @@ TrollInstallerX wouldn't have been possible without the work of the following pe
 * [dhinakg](https://github.com/dhinakg) for the memory hogger, the MacDirtyCow kernelcache grabber method, and help with [libgrabkernel2](https://github.com/alfiecg24/libgrabkernel2)
 * [staturnz](https://github.com/staturnzz) for work on the kernel patchfinder
 * [aaronp613](https://x.com/aaronp613) for the TrollInstallerX icon
+* [DTCalabro](https://github.com/DTCalabro) and [JJTech](https://github.com/JJTech0130) for improvements to the logging system
 * [MasterMike88](https://x.com/MasterMike88) for helping test and debug during development

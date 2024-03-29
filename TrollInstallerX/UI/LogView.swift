@@ -10,6 +10,9 @@ struct LogView: View {
     let pipe = Pipe()
     let sema = DispatchSemaphore(value: 0)
     @State private var stderrString = ""
+    @State private var stderrItems = [String]()
+    
+    @State var verboseID = UUID()
     
     
     var body: some View {
@@ -21,23 +24,32 @@ struct LogView: View {
                             Text(stderrString)
                                 .font(.system(size: 10, weight: .regular, design: .monospaced))
                                 .multilineTextAlignment(.leading)
-                                .onAppear {
-                                    pipe.fileHandleForReading.readabilityHandler = { fileHandle in
-                                        let data = fileHandle.availableData
-                                        if data.isEmpty  { // end-of-file condition
-                                            fileHandle.readabilityHandler = nil
-                                            sema.signal()
-                                        } else {
-                                            stderrString += String(data: data,  encoding: .utf8)!
-                                        }
-                                    }
-                                    // Redirect
-                                    setvbuf(stdout, nil, _IONBF, 0)
-                                    dup2(pipe.fileHandleForWriting.fileDescriptor, STDOUT_FILENO)
-                                }
+                                .id(verboseID)
                             Spacer()
                         }
                         .frame(width: geometry.size.width)
+                        .onAppear {
+                            pipe.fileHandleForReading.readabilityHandler = { fileHandle in
+                                let data = fileHandle.availableData
+                                if data.isEmpty  { // end-of-file condition
+                                    fileHandle.readabilityHandler = nil
+                                    sema.signal()
+                                } else {
+                                    stderrString += String(data: data,  encoding: .utf8)!
+                                }
+                            }
+                            // Redirect
+                            setvbuf(stdout, nil, _IONBF, 0)
+                            dup2(pipe.fileHandleForWriting.fileDescriptor, STDOUT_FILENO)
+                        }
+                        
+                        .onChange(of: geometry.size.height) { new in
+                            DispatchQueue.main.async {
+                                withAnimation {
+                                    proxy.scrollTo(verboseID, anchor: .bottom)
+                                }
+                            }
+                        }
                     } else {
                         VStack(alignment: .leading) {
                             Spacer()
@@ -68,10 +80,8 @@ struct LogView: View {
                             }
                         }
                         .onChange(of: geometry.size.height) { newHeight in
-                            print("Height changed: \(newHeight)")
                             DispatchQueue.main.async {
                                 withAnimation {
-                                    print("Scrolling to: \(logger.logItems.last!.message)")
                                     proxy.scrollTo(logger.logItems.last!.id, anchor: .top)
                                 }
                             }
@@ -109,6 +119,8 @@ struct LogView: View {
                         }
                     }
                 }
+                
+                .frame(height: geometry.size.height)
             }
             //            .frame(width: geometry.size.width, height: geometry.size.height)
             .contextMenu {

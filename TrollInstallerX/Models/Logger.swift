@@ -58,11 +58,9 @@ class Logger: ObservableObject {
         print(logMessage)
         UIImpactFeedbackGenerator().impactOccurred()
         DispatchQueue.main.async {
-            withAnimation {
-                shared.logItems.append(newItem)
-                shared.logString.append(logMessage + "\n")
-                shared.logItems.sort(by: { $0.date < $1.date })
-            }
+            shared.logItems.append(newItem)
+            shared.logString.append(logMessage + "\n")
+            shared.logItems.sort(by: { $0.date < $1.date })
         }
     }
 }

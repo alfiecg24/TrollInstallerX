@@ -10,7 +10,6 @@ import SwiftUI
 struct MainView: View {
     
     @State private var isInstalling = false
-    @State private var logs = [LogItem(message: "Starting installation", type: .info), LogItem(message: "Performing installation", type: .info)]
     
     @State private var device: Device?
     

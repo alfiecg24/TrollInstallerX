@@ -97,18 +97,6 @@
 		316661522BAD8BB8009D22D8 /* vm_unaligned_copy_switch_race.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vm_unaligned_copy_switch_race.h; sourceTree = "<group>"; };
 		316661532BAD8BB8009D22D8 /* vm_unaligned_copy_switch_race.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = vm_unaligned_copy_switch_race.c; sourceTree = "<group>"; };
 		3166615A2BAD8BF5009D22D8 /* launch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = launch.h; sourceTree = "<group>"; };
-		3166615C2BAD8BF5009D22D8 /* connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = connection.h; sourceTree = "<group>"; };
-		3166615D2BAD8BF5009D22D8 /* endpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = endpoint.h; sourceTree = "<group>"; };
-		3166615E2BAD8BF5009D22D8 /* debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = debug.h; sourceTree = "<group>"; };
-		3166615F2BAD8BF5009D22D8 /* availability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = availability.h; sourceTree = "<group>"; };
-		316661602BAD8BF5009D22D8 /* rich_error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rich_error.h; sourceTree = "<group>"; };
-		316661612BAD8BF5009D22D8 /* private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = private.h; sourceTree = "<group>"; };
-		316661622BAD8BF5009D22D8 /* xpc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xpc.h; sourceTree = "<group>"; };
-		316661632BAD8BF5009D22D8 /* session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = session.h; sourceTree = "<group>"; };
-		316661642BAD8BF5009D22D8 /* XPC.apinotes */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.apinotes; path = XPC.apinotes; sourceTree = "<group>"; };
-		316661652BAD8BF5009D22D8 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
-		316661662BAD8BF5009D22D8 /* activity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = activity.h; sourceTree = "<group>"; };
-		316661672BAD8BF5009D22D8 /* base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = base.h; sourceTree = "<group>"; };
 		3166616B2BAD916A009D22D8 /* dmaFail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dmaFail.h; sourceTree = "<group>"; };
 		3166616C2BAD916A009D22D8 /* dmaFail.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = dmaFail.c; sourceTree = "<group>"; };
 		316661712BAD918E009D22D8 /* codesign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = codesign.h; sourceTree = "<group>"; };
@@ -185,10 +173,20 @@
 		316661CF2BAD9221009D22D8 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcurl.a; sourceTree = "<group>"; };
 		316661D02BAD9221009D22D8 /* libxpf.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libxpf.dylib; sourceTree = "<group>"; };
 		316661D62BAD939E009D22D8 /* libarchive.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libarchive.tbd; path = usr/lib/libarchive.tbd; sourceTree = SDKROOT; };
+		318298502BB70D7800B9DB42 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		319CE2982BB31A8500189EDE /* CreditsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsView.swift; sourceTree = "<group>"; };
 		319CE29A2BB31ABB00189EDE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		319CE29C2BB31ED400189EDE /* UnsandboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsandboxView.swift; sourceTree = "<group>"; };
 		319CE29E2BB31F7300189EDE /* TrollHelperOTAView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrollHelperOTAView.swift; sourceTree = "<group>"; };
+		31A57C132BB62B3F00311C2E /* base.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = base.h; sourceTree = "<group>"; };
+		31A57C142BB62B3F00311C2E /* debug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = debug.h; sourceTree = "<group>"; };
+		31A57C152BB62B3F00311C2E /* endpoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = endpoint.h; sourceTree = "<group>"; };
+		31A57C162BB62B3F00311C2E /* connection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = connection.h; sourceTree = "<group>"; };
+		31A57C172BB62B3F00311C2E /* xpc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = xpc.h; sourceTree = "<group>"; };
+		31A57C182BB62B3F00311C2E /* activity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = activity.h; sourceTree = "<group>"; };
+		31A57C1A2BB62B3F00311C2E /* availability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = availability.h; sourceTree = "<group>"; };
+		31A57C1B2BB62B3F00311C2E /* rich_error.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rich_error.h; sourceTree = "<group>"; };
+		31A57C1C2BB62B3F00311C2E /* session.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = session.h; sourceTree = "<group>"; };
 		31ABE97B2BAD953F003C35E0 /* escalate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = escalate.h; sourceTree = "<group>"; };
 		31ABE97C2BAD953F003C35E0 /* escalate.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = escalate.c; sourceTree = "<group>"; };
 		31ABE97E2BAD96C2003C35E0 /* UIDevice++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice++.swift"; sourceTree = "<group>"; };
@@ -388,6 +386,7 @@
 		316661592BAD8BE4009D22D8 /* include */ = {
 			isa = PBXGroup;
 			children = (
+				31A57C072BB62A4C00311C2E /* xpc */,
 				316661C12BAD9218009D22D8 /* curl */,
 				316661BD2BAD9218009D22D8 /* libfragmentzip */,
 				316661BF2BAD9218009D22D8 /* libgrabkernel2 */,
@@ -395,28 +394,8 @@
 				316661B42BAD9203009D22D8 /* libarchive */,
 				316661A22BAD91E5009D22D8 /* choma */,
 				3166615A2BAD8BF5009D22D8 /* launch.h */,
-				3166615B2BAD8BF5009D22D8 /* xpc */,
 			);
 			path = include;
-			sourceTree = "<group>";
-		};
-		3166615B2BAD8BF5009D22D8 /* xpc */ = {
-			isa = PBXGroup;
-			children = (
-				3166615C2BAD8BF5009D22D8 /* connection.h */,
-				3166615D2BAD8BF5009D22D8 /* endpoint.h */,
-				3166615E2BAD8BF5009D22D8 /* debug.h */,
-				3166615F2BAD8BF5009D22D8 /* availability.h */,
-				316661602BAD8BF5009D22D8 /* rich_error.h */,
-				316661612BAD8BF5009D22D8 /* private.h */,
-				316661622BAD8BF5009D22D8 /* xpc.h */,
-				316661632BAD8BF5009D22D8 /* session.h */,
-				316661642BAD8BF5009D22D8 /* XPC.apinotes */,
-				316661652BAD8BF5009D22D8 /* module.modulemap */,
-				316661662BAD8BF5009D22D8 /* activity.h */,
-				316661672BAD8BF5009D22D8 /* base.h */,
-			);
-			path = xpc;
 			sourceTree = "<group>";
 		};
 		3166616E2BAD917B009D22D8 /* libjailbreak */ = {
@@ -564,6 +543,23 @@
 				316661D62BAD939E009D22D8 /* libarchive.tbd */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		31A57C072BB62A4C00311C2E /* xpc */ = {
+			isa = PBXGroup;
+			children = (
+				318298502BB70D7800B9DB42 /* module.modulemap */,
+				31A57C182BB62B3F00311C2E /* activity.h */,
+				31A57C1A2BB62B3F00311C2E /* availability.h */,
+				31A57C132BB62B3F00311C2E /* base.h */,
+				31A57C162BB62B3F00311C2E /* connection.h */,
+				31A57C142BB62B3F00311C2E /* debug.h */,
+				31A57C152BB62B3F00311C2E /* endpoint.h */,
+				31A57C1B2BB62B3F00311C2E /* rich_error.h */,
+				31A57C1C2BB62B3F00311C2E /* session.h */,
+				31A57C172BB62B3F00311C2E /* xpc.h */,
+			);
+			path = xpc;
 			sourceTree = "<group>";
 		};
 		31ABE9782BAD9514003C35E0 /* Installer */ = {
@@ -952,6 +948,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "TrollInstallerX/TrollInstallerX-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				SYSTEM_HEADER_SEARCH_PATHS = TrollInstallerX/External/include;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -993,6 +990,7 @@
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "TrollInstallerX/TrollInstallerX-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
+				SYSTEM_HEADER_SEARCH_PATHS = TrollInstallerX/External/include;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

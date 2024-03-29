@@ -67,10 +67,22 @@ struct LogView: View {
                                 }
                             }
                         }
+                        .onChange(of: geometry.size.height) { newHeight in
+                            print("Height changed: \(newHeight)")
+                            DispatchQueue.main.async {
+                                withAnimation {
+                                    print("Scrolling to: \(logger.logItems.last!.message)")
+                                    proxy.scrollTo(logger.logItems.last!.id, anchor: .top)
+                                }
+                            }
+                        }
+                        
                         //                        .frame(width: geometry.size.width, height: geometry.size.height)
                         .onChange(of: logger.logItems) { _ in
-                            withAnimation {
-                                proxy.scrollTo(logger.logItems.last!.id, anchor: .bottom)
+                            DispatchQueue.main.async {
+                                withAnimation {
+                                    proxy.scrollTo(logger.logItems.last!.id, anchor: .top)
+                                }
                             }
                         }
                         .onAppear {
@@ -88,7 +100,7 @@ struct LogView: View {
                                     if !stopScrolling {
                                         if logger.logItems.count > 0 {
                                             withAnimation {
-                                                proxy.scrollTo(logger.logItems.last!.id, anchor: .bottom)
+                                                proxy.scrollTo(logger.logItems.last!.id, anchor: .top)
                                             }
                                         }
                                     }

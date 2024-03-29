@@ -191,7 +191,7 @@ func doInstall(_ device: Device) async -> Bool {
     
 //    for i in 0...25 {
 //        Logger.log("Successfully installed TrollStore [\(i)]")
-//        usleep(10000)
+//        usleep(70000)
 //    }
     
     return true

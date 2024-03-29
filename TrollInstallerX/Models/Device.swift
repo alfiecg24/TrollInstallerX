@@ -28,7 +28,7 @@ struct Device {
 }
 
 func initDevice() -> Device {
-    var systemVersion = UIDevice.current.systemVersion
+    let systemVersion = UIDevice.current.systemVersion
     print("System version: \(systemVersion)")
     return Device(version: Version(systemVersion))
 }

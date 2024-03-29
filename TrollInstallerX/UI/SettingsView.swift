@@ -45,7 +45,7 @@ struct SettingsView: View {
                         }
                     }
                     .pickerStyle(.segmented)
-                    .colorMultiply(.init(hex: 0x3dbcff))
+                    .colorMultiply(.white)
                     .padding()
             }
             VStack {

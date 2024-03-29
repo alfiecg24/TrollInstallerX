@@ -12,6 +12,7 @@ struct MenuView: View {
     @Binding var isShowingCredits: Bool
     @Binding var isShowingMDCAlert: Bool
     @Binding var isShowingOTAAlert: Bool
+    let device: Device
     var body: some View {
         GeometryReader { geometry in
             ZStack {
@@ -39,7 +40,7 @@ struct MenuView: View {
                                         .padding(.trailing, 5)
                                 }
                             )
-                            .foregroundColor(.white)
+                            .foregroundColor(device.isSupported ? .white : .secondary)
                             
                             Spacer()
                             
@@ -74,7 +75,7 @@ struct MenuView: View {
                                         .padding(.trailing, 5)
                                 }
                             )
-                            .foregroundColor(.white)
+                            .foregroundColor(device.isSupported ? .white : .secondary)
                             
                             Spacer()
                             

@@ -11,7 +11,7 @@ struct MainView: View {
     
     @State private var isInstalling = false
     
-    @State private var device: Device?
+    @State private var device: Device = initDevice()
     
     @State private var isShowingMDCAlert = false
     @State private var isShowingOTAAlert = false
@@ -49,11 +49,12 @@ struct MainView: View {
                         .padding(.vertical)
                         
                         if !isInstalling {
-                            MenuView(isShowingSettings: $isShowingSettings, isShowingCredits: $isShowingCredits, isShowingMDCAlert: $isShowingMDCAlert, isShowingOTAAlert: $isShowingOTAAlert)
+                            MenuView(isShowingSettings: $isShowingSettings, isShowingCredits: $isShowingCredits, isShowingMDCAlert: $isShowingMDCAlert, isShowingOTAAlert: $isShowingOTAAlert, device: device)
                                 .frame(maxWidth: geometry.size.width / 1.2, maxHeight: geometry.size.height / 4)
                                 .transition(.scale)
                                 .padding()
                                 .shadow(radius: 10)
+                                .disabled(!device.isSupported)
                         }
                         
                         ZStack {
@@ -78,9 +79,9 @@ struct MainView: View {
                                         }
                                     }
                                 }, label: {
-                                        Text("Install")
+                                    Text(device.isSupported ? "Install TrollStore" : "Unsupported")
                                             .font(.system(size: 20, weight: .semibold, design: .rounded))
-                                            .foregroundColor(.white)
+                                            .foregroundColor(device.isSupported ? .white : .secondary)
                                             .padding()
                                             .frame(maxWidth: geometry.size.width / 1.2)
                                             .frame(maxHeight: 60)
@@ -88,10 +89,12 @@ struct MainView: View {
                                 .frame(maxWidth: geometry.size.width / 1.2)
                                 .frame(maxHeight: 60)
                             }
-                        }.padding()
+                        }
+                        .padding()
+                        .disabled(!device.isSupported)
                         
                         
-                        if installedSuccessfully && (!device!.isArm64e || device!.version < Version("16.6")) {
+                        if installedSuccessfully && (!device.isArm64e || device.version < Version("16.6")) {
                             Button(action: {
                                 if !isShowingCredits && !isShowingSettings && !isShowingMDCAlert && !isShowingOTAAlert {
                                     UIImpactFeedbackGenerator().impactOccurred()
@@ -132,7 +135,7 @@ struct MainView: View {
                 }
                 if isShowingSettings {
                     PopupView(isShowingAlert: $isShowingSettings, content: {
-                        SettingsView(device: device!)
+                        SettingsView(device: device)
                     })
                 }
                 
@@ -144,7 +147,7 @@ struct MainView: View {
             }
             .onChange(of: isInstalling) { _ in
                 Task {
-                    installedSuccessfully = await doInstall(device!)
+                    installedSuccessfully = await doInstall(device)
                     installationFinished = true
                     if !installedSuccessfully {
                         Logger.log("Failed to install TrollStore", type: .error)
@@ -153,14 +156,15 @@ struct MainView: View {
                 }
             }
             .onAppear {
-                device = initDevice()
-                withAnimation {
-                    isShowingOTAAlert = device!.supportsOTA
-                    if !isShowingOTAAlert { isShowingMDCAlert = !checkForMDCUnsandbox() && MacDirtyCow.supports(device!) }
+                if device.isSupported {
+                    withAnimation {
+                        isShowingOTAAlert = device.supportsOTA
+                        if !isShowingOTAAlert { isShowingMDCAlert = !checkForMDCUnsandbox() && MacDirtyCow.supports(device) }
+                    }
                 }
             }
             .onChange(of: isShowingOTAAlert) { _ in
-                if !checkForMDCUnsandbox() && MacDirtyCow.supports(device!) && !isShowingOTAAlert && device!.supportsOTA { // User has just dismissed alert
+                if !checkForMDCUnsandbox() && MacDirtyCow.supports(device) && !isShowingOTAAlert && device.supportsOTA { // User has just dismissed alert
                     withAnimation {
                         isShowingMDCAlert = true
                     }

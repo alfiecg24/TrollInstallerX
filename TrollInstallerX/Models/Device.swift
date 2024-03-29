@@ -25,6 +25,10 @@ struct Device {
         }
     }
     
+    var isSupported: Bool {
+        return self.version <= Version("16.6.1")
+    }
+    
 }
 
 func initDevice() -> Device {

@@ -23,7 +23,7 @@ bool install_trollstore(NSString *tar) {
     return ret == 0;
 }
 
-NSString *find_trollstore_helper_path(void) {
+NSString *find_path_for_app(NSString *appName) {
     // Go through /var/containers/Bundle/Application
     // Look inside every folder for TrollStore.app
     // If we get a match, return $PATH_TO_TROLLSTORE_APP/trollstorehelper
@@ -36,7 +36,8 @@ NSString *find_trollstore_helper_path(void) {
 
     for (NSString *bundle in bundleContents) {
         NSString *bundleFullPath = [bundlePath stringByAppendingPathComponent:bundle];
-        NSString *trollStorePath = [bundleFullPath stringByAppendingPathComponent:@"TrollStore.app"];
+        NSString *bundleFullPathWithApp = [bundleFullPath stringByAppendingPathComponent:appName];
+        NSString *trollStorePath = [bundleFullPathWithApp stringByAppendingString:@".app"];
         if ([fileManager fileExistsAtPath:trollStorePath]) {
             NSString *trollStoreHelperPath = [trollStorePath stringByAppendingPathComponent:@"trollstorehelper"];
             if ([fileManager fileExistsAtPath:trollStoreHelperPath]) {
@@ -48,10 +49,9 @@ NSString *find_trollstore_helper_path(void) {
     return nil;
 }
 
-
 bool uicache(void) {
     NSString *stdout;
-    NSString *helperPath = find_trollstore_helper_path();
+    NSString *helperPath = find_path_for_app(@"TrollStore");
     if (helperPath == nil) {
         printf("Failed to find trollstorehelper\n");
         return false;

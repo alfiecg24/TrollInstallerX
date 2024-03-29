@@ -275,7 +275,7 @@
 				31ABE9782BAD9514003C35E0 /* Installer */,
 				3166614B2BAD8BB7009D22D8 /* TrollInstallerX-Bridging-Header.h */,
 				316661582BAD8BDF009D22D8 /* External */,
-				316661472BAD8B8F009D22D8 /* Exploits */,
+				316661472BAD8B8F009D22D8 /* Exploitation */,
 				3166613E2BAD8623009D22D8 /* Models */,
 				3166613B2BAD8492009D22D8 /* Extensions */,
 				3166613A2BAD848F009D22D8 /* UI */,
@@ -330,7 +330,7 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		316661472BAD8B8F009D22D8 /* Exploits */ = {
+		316661472BAD8B8F009D22D8 /* Exploitation */ = {
 			isa = PBXGroup;
 			children = (
 				3166616E2BAD917B009D22D8 /* libjailbreak */,
@@ -338,7 +338,7 @@
 				316661492BAD8B97009D22D8 /* dmaFail */,
 				316661482BAD8B93009D22D8 /* kfd */,
 			);
-			path = Exploits;
+			path = Exploitation;
 			sourceTree = "<group>";
 		};
 		316661482BAD8B93009D22D8 /* kfd */ = {
@@ -926,7 +926,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				HEADER_SEARCH_PATHS = (
 					TrollInstallerX/External/include,
-					TrollInstallerX/Exploits/,
+					TrollInstallerX/Exploitation/,
 				);
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Unsandboxing with MacDirtyCow";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -969,7 +969,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				HEADER_SEARCH_PATHS = (
 					TrollInstallerX/External/include,
-					TrollInstallerX/Exploits/,
+					TrollInstallerX/Exploitation/,
 				);
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Unsandboxing with MacDirtyCow";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

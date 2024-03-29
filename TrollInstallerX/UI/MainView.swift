@@ -100,6 +100,7 @@ struct MainView: View {
                                     UIImpactFeedbackGenerator().impactOccurred()
                                     Logger.log("Attempting to refresh icon cache, please wait...")
                                     if !uicache() {
+                                        usleep(1000) // Stop above log being printed after failure
                                         Logger.log("Failed to refresh icon cache", type: .error)
                                     }
                                 }

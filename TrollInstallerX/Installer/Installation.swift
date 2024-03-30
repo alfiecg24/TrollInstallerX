@@ -182,8 +182,7 @@ func doInstall(_ device: Device) async -> Bool {
             FileManager.default.createFile(atPath: "/private/preboot/tmp/TrollStore.tar", contents: nil)
             try data.write(to: URL(string: "file:///private/preboot/tmp/TrollStore.tar")!)
         } catch {
-            Logger.log("NO WRITE!!", type: .error)
-            print("Fail bad - \(error.localizedDescription)")
+            print("Failed to write out TrollStore.tar - \(error.localizedDescription)")
         }
     }
     

@@ -10,6 +10,7 @@
 #include "Exploitation/kfd/kfd.h"
 
 #include "Installer/escalate.h"
+#include "Installer/update.h"
 
 #include "External/include/libgrabkernel2/libgrabkernel2.h"
 

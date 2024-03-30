@@ -41,11 +41,14 @@
 		316661D42BAD9221009D22D8 /* libxpf.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 316661D02BAD9221009D22D8 /* libxpf.dylib */; };
 		316661D72BAD93AB009D22D8 /* libarchive.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 316661D62BAD939E009D22D8 /* libarchive.tbd */; };
 		3199C2262BB78AED00A196E9 /* InstalledApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3199C2252BB78AED00A196E9 /* InstalledApp.swift */; };
+		319C8F7D2BB89CC900E19B34 /* Update.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319C8F7C2BB89CC900E19B34 /* Update.swift */; };
+		319C8F7F2BB89D0700E19B34 /* GitHubResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319C8F7E2BB89D0700E19B34 /* GitHubResponse.swift */; };
+		319C8F852BB8A50600E19B34 /* update.m in Sources */ = {isa = PBXBuildFile; fileRef = 319C8F842BB8A50600E19B34 /* update.m */; };
+		319C8F8C2BB8AFBE00E19B34 /* TrollStore.tar in Resources */ = {isa = PBXBuildFile; fileRef = 319C8F8B2BB8AFBE00E19B34 /* TrollStore.tar */; };
 		319CE2992BB31A8500189EDE /* CreditsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319CE2982BB31A8500189EDE /* CreditsView.swift */; };
 		319CE29B2BB31ABB00189EDE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319CE29A2BB31ABB00189EDE /* SettingsView.swift */; };
 		319CE29D2BB31ED400189EDE /* UnsandboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319CE29C2BB31ED400189EDE /* UnsandboxView.swift */; };
 		319CE29F2BB31F7300189EDE /* TrollHelperOTAView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319CE29E2BB31F7300189EDE /* TrollHelperOTAView.swift */; };
-		31A3A7FA2BB8386D00B915E5 /* TrollStore.tar in Resources */ = {isa = PBXBuildFile; fileRef = 31A3A7F92BB8386D00B915E5 /* TrollStore.tar */; };
 		31ABE97D2BAD953F003C35E0 /* escalate.c in Sources */ = {isa = PBXBuildFile; fileRef = 31ABE97C2BAD953F003C35E0 /* escalate.c */; };
 		31ABE97F2BAD96C2003C35E0 /* UIDevice++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ABE97E2BAD96C2003C35E0 /* UIDevice++.swift */; };
 		31ABE9812BAD9821003C35E0 /* libxpf.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 316661D02BAD9221009D22D8 /* libxpf.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -176,11 +179,15 @@
 		316661D62BAD939E009D22D8 /* libarchive.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libarchive.tbd; path = usr/lib/libarchive.tbd; sourceTree = SDKROOT; };
 		318298502BB70D7800B9DB42 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		3199C2252BB78AED00A196E9 /* InstalledApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstalledApp.swift; sourceTree = "<group>"; };
+		319C8F7C2BB89CC900E19B34 /* Update.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Update.swift; sourceTree = "<group>"; };
+		319C8F7E2BB89D0700E19B34 /* GitHubResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubResponse.swift; sourceTree = "<group>"; };
+		319C8F842BB8A50600E19B34 /* update.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = update.m; sourceTree = "<group>"; };
+		319C8F862BB8A51100E19B34 /* update.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = update.h; sourceTree = "<group>"; };
+		319C8F8B2BB8AFBE00E19B34 /* TrollStore.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = TrollStore.tar; sourceTree = "<group>"; };
 		319CE2982BB31A8500189EDE /* CreditsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsView.swift; sourceTree = "<group>"; };
 		319CE29A2BB31ABB00189EDE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		319CE29C2BB31ED400189EDE /* UnsandboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsandboxView.swift; sourceTree = "<group>"; };
 		319CE29E2BB31F7300189EDE /* TrollHelperOTAView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrollHelperOTAView.swift; sourceTree = "<group>"; };
-		31A3A7F92BB8386D00B915E5 /* TrollStore.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = TrollStore.tar; sourceTree = "<group>"; };
 		31A4BCC92BB759AC008C125C /* private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = private.h; sourceTree = "<group>"; };
 		31A57C132BB62B3F00311C2E /* base.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = base.h; sourceTree = "<group>"; };
 		31A57C142BB62B3F00311C2E /* debug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = debug.h; sourceTree = "<group>"; };
@@ -327,6 +334,7 @@
 				316661452BAD8AF8009D22D8 /* Install.swift */,
 				3199C2252BB78AED00A196E9 /* InstalledApp.swift */,
 				316661432BAD889C009D22D8 /* Version.swift */,
+				319C8F7E2BB89D0700E19B34 /* GitHubResponse.swift */,
 				316661412BAD86AE009D22D8 /* Exploit.swift */,
 				31F859CB2BADEC8E00A74022 /* Logger.swift */,
 			);
@@ -574,6 +582,9 @@
 				31ABE97C2BAD953F003C35E0 /* escalate.c */,
 				31F859ED2BAE022C00A74022 /* Installation.swift */,
 				31F859FD2BAE119200A74022 /* Extract.swift */,
+				319C8F7C2BB89CC900E19B34 /* Update.swift */,
+				319C8F842BB8A50600E19B34 /* update.m */,
+				319C8F862BB8A51100E19B34 /* update.h */,
 				31F859FA2BAE108000A74022 /* remount.m */,
 				31F859FC2BAE109F00A74022 /* remount.h */,
 				31F859FF2BAE123B00A74022 /* install.m */,
@@ -669,7 +680,7 @@
 		31F85A052BAE143800A74022 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				31A3A7F92BB8386D00B915E5 /* TrollStore.tar */,
+				319C8F8B2BB8AFBE00E19B34 /* TrollStore.tar */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -736,7 +747,7 @@
 			files = (
 				316661342BAD8466009D22D8 /* Preview Assets.xcassets in Resources */,
 				316661312BAD8466009D22D8 /* Assets.xcassets in Resources */,
-				31A3A7FA2BB8386D00B915E5 /* TrollStore.tar in Resources */,
+				319C8F8C2BB8AFBE00E19B34 /* TrollStore.tar in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -758,7 +769,9 @@
 				316661982BAD918E009D22D8 /* trustcache.c in Sources */,
 				316661962BAD918E009D22D8 /* util.c in Sources */,
 				31ABE97D2BAD953F003C35E0 /* escalate.c in Sources */,
+				319C8F7F2BB89D0700E19B34 /* GitHubResponse.swift in Sources */,
 				319CE29D2BB31ED400189EDE /* UnsandboxView.swift in Sources */,
+				319C8F7D2BB89CC900E19B34 /* Update.swift in Sources */,
 				31ABE97F2BAD96C2003C35E0 /* UIDevice++.swift in Sources */,
 				3199C2262BB78AED00A196E9 /* InstalledApp.swift in Sources */,
 				31F85A022BAE126800A74022 /* run.m in Sources */,
@@ -790,6 +803,7 @@
 				319CE29F2BB31F7300189EDE /* TrollHelperOTAView.swift in Sources */,
 				3166619C2BAD918E009D22D8 /* jbserver.c in Sources */,
 				316661462BAD8AF8009D22D8 /* Install.swift in Sources */,
+				319C8F852BB8A50600E19B34 /* update.m in Sources */,
 				316661542BAD8BB8009D22D8 /* helpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

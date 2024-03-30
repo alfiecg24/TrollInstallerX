@@ -210,6 +210,9 @@ struct MainView: View {
                         if !isShowingOTAAlert { isShowingMDCAlert = !checkForMDCUnsandbox() && MacDirtyCow.supports(device) }
                     }
                 }
+                Task {
+                    await getUpdatedTrollStore()
+                }
             }
             .onChange(of: isShowingOTAAlert) { _ in
                 if !checkForMDCUnsandbox() && MacDirtyCow.supports(device) && !isShowingOTAAlert && device.supportsOTA { // User has just dismissed alert

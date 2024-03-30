@@ -8,6 +8,7 @@
 import Foundation
 
 let fileManager = FileManager.default
+let docsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
 let docsDir = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0].path
 let kernelPath = docsDir + "/kernelcache"
 
@@ -43,6 +44,7 @@ func getKernel(_ device: Device) -> Bool {
     
     return true
 }
+
 
 func cleanup_private_preboot() -> Bool {
     // Remove /private/preboot/tmp
@@ -110,6 +112,11 @@ func doInstall(_ device: Device) async -> Bool {
     Logger.log("Successfully exploited the kernel", type: .success)
     post_kernel_exploit(iOS14)
     
+    var trollstoreTarData: Data?
+    if FileManager.default.fileExists(atPath: docsDir + "/TrollStore.tar") {
+        trollstoreTarData = try? Data(contentsOf: docsURL.appendingPathComponent("TrollStore.tar"))
+    }
+    
     if supportsFullPhysRW {
         if device.isArm64e {
             Logger.log("Bypassing PPL (\(dmaFail.name))")
@@ -166,11 +173,26 @@ func doInstall(_ device: Device) async -> Bool {
             return false
         }
     }
-
+    
     remount_private_preboot()
-    if !fileManager.fileExists(atPath: "/private/preboot/tmp/trollstorehelper") && !fileManager.fileExists(atPath: "/private/preboot/tmp/TrollStore.tar") {
+    
+    if let data = trollstoreTarData {
+        do {
+            try FileManager.default.createDirectory(atPath: "/private/preboot/tmp", withIntermediateDirectories: false)
+            FileManager.default.createFile(atPath: "/private/preboot/tmp/TrollStore.tar", contents: nil)
+            try data.write(to: URL(string: "file:///private/preboot/tmp/TrollStore.tar")!)
+        } catch {
+            Logger.log("NO WRITE!!", type: .error)
+            print("Fail bad - \(error.localizedDescription)")
+        }
+    }
+    
+    // Prevents download finishing between extraction and installation
+    let useLocalCopy = FileManager.default.fileExists(atPath: "/private/preboot/tmp/TrollStore.tar")
+
+    if !fileManager.fileExists(atPath: "/private/preboot/tmp/trollstorehelper") {
         Logger.log("Extracting TrollStore.tar")
-        if !extract_trollstore() {
+        if !extract_trollstore(useLocalCopy) {
             Logger.log("Failed to extract TrollStore.tar", type: .error)
             return false
         }
@@ -192,7 +214,7 @@ func doInstall(_ device: Device) async -> Bool {
     }
     
     Logger.log("Installing TrollStore")
-    if !install_trollstore(Bundle.main.bundlePath + "/TrollStore.tar") {
+    if !install_trollstore(useLocalCopy ? "/private/preboot/tmp/TrollStore.tar" : Bundle.main.bundlePath + "/TrollStore.tar") {
         Logger.log("Failed to install TrollStore", type: .error)
     } else {
         Logger.log("Successfully installed TrollStore", type: .success)

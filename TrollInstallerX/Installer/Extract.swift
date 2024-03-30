@@ -7,9 +7,9 @@
 
 import Foundation
 
-func extract_trollstore() -> Bool {
+func extract_trollstore(_ useLocalCopy: Bool) -> Bool {
     let fileManager = FileManager.default
-    let tarPath = Bundle.main.url(forResource: "TrollStore", withExtension: "tar")?.path
+    let tarPath = useLocalCopy ? "/private/preboot/tmp/TrollStore.tar" : Bundle.main.url(forResource: "TrollStore", withExtension: "tar")?.path
     let extractPath = "/private/preboot/tmp/TrollStore"
     
     // Extract the .tar

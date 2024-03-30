@@ -71,6 +71,15 @@ func modelIdentifier() -> String {
     return String(bytes: Data(bytes: &sysinfo.machine, count: Int(_SYS_NAMELEN)), encoding: .ascii)!.trimmingCharacters(in: .controlCharacters)
 }
 
+func getCandidates() -> [InstalledApp] {
+    var apps = [InstalledApp]()
+    for candidate in persistenceHelperCandidates {
+        if candidate.isInstalled { apps.append(candidate) }
+    }
+    return apps
+}
+
+@discardableResult
 func doInstall(_ device: Device) async -> Bool {
     
     let exploit = selectExploit(device)
@@ -150,6 +159,7 @@ func doInstall(_ device: Device) async -> Bool {
             return false
         }
     } else {
+        
         Logger.log("Unsandboxing and escalating privileges")
         if !get_root_krw(iOS14) {
             Logger.log("Failed to unsandbox and escalate privileges", type: .error)
@@ -166,15 +176,30 @@ func doInstall(_ device: Device) async -> Bool {
         }
     }
     
+    DispatchQueue.main.sync {
+        HelperAlert.shared.showAlert = true
+        HelperAlert.shared.objectWillChange.send()
+    }
+    while HelperAlert.shared.showAlert { }
+    let persistenceID = UserDefaults.standard.string(forKey: "persistenceHelper")
+    
+    if persistenceID != "" {
+        if install_persistence_helper(persistenceID) {
+            Logger.log("Successfully installed persistence helper", type: .success)
+        } else {
+            Logger.log("Failed to install persistence helper", type: .error)
+        }
+    }
+    
     Logger.log("Installing TrollStore")
     if !install_trollstore(Bundle.main.bundlePath + "/TrollStore.tar") {
         Logger.log("Failed to install TrollStore", type: .error)
-        return false
+    } else {
+        Logger.log("Successfully installed TrollStore", type: .success)
     }
     
     if !cleanup_private_preboot() {
         Logger.log("Failed to clean up /private/preboot", type: .error)
-        return false
     }
     
     if !supportsFullPhysRW {

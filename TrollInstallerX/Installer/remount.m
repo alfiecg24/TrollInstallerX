@@ -11,7 +11,7 @@
 #import "run.h"
 
 int remount_private_preboot_internal(void) {
-    return run_as_root(@"/sbin/mount", @[@"-u", @"-w", @"/private/preboot"], nil);
+    return run_binary(@"/sbin/mount", @[@"-u", @"-w", @"/private/preboot"], nil);
 }
 
 bool remount_private_preboot(void) {

@@ -25,7 +25,7 @@ NSString* get_NSString_from_file(int fd)
     return ms.copy;
 }
 
-int run_as_root(NSString* path, NSArray* args, NSString** output)
+int run_binary(NSString* path, NSArray* args, NSString** output)
 {
     NSMutableArray* argsM = args.mutableCopy;
     [argsM insertObject:path.lastPathComponent atIndex:0];
@@ -69,6 +69,10 @@ int run_as_root(NSString* path, NSArray* args, NSString** output)
         } else
         {
             perror("waitpid");
+            if(output)
+            {
+                *output = get_NSString_from_file(out[0]);
+            }
             return -222;
         }
     } while (!WIFEXITED(status) && !WIFSIGNALED(status));

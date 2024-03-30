@@ -8,7 +8,8 @@
 #ifndef install_h
 #define install_h
 
+NSString *find_path_for_app(NSString *appName);
 bool install_trollstore(NSString *tar);
-bool uicache(void);
+bool install_persistence_helper(NSString *app);
 
 #endif /* install_h */

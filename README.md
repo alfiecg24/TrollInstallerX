@@ -4,11 +4,11 @@
 </div>
 
 ## Overview
-TrollInstallerX is a universal TrollStore installer. It focuses on being extremely reliable and easy to use. It is also very fast, being able to install TrollStore in a matter of seconds on the latest devices.
+TrollInstallerX is a universal TrollStore installer. It focuses on being extremely reliable and easy to use. It is also very fast, being able to install TrollStore and/or its persistence helper in a matter of seconds on the latest devices.
 
 TrollInstallerX supports all devices running iOS 14.0 - 16.6.1, both arm64 and arm64e. It makes use of one of two different methods to install TrollStore, depending on what device and iOS you have. These methods are:
 
-* **Direct installation**: using the [kfd](https://github.com/felix-pb/kfd) kernel exploit, along with the [dmaFail](https://github.com/opa334/Dopamine/blob/2.x/Application/Dopamine/Exploits/dmaFail/dmaFail.c) PPL bypass on iOS 15.2+ arm64e devices, TrollInstallerX can install TrollStore directly onto the device without having to leave the installer.
+* **Direct installation**: using the [kfd](https://github.com/felix-pb/kfd) kernel exploit, along with the [dmaFail](https://github.com/opa334/Dopamine/blob/2.x/Application/Dopamine/Exploits/dmaFail/dmaFail.c) PPL bypass on iOS 15.2+ arm64e devices, TrollInstallerX can install both TrollStore and its persistence helper directly onto the device without having to leave the installer.
   * Supports iOS 14.0 - 16.6.1 (arm64) and iOS 14.0 - 16.5.1 (arm64e).
     * **Note**: A15, A16, and M2 devices on iOS 16.5.1 do not support this method.
 
@@ -19,9 +19,9 @@ TrollInstallerX supports all devices running iOS 14.0 - 16.6.1, both arm64 and a
 Both methods allow you to install a persistence helper into a removable system app. The reason that this is needed is due to the way that the CoreTrust bug used by TrollStore works - in certain circumstances, TrollStore and other apps installed by it will be reset to User registration, instead of System. You cannot open any of these apps until you have used the persistence helper to set them back to System registration.
 
 ## Usage
-TrollInstallerX is extremely easy to use. Simply download the latest release from the [Releases](https://github.com/alfiecg24/TrollInstallerX/releases) page, and sideload it using your preferred method. Once installed, open the app and press the "Install" button. From there, TrollStore will be installed onto your device.
+TrollInstallerX is extremely easy to use. Simply download the latest release from the [Releases](https://github.com/alfiecg24/TrollInstallerX/releases) page, and sideload it using your preferred method. Once installed, open the app and press the "Install" button. From there, TrollStore and/or its persistence helper will be installed onto your device.
 
-TrollInstallerX will automatically choose the best exploit for your device. However, in some cases, you may want to choose a specific exploit. To do this, simply open the settings view and select the exploit that you want to use. Once you have selected it, press the "Install TrollStore" button and TrollInstallerX will use the exploit you have chosen.
+TrollInstallerX will automatically choose the best exploit for your device. However, in some cases, you may want to choose a specific exploit. To do this, simply open the settings view and select the exploit that you want to use. Once you have selected it, press the "Install" button and TrollInstallerX will use the exploit you have chosen.
 
 **Note**: iOS 16.2 - 16.6.1 require an internet connection in order for TrollInstallerX to download the kernelcache and patchfind it. If your device is unable to obtain a reliable internet connection, you will need to manually supply the kernelcache yourself.
 
@@ -29,12 +29,6 @@ TrollInstallerX will automatically choose the best exploit for your device. Howe
 > Why am I stuck at "Exploiting kernel"?
 
 This is a common issue with the kfd exploit. Simply reboot your device and try again.
-
-> Why does pressing "Install TrollStore" open something in my browser?
-
-On iOS 15.0 - 15.4.1 (arm64) and iOS 14.0 - 15.6.1 (arm64e), TrollStore can be installed via TrollHelperOTA - a 100% reliable and preferred installation method that doesn't require an app be sideloaded whatsoever.
-
-If you would to use TrollInstallerX regardless to install TrollStore, however, there's an option to disable the redirect to TrollHelperOTA in TrollInstallerX's settings.
 
 > Why can I not open/see TrollStore after a successful installation?
 

@@ -45,6 +45,7 @@
 		319C8F7F2BB89D0700E19B34 /* GitHubResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319C8F7E2BB89D0700E19B34 /* GitHubResponse.swift */; };
 		319C8F852BB8A50600E19B34 /* update.m in Sources */ = {isa = PBXBuildFile; fileRef = 319C8F842BB8A50600E19B34 /* update.m */; };
 		319C8F8C2BB8AFBE00E19B34 /* TrollStore.tar in Resources */ = {isa = PBXBuildFile; fileRef = 319C8F8B2BB8AFBE00E19B34 /* TrollStore.tar */; };
+		319C8F8E2BB8BAD200E19B34 /* PersistenceHelperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319C8F8D2BB8BAD200E19B34 /* PersistenceHelperView.swift */; };
 		319CE2992BB31A8500189EDE /* CreditsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319CE2982BB31A8500189EDE /* CreditsView.swift */; };
 		319CE29B2BB31ABB00189EDE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319CE29A2BB31ABB00189EDE /* SettingsView.swift */; };
 		319CE29D2BB31ED400189EDE /* UnsandboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319CE29C2BB31ED400189EDE /* UnsandboxView.swift */; };
@@ -184,6 +185,7 @@
 		319C8F842BB8A50600E19B34 /* update.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = update.m; sourceTree = "<group>"; };
 		319C8F862BB8A51100E19B34 /* update.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = update.h; sourceTree = "<group>"; };
 		319C8F8B2BB8AFBE00E19B34 /* TrollStore.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = TrollStore.tar; sourceTree = "<group>"; };
+		319C8F8D2BB8BAD200E19B34 /* PersistenceHelperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceHelperView.swift; sourceTree = "<group>"; };
 		319CE2982BB31A8500189EDE /* CreditsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditsView.swift; sourceTree = "<group>"; };
 		319CE29A2BB31ABB00189EDE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		319CE29C2BB31ED400189EDE /* UnsandboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsandboxView.swift; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 				31ABE9822BAD997C003C35E0 /* MainView.swift */,
 				319CE29A2BB31ABB00189EDE /* SettingsView.swift */,
 				319CE29E2BB31F7300189EDE /* TrollHelperOTAView.swift */,
+				319C8F8D2BB8BAD200E19B34 /* PersistenceHelperView.swift */,
 				319CE29C2BB31ED400189EDE /* UnsandboxView.swift */,
 				319CE2982BB31A8500189EDE /* CreditsView.swift */,
 				31F859CD2BADFA0600A74022 /* MenuView.swift */,
@@ -780,6 +783,7 @@
 				3166619D2BAD918E009D22D8 /* kalloc_pt.m in Sources */,
 				316661572BAD8BB8009D22D8 /* vm_unaligned_copy_switch_race.c in Sources */,
 				316661562BAD8BB8009D22D8 /* grant_full_disk_access.m in Sources */,
+				319C8F8E2BB8BAD200E19B34 /* PersistenceHelperView.swift in Sources */,
 				31F859FB2BAE108000A74022 /* remount.m in Sources */,
 				31F859CA2BADEC6E00A74022 /* LogView.swift in Sources */,
 				3166619B2BAD918E009D22D8 /* primitives.c in Sources */,

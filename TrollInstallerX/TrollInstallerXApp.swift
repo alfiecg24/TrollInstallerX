@@ -12,6 +12,8 @@ struct TrollInstallerXApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
+                // Force status bar to be white
+                .preferredColorScheme(.dark)
         }
     }
 }

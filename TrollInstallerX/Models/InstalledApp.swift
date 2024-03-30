@@ -37,7 +37,6 @@ let persistenceHelperCandidates = [
     InstalledApp(displayName: "Compass", bundleName: "Compass", bundleIdentifier: "com.apple.compass"),
     InstalledApp(displayName: "Books", bundleName: "Books", bundleIdentifier: "com.apple.iBooks"),
     InstalledApp(displayName: "iTunes Store", bundleName: "MobileStore", bundleIdentifier: "com.apple.MobileStore"),
-    InstalledApp(displayName: "Watch", bundleName: "Bridge", bundleIdentifier: "com.apple.Bridhe"),
     InstalledApp(displayName: "Translate", bundleName: "SequoiaTranslator", bundleIdentifier: "com.apple.Translate"),
     InstalledApp(displayName: "Podcasts", bundleName: "Podcasts", bundleIdentifier: "com.apple.podcasts"),
     InstalledApp(displayName: "Calculator", bundleName: "Calculator", bundleIdentifier: "com.apple.calculator"),

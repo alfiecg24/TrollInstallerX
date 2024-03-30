@@ -11,9 +11,9 @@ struct SettingsView: View {
     
     let device: Device
     
-    @AppStorage("exploitFlavour") var exploitFlavour: String = "landa"
+    @AppStorage("exploitFlavour") var exploitFlavour: String = ""
     @AppStorage("verbose") var verbose: Bool = false
-        
+    
     var body: some View {
         VStack(spacing: 10) {
             Button(action: {
@@ -35,18 +35,18 @@ struct SettingsView: View {
             })
             .padding()
             if smith.supports(device) || physpuppet.supports(device) {
-                    Picker("Kernel exploit", selection: $exploitFlavour) {
-                        Text("landa").foregroundColor(.white).tag("landa")
-                        if smith.supports(device) {
-                            Text("smith").foregroundColor(.white).tag("smith")
-                        }
-                        if physpuppet.supports(device) {
-                            Text("physpuppet").foregroundColor(.white).tag("physpuppet")
-                        }
+                Picker("Kernel exploit", selection: $exploitFlavour) {
+                    Text("landa").foregroundColor(.white).tag("landa")
+                    if smith.supports(device) {
+                        Text("smith").foregroundColor(.white).tag("smith")
                     }
-                    .pickerStyle(.segmented)
-                    .colorMultiply(.white)
-                    .padding()
+                    if physpuppet.supports(device) {
+                        Text("physpuppet").foregroundColor(.white).tag("physpuppet")
+                    }
+                }
+                .pickerStyle(.segmented)
+                .colorMultiply(.white)
+                .padding()
             }
             VStack {
                 Toggle(isOn: $verbose, label: {
@@ -54,7 +54,14 @@ struct SettingsView: View {
                         .font(.system(size: 17, weight: .regular, design: .rounded))
                         .foregroundColor(.white)
                 })
-            }.padding()
+            }
+            .padding()
+            
+        }
+        .onAppear {
+            if exploitFlavour == "" {
+                exploitFlavour = physpuppet.supports(device) ? "physpuppet" : "landa"
+            }
         }
     }
 }

@@ -11,7 +11,6 @@ var tixUserDefaults: UserDefaults? = nil
 public func TIXDefaults() -> UserDefaults {
     if tixUserDefaults == nil {
         let tixDefaultsPath = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask)[0].path + "/Preferences/com.Alfie.TrollInstallerX.plist"
-        print("Defaults path: \(tixDefaultsPath)")
         tixUserDefaults = UserDefaults.init(suiteName: tixDefaultsPath)
         tixUserDefaults!.register(defaults: [
             "tweakInjectionEnabled": true,

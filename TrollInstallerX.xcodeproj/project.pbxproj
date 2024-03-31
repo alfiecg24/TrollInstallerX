@@ -50,6 +50,7 @@
 		319CE29B2BB31ABB00189EDE /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319CE29A2BB31ABB00189EDE /* SettingsView.swift */; };
 		319CE29D2BB31ED400189EDE /* UnsandboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319CE29C2BB31ED400189EDE /* UnsandboxView.swift */; };
 		319CE29F2BB31F7300189EDE /* TrollHelperOTAView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319CE29E2BB31F7300189EDE /* TrollHelperOTAView.swift */; };
+		31A6FFF52BB9EA30008F69F8 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A6FFF42BB9EA30008F69F8 /* Defaults.swift */; };
 		31ABE97D2BAD953F003C35E0 /* escalate.c in Sources */ = {isa = PBXBuildFile; fileRef = 31ABE97C2BAD953F003C35E0 /* escalate.c */; };
 		31ABE97F2BAD96C2003C35E0 /* UIDevice++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ABE97E2BAD96C2003C35E0 /* UIDevice++.swift */; };
 		31ABE9812BAD9821003C35E0 /* libxpf.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 316661D02BAD9221009D22D8 /* libxpf.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -200,6 +201,7 @@
 		31A57C1A2BB62B3F00311C2E /* availability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = availability.h; sourceTree = "<group>"; };
 		31A57C1B2BB62B3F00311C2E /* rich_error.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rich_error.h; sourceTree = "<group>"; };
 		31A57C1C2BB62B3F00311C2E /* session.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = session.h; sourceTree = "<group>"; };
+		31A6FFF42BB9EA30008F69F8 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		31ABE97B2BAD953F003C35E0 /* escalate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = escalate.h; sourceTree = "<group>"; };
 		31ABE97C2BAD953F003C35E0 /* escalate.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = escalate.c; sourceTree = "<group>"; };
 		31ABE97E2BAD96C2003C35E0 /* UIDevice++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice++.swift"; sourceTree = "<group>"; };
@@ -337,6 +339,7 @@
 				316661452BAD8AF8009D22D8 /* Install.swift */,
 				3199C2252BB78AED00A196E9 /* InstalledApp.swift */,
 				316661432BAD889C009D22D8 /* Version.swift */,
+				31A6FFF42BB9EA30008F69F8 /* Defaults.swift */,
 				319C8F7E2BB89D0700E19B34 /* GitHubResponse.swift */,
 				316661412BAD86AE009D22D8 /* Exploit.swift */,
 				31F859CB2BADEC8E00A74022 /* Logger.swift */,
@@ -762,6 +765,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				31F859EA2BAE008200A74022 /* kfd.m in Sources */,
+				31A6FFF52BB9EA30008F69F8 /* Defaults.swift in Sources */,
 				31F859CC2BADEC8E00A74022 /* Logger.swift in Sources */,
 				31F85A002BAE123B00A74022 /* install.m in Sources */,
 				3166619F2BAD918E009D22D8 /* jbclient_xpc.c in Sources */,

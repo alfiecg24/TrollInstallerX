@@ -59,7 +59,7 @@ func cleanup_private_preboot() -> Bool {
 }
 
 func selectExploit(_ device: Device) -> Exploit {
-    let flavour = (UserDefaults.standard.string(forKey: "exploitFlavour") ?? (physpuppet.supports(device) ? "physpuppet" : "landa"))
+    let flavour = (TIXDefaults().string(forKey: "exploitFlavour") ?? (physpuppet.supports(device) ? "physpuppet" : "landa"))
     if flavour == "landa" { return landa }
     if flavour == "physpuppet" { return physpuppet }
     if flavour == "smith" { return smith }
@@ -202,7 +202,7 @@ func doInstall(_ device: Device) async -> Bool {
         HelperAlert.shared.objectWillChange.send()
     }
     while HelperAlert.shared.showAlert { }
-    let persistenceID = UserDefaults.standard.string(forKey: "persistenceHelper")
+    let persistenceID = TIXDefaults().string(forKey: "persistenceHelper")
     
     if persistenceID != "" {
         if install_persistence_helper(persistenceID) {

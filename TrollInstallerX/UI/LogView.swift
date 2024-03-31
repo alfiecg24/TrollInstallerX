@@ -4,7 +4,7 @@ struct LogView: View {
     @StateObject var logger = Logger.shared
     @Binding var installationFinished: Bool
     
-    @AppStorage("verbose") var verbose: Bool = false
+    @AppStorage("verbose", store: TIXDefaults()) var verbose: Bool = false
     
     let pipe = Pipe()
     let sema = DispatchSemaphore(value: 0)

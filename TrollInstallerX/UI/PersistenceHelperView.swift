@@ -24,7 +24,7 @@ struct PersistenceHelperView: View {
             VStack(spacing: 20) {
                 ForEach(getCandidates(), id: \.self) { candidate in
                     Button(action: {
-                        UserDefaults.standard.setValue(candidate.bundleIdentifier, forKey: "persistenceHelper")
+                        TIXDefaults().setValue(candidate.bundleIdentifier, forKey: "persistenceHelper")
                         withAnimation {
                             isShowingHelperAlert = false
                         }
@@ -51,7 +51,7 @@ struct PersistenceHelperView: View {
                 }
                 Divider()
                 Button(action: {
-                    UserDefaults.standard.setValue("", forKey: "persistenceHelper")
+                    TIXDefaults().setValue("", forKey: "persistenceHelper")
                     withAnimation {
                         isShowingHelperAlert = false
                     }

@@ -46,7 +46,7 @@ func getUpdatedTrollStore() async {
         if let version = version {
             print("Current version: \(version)")
             let currentVersion = Version(version)
-            if currentVersion > bundledVersion && currentVersion > Version(UserDefaults.standard.string(forKey: "localVersion") ?? "0.0.0") {
+            if currentVersion > bundledVersion && currentVersion > Version(TIXDefaults().string(forKey: "localVersion") ?? "0.0.0") {
                 print("Out of date!")
                 newVersion = version
                 try? FileManager.default.removeItem(at: documentsURL.appendingPathComponent("TrollStore.tar"))
@@ -63,7 +63,7 @@ func getUpdatedTrollStore() async {
             let newURL = newFile
             print("New: \(newURL.path)")
             try FileManager.default.moveItem(at: newFile, to: documentsURL.appendingPathComponent("TrollStore.tar"))
-            UserDefaults.standard.setValue(newVersion, forKey: "localVersion")
+            TIXDefaults().setValue(newVersion, forKey: "localVersion")
         } catch {
             print("Failed to download/move TrollStore.tar - \(error.localizedDescription)")
         }

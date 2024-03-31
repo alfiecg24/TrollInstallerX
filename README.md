@@ -21,7 +21,7 @@ Both methods allow you to install a persistence helper into a removable system a
 ## Usage
 TrollInstallerX is extremely easy to use. Simply download the latest release from the [Releases](https://github.com/alfiecg24/TrollInstallerX/releases) page, and sideload it using your preferred method. Once installed, open the app and press the "Install" button. From there, TrollStore and/or its persistence helper will be installed onto your device.
 
-TrollInstallerX will automatically choose the best exploit for your device. However, in some cases, you may want to choose a specific exploit. To do this, simply open the settings view and select the exploit that you want to use. Once you have selected it, press the "Install" button and TrollInstallerX will use the exploit you have chosen.
+TrollInstallerX will automatically choose the best exploit for your device. However, in some cases, you may want to choose a specific exploit. To do this, simply open the settings view and select the exploit that you want to use. Once you have selected it, press the "Install TrollStore" button and TrollInstallerX will use the exploit you have chosen.
 
 **Note**: iOS 16.2 - 16.6.1 require an internet connection in order for TrollInstallerX to download the kernelcache and patchfind it. If your device is unable to obtain a reliable internet connection, you will need to manually supply the kernelcache yourself.
 

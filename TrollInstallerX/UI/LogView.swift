@@ -89,17 +89,12 @@ struct LogView: View {
                         
                         .onChange(of: logger.logItems) { _ in
                             DispatchQueue.main.async {
-//                                withAnimation {
                                     proxy.scrollTo(logger.logItems.last!.id, anchor: .bottom)
-//                                }
                             }
                         }
                     }
                 }
-                
-//                .frame(height: geometry.size.height)
             }
-            //            .frame(width: geometry.size.width, height: geometry.size.height)
             .contextMenu {
                 Button {
                     UIPasteboard.general.string = verbose ? stderrString : Logger.shared.logString

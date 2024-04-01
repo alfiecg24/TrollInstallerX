@@ -25,6 +25,7 @@ NSString* get_NSString_from_file(int fd)
     return ms.copy;
 }
 
+// Note: spawns as current user (don't use after dropping root)
 int run_binary(NSString* path, NSArray* args, NSString** output)
 {
     NSMutableArray* argsM = args.mutableCopy;

@@ -46,7 +46,7 @@ func getKernel(_ device: Device) -> Bool {
 }
 
 
-func cleanup_private_preboot() -> Bool {
+func cleanupPrivatePreboot() -> Bool {
     // Remove /private/preboot/tmp
     let fileManager = FileManager.default
     do {
@@ -58,19 +58,12 @@ func cleanup_private_preboot() -> Bool {
     return true
 }
 
-func selectExploit(_ device: Device) -> Exploit {
+func selectExploit(_ device: Device) -> KernelExploit {
     let flavour = (TIXDefaults().string(forKey: "exploitFlavour") ?? (physpuppet.supports(device) ? "physpuppet" : "landa"))
     if flavour == "landa" { return landa }
     if flavour == "physpuppet" { return physpuppet }
     if flavour == "smith" { return smith }
     return landa
-}
-
-func modelIdentifier() -> String {
-    if let simulatorModelIdentifier = ProcessInfo().environment["SIMULATOR_MODEL_IDENTIFIER"] { return simulatorModelIdentifier }
-    var sysinfo = utsname()
-    uname(&sysinfo) // ignore return value
-    return String(bytes: Data(bytes: &sysinfo.machine, count: Int(_SYS_NAMELEN)), encoding: .ascii)!.trimmingCharacters(in: .controlCharacters)
 }
 
 func getCandidates() -> [InstalledApp] {
@@ -82,14 +75,14 @@ func getCandidates() -> [InstalledApp] {
 }
 
 @discardableResult
-func doInstall(_ device: Device) async -> Bool {
+func doDirectInstall(_ device: Device) async -> Bool {
     
     let exploit = selectExploit(device)
     
-    let iOS14 = !device.version.supportsMajorVersion(15)
-    let supportsFullPhysRW = (device.isArm64e && device.version >= Version(major: 15, minor: 2)) || (!device.isArm64e && device.version.supportsMajorVersion(15))
+    let iOS14 = device.version < Version("15.0")
+    let supportsFullPhysRW = (device.isArm64e && device.version >= Version(major: 15, minor: 2)) || (!device.isArm64e && device.version >= Version("15.0"))
     
-    Logger.log("Running on an \(modelIdentifier()) on iOS \(device.version.readableString)")
+    Logger.log("Running on an \(device.modelIdentifier) on iOS \(device.version.readableString)")
     
     if !iOS14 {
         if !(getKernel(device)) {
@@ -105,7 +98,7 @@ func doInstall(_ device: Device) async -> Bool {
     }
     
     Logger.log("Exploiting kernel (\(exploit.name))")
-    if !exploit.initialise!() {
+    if !exploit.initialise() {
         Logger.log("Failed to exploit the kernel", type: .error)
         return false
     }
@@ -120,7 +113,7 @@ func doInstall(_ device: Device) async -> Bool {
     if supportsFullPhysRW {
         if device.isArm64e {
             Logger.log("Bypassing PPL (\(dmaFail.name))")
-            if !dmaFail.initialise!() {
+            if !dmaFail.initialise() {
                 Logger.log("Failed to bypass PPL", type: .error)
                 return false
             }
@@ -138,14 +131,14 @@ func doInstall(_ device: Device) async -> Bool {
         
         if device.isArm64e {
             Logger.log("Deinitialising PPL bypass (\(dmaFail.name))")
-            if !dmaFail.deinitialise!() {
+            if !dmaFail.deinitialise() {
                 Logger.log("Failed to deinitialise \(dmaFail.name)", type: .error)
                 return false
             }
         }
         
         Logger.log("Deinitialising kernel exploit (\(exploit.name))")
-        if !exploit.deinitialise!() {
+        if !exploit.deinitialise() {
             Logger.log("Failed to deinitialise \(exploit.name)", type: .error)
             return false
         }
@@ -191,7 +184,7 @@ func doInstall(_ device: Device) async -> Bool {
 
     if !fileManager.fileExists(atPath: "/private/preboot/tmp/trollstorehelper") {
         Logger.log("Extracting TrollStore.tar")
-        if !extract_trollstore(useLocalCopy) {
+        if !extractTrollStore(useLocalCopy) {
             Logger.log("Failed to extract TrollStore.tar", type: .error)
             return false
         }
@@ -219,7 +212,7 @@ func doInstall(_ device: Device) async -> Bool {
         Logger.log("Successfully installed TrollStore", type: .success)
     }
     
-    if !cleanup_private_preboot() {
+    if !cleanupPrivatePreboot() {
         Logger.log("Failed to clean up /private/preboot", type: .error)
     }
     
@@ -229,11 +222,15 @@ func doInstall(_ device: Device) async -> Bool {
             return false
         }
         Logger.log("Deinitialising kernel exploit (\(exploit.name))")
-        if !exploit.deinitialise!() {
+        if !exploit.deinitialise() {
             Logger.log("Failed to deinitialise \(exploit.name)", type: .error)
             return false
         }
     }
     
+    return true
+}
+
+func doIndirectInstall(_ device: Device) async -> Bool {
     return true
 }

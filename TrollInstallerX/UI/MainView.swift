@@ -11,7 +11,7 @@ struct MainView: View {
     
     @State private var isInstalling = false
     
-    @State private var device: Device = initDevice()
+    @State private var device: Device = Device()
     
     @State private var isShowingMDCAlert = false
     @State private var isShowingOTAAlert = false
@@ -129,7 +129,7 @@ struct MainView: View {
                     })
                 }
             }
-            // Hacky, but it works
+            // Hacky, but it works (can't pass helperView.showAlert as a binding variable)
             .onChange(of: helperView.showAlert) { new in
                 if new {
                     withAnimation {
@@ -144,7 +144,7 @@ struct MainView: View {
             }
             .onChange(of: isInstalling) { _ in
                 Task {
-                    installedSuccessfully = await doInstall(device)
+                    installedSuccessfully = await doDirectInstall(device)
                     installationFinished = true
                 }
             }

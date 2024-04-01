@@ -9,7 +9,6 @@ import Foundation
 
 // Function to download a file into memory instead of writing to a file on disk
 // https://api.github.com/repos/opa334/TrollStore/releases/latest
-// https://github.com/opa334/TrollStore/releases/latest/download/PersistenceHelper_Embedded
 // https://github.com/opa334/TrollStore/releases/latest/download/TrollStore.tar
 func downloadFile(from url: URL) async throws -> URL {
     return try await withCheckedThrowingContinuation { continuation in

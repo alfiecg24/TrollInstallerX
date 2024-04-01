@@ -14,25 +14,20 @@
 		316661402BAD862C009D22D8 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3166613F2BAD862C009D22D8 /* Device.swift */; };
 		316661422BAD86AE009D22D8 /* Exploit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316661412BAD86AE009D22D8 /* Exploit.swift */; };
 		316661442BAD889C009D22D8 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316661432BAD889C009D22D8 /* Version.swift */; };
-		316661462BAD8AF8009D22D8 /* Install.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316661452BAD8AF8009D22D8 /* Install.swift */; };
 		316661542BAD8BB8009D22D8 /* helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 3166614D2BAD8BB8009D22D8 /* helpers.m */; };
 		316661552BAD8BB8009D22D8 /* kernel_find.m in Sources */ = {isa = PBXBuildFile; fileRef = 3166614E2BAD8BB8009D22D8 /* kernel_find.m */; };
 		316661562BAD8BB8009D22D8 /* grant_full_disk_access.m in Sources */ = {isa = PBXBuildFile; fileRef = 316661502BAD8BB8009D22D8 /* grant_full_disk_access.m */; };
 		316661572BAD8BB8009D22D8 /* vm_unaligned_copy_switch_race.c in Sources */ = {isa = PBXBuildFile; fileRef = 316661532BAD8BB8009D22D8 /* vm_unaligned_copy_switch_race.c */; };
 		3166616D2BAD916A009D22D8 /* dmaFail.c in Sources */ = {isa = PBXBuildFile; fileRef = 3166616C2BAD916A009D22D8 /* dmaFail.c */; };
-		316661932BAD918E009D22D8 /* signatures.m in Sources */ = {isa = PBXBuildFile; fileRef = 316661852BAD918E009D22D8 /* signatures.m */; };
 		316661942BAD918E009D22D8 /* physrw_pte.c in Sources */ = {isa = PBXBuildFile; fileRef = 316661862BAD918E009D22D8 /* physrw_pte.c */; };
 		316661952BAD918E009D22D8 /* kernel.c in Sources */ = {isa = PBXBuildFile; fileRef = 316661872BAD918E009D22D8 /* kernel.c */; };
 		316661962BAD918E009D22D8 /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = 316661882BAD918E009D22D8 /* util.c */; };
 		316661972BAD918E009D22D8 /* util.m in Sources */ = {isa = PBXBuildFile; fileRef = 316661892BAD918E009D22D8 /* util.m */; };
-		316661982BAD918E009D22D8 /* trustcache.c in Sources */ = {isa = PBXBuildFile; fileRef = 3166618A2BAD918E009D22D8 /* trustcache.c */; };
 		316661992BAD918E009D22D8 /* info.c in Sources */ = {isa = PBXBuildFile; fileRef = 3166618B2BAD918E009D22D8 /* info.c */; };
 		3166619A2BAD918E009D22D8 /* primitives_IOSurface.m in Sources */ = {isa = PBXBuildFile; fileRef = 3166618C2BAD918E009D22D8 /* primitives_IOSurface.m */; };
 		3166619B2BAD918E009D22D8 /* primitives.c in Sources */ = {isa = PBXBuildFile; fileRef = 3166618D2BAD918E009D22D8 /* primitives.c */; };
-		3166619C2BAD918E009D22D8 /* jbserver.c in Sources */ = {isa = PBXBuildFile; fileRef = 3166618E2BAD918E009D22D8 /* jbserver.c */; };
 		3166619D2BAD918E009D22D8 /* kalloc_pt.m in Sources */ = {isa = PBXBuildFile; fileRef = 3166618F2BAD918E009D22D8 /* kalloc_pt.m */; };
 		3166619E2BAD918E009D22D8 /* physrw.c in Sources */ = {isa = PBXBuildFile; fileRef = 316661902BAD918E009D22D8 /* physrw.c */; };
-		3166619F2BAD918E009D22D8 /* jbclient_xpc.c in Sources */ = {isa = PBXBuildFile; fileRef = 316661912BAD918E009D22D8 /* jbclient_xpc.c */; };
 		316661A02BAD918E009D22D8 /* translation.c in Sources */ = {isa = PBXBuildFile; fileRef = 316661922BAD918E009D22D8 /* translation.c */; };
 		316661B32BAD91ED009D22D8 /* libchoma.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 316661B22BAD91ED009D22D8 /* libchoma.a */; };
 		316661D12BAD9221009D22D8 /* libfragmentzip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 316661CD2BAD9221009D22D8 /* libfragmentzip.a */; };
@@ -42,7 +37,6 @@
 		316661D72BAD93AB009D22D8 /* libarchive.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 316661D62BAD939E009D22D8 /* libarchive.tbd */; };
 		3199C2262BB78AED00A196E9 /* InstalledApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3199C2252BB78AED00A196E9 /* InstalledApp.swift */; };
 		319C8F7D2BB89CC900E19B34 /* Update.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319C8F7C2BB89CC900E19B34 /* Update.swift */; };
-		319C8F7F2BB89D0700E19B34 /* GitHubResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319C8F7E2BB89D0700E19B34 /* GitHubResponse.swift */; };
 		319C8F852BB8A50600E19B34 /* update.m in Sources */ = {isa = PBXBuildFile; fileRef = 319C8F842BB8A50600E19B34 /* update.m */; };
 		319C8F8C2BB8AFBE00E19B34 /* TrollStore.tar in Resources */ = {isa = PBXBuildFile; fileRef = 319C8F8B2BB8AFBE00E19B34 /* TrollStore.tar */; };
 		319C8F8E2BB8BAD200E19B34 /* PersistenceHelperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319C8F8D2BB8BAD200E19B34 /* PersistenceHelperView.swift */; };
@@ -52,7 +46,6 @@
 		319CE29F2BB31F7300189EDE /* TrollHelperOTAView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 319CE29E2BB31F7300189EDE /* TrollHelperOTAView.swift */; };
 		31A6FFF52BB9EA30008F69F8 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A6FFF42BB9EA30008F69F8 /* Defaults.swift */; };
 		31ABE97D2BAD953F003C35E0 /* escalate.c in Sources */ = {isa = PBXBuildFile; fileRef = 31ABE97C2BAD953F003C35E0 /* escalate.c */; };
-		31ABE97F2BAD96C2003C35E0 /* UIDevice++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ABE97E2BAD96C2003C35E0 /* UIDevice++.swift */; };
 		31ABE9812BAD9821003C35E0 /* libxpf.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 316661D02BAD9221009D22D8 /* libxpf.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		31ABE9832BAD997C003C35E0 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ABE9822BAD997C003C35E0 /* MainView.swift */; };
 		31BA7FF62BAF0CB00061DC7A /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BA7FF52BAF0CB00061DC7A /* PopupView.swift */; };
@@ -92,7 +85,6 @@
 		3166613F2BAD862C009D22D8 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		316661412BAD86AE009D22D8 /* Exploit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exploit.swift; sourceTree = "<group>"; };
 		316661432BAD889C009D22D8 /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
-		316661452BAD8AF8009D22D8 /* Install.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Install.swift; sourceTree = "<group>"; };
 		3166614B2BAD8BB7009D22D8 /* TrollInstallerX-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TrollInstallerX-Bridging-Header.h"; sourceTree = "<group>"; };
 		3166614C2BAD8BB8009D22D8 /* grant_full_disk_access.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = grant_full_disk_access.h; sourceTree = "<group>"; };
 		3166614D2BAD8BB8009D22D8 /* helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = helpers.m; sourceTree = "<group>"; };
@@ -111,32 +103,23 @@
 		316661742BAD918E009D22D8 /* machine_info.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = machine_info.h; sourceTree = "<group>"; };
 		316661752BAD918E009D22D8 /* primitives_external.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = primitives_external.h; sourceTree = "<group>"; };
 		316661762BAD918E009D22D8 /* translation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = translation.h; sourceTree = "<group>"; };
-		316661772BAD918E009D22D8 /* jbclient_xpc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jbclient_xpc.h; sourceTree = "<group>"; };
 		316661782BAD918E009D22D8 /* physrw_pte.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = physrw_pte.h; sourceTree = "<group>"; };
-		316661792BAD918E009D22D8 /* trustcache_structs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = trustcache_structs.h; sourceTree = "<group>"; };
-		3166617A2BAD918E009D22D8 /* signatures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = signatures.h; sourceTree = "<group>"; };
 		3166617B2BAD918E009D22D8 /* pvh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pvh.h; sourceTree = "<group>"; };
-		3166617C2BAD918E009D22D8 /* trustcache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = trustcache.h; sourceTree = "<group>"; };
 		3166617D2BAD918E009D22D8 /* util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = util.h; sourceTree = "<group>"; };
 		3166617E2BAD918E009D22D8 /* kernel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kernel.h; sourceTree = "<group>"; };
-		3166617F2BAD918E009D22D8 /* jbserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jbserver.h; sourceTree = "<group>"; };
 		316661802BAD918E009D22D8 /* primitives_IOSurface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = primitives_IOSurface.h; sourceTree = "<group>"; };
 		316661812BAD918E009D22D8 /* primitives.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = primitives.h; sourceTree = "<group>"; };
 		316661822BAD918E009D22D8 /* info.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = info.h; sourceTree = "<group>"; };
 		316661832BAD918E009D22D8 /* kalloc_pt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kalloc_pt.h; sourceTree = "<group>"; };
-		316661852BAD918E009D22D8 /* signatures.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = signatures.m; sourceTree = "<group>"; };
 		316661862BAD918E009D22D8 /* physrw_pte.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = physrw_pte.c; sourceTree = "<group>"; };
 		316661872BAD918E009D22D8 /* kernel.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = kernel.c; sourceTree = "<group>"; };
 		316661882BAD918E009D22D8 /* util.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = util.c; sourceTree = "<group>"; };
 		316661892BAD918E009D22D8 /* util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = util.m; sourceTree = "<group>"; };
-		3166618A2BAD918E009D22D8 /* trustcache.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = trustcache.c; sourceTree = "<group>"; };
 		3166618B2BAD918E009D22D8 /* info.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = info.c; sourceTree = "<group>"; };
 		3166618C2BAD918E009D22D8 /* primitives_IOSurface.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = primitives_IOSurface.m; sourceTree = "<group>"; };
 		3166618D2BAD918E009D22D8 /* primitives.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = primitives.c; sourceTree = "<group>"; };
-		3166618E2BAD918E009D22D8 /* jbserver.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jbserver.c; sourceTree = "<group>"; };
 		3166618F2BAD918E009D22D8 /* kalloc_pt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = kalloc_pt.m; sourceTree = "<group>"; };
 		316661902BAD918E009D22D8 /* physrw.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = physrw.c; sourceTree = "<group>"; };
-		316661912BAD918E009D22D8 /* jbclient_xpc.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jbclient_xpc.c; sourceTree = "<group>"; };
 		316661922BAD918E009D22D8 /* translation.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = translation.c; sourceTree = "<group>"; };
 		316661A32BAD91E5009D22D8 /* MachOLoadCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MachOLoadCommand.h; sourceTree = "<group>"; };
 		316661A42BAD91E5009D22D8 /* MemoryStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryStream.h; sourceTree = "<group>"; };
@@ -182,7 +165,6 @@
 		318298502BB70D7800B9DB42 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		3199C2252BB78AED00A196E9 /* InstalledApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstalledApp.swift; sourceTree = "<group>"; };
 		319C8F7C2BB89CC900E19B34 /* Update.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Update.swift; sourceTree = "<group>"; };
-		319C8F7E2BB89D0700E19B34 /* GitHubResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubResponse.swift; sourceTree = "<group>"; };
 		319C8F842BB8A50600E19B34 /* update.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = update.m; sourceTree = "<group>"; };
 		319C8F862BB8A51100E19B34 /* update.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = update.h; sourceTree = "<group>"; };
 		319C8F8B2BB8AFBE00E19B34 /* TrollStore.tar */ = {isa = PBXFileReference; lastKnownFileType = archive.tar; path = TrollStore.tar; sourceTree = "<group>"; };
@@ -204,7 +186,6 @@
 		31A6FFF42BB9EA30008F69F8 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		31ABE97B2BAD953F003C35E0 /* escalate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = escalate.h; sourceTree = "<group>"; };
 		31ABE97C2BAD953F003C35E0 /* escalate.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = escalate.c; sourceTree = "<group>"; };
-		31ABE97E2BAD96C2003C35E0 /* UIDevice++.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice++.swift"; sourceTree = "<group>"; };
 		31ABE9822BAD997C003C35E0 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		31BA7FF52BAF0CB00061DC7A /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 		31F859C92BADEC6E00A74022 /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
@@ -327,7 +308,6 @@
 			isa = PBXGroup;
 			children = (
 				3166613C2BAD849C009D22D8 /* Color++.swift */,
-				31ABE97E2BAD96C2003C35E0 /* UIDevice++.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -336,11 +316,9 @@
 			isa = PBXGroup;
 			children = (
 				3166613F2BAD862C009D22D8 /* Device.swift */,
-				316661452BAD8AF8009D22D8 /* Install.swift */,
 				3199C2252BB78AED00A196E9 /* InstalledApp.swift */,
 				316661432BAD889C009D22D8 /* Version.swift */,
 				31A6FFF42BB9EA30008F69F8 /* Defaults.swift */,
-				319C8F7E2BB89D0700E19B34 /* GitHubResponse.swift */,
 				316661412BAD86AE009D22D8 /* Exploit.swift */,
 				31F859CB2BADEC8E00A74022 /* Logger.swift */,
 			);
@@ -425,43 +403,26 @@
 				316661742BAD918E009D22D8 /* machine_info.h */,
 				316661752BAD918E009D22D8 /* primitives_external.h */,
 				316661762BAD918E009D22D8 /* translation.h */,
-				316661772BAD918E009D22D8 /* jbclient_xpc.h */,
 				316661782BAD918E009D22D8 /* physrw_pte.h */,
-				316661792BAD918E009D22D8 /* trustcache_structs.h */,
-				3166617A2BAD918E009D22D8 /* signatures.h */,
 				3166617B2BAD918E009D22D8 /* pvh.h */,
-				3166617C2BAD918E009D22D8 /* trustcache.h */,
 				3166617D2BAD918E009D22D8 /* util.h */,
 				3166617E2BAD918E009D22D8 /* kernel.h */,
-				3166617F2BAD918E009D22D8 /* jbserver.h */,
 				316661802BAD918E009D22D8 /* primitives_IOSurface.h */,
 				316661812BAD918E009D22D8 /* primitives.h */,
 				316661822BAD918E009D22D8 /* info.h */,
 				316661832BAD918E009D22D8 /* kalloc_pt.h */,
-				316661852BAD918E009D22D8 /* signatures.m */,
 				316661862BAD918E009D22D8 /* physrw_pte.c */,
 				316661872BAD918E009D22D8 /* kernel.c */,
 				316661882BAD918E009D22D8 /* util.c */,
 				316661892BAD918E009D22D8 /* util.m */,
-				3166618A2BAD918E009D22D8 /* trustcache.c */,
 				3166618B2BAD918E009D22D8 /* info.c */,
 				3166618C2BAD918E009D22D8 /* primitives_IOSurface.m */,
 				3166618D2BAD918E009D22D8 /* primitives.c */,
-				3166618E2BAD918E009D22D8 /* jbserver.c */,
 				3166618F2BAD918E009D22D8 /* kalloc_pt.m */,
 				316661902BAD918E009D22D8 /* physrw.c */,
-				316661912BAD918E009D22D8 /* jbclient_xpc.c */,
 				316661922BAD918E009D22D8 /* translation.c */,
-				316661842BAD918E009D22D8 /* src */,
 			);
 			path = libjailbreak;
-			sourceTree = "<group>";
-		};
-		316661842BAD918E009D22D8 /* src */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = src;
 			sourceTree = "<group>";
 		};
 		316661A12BAD91CF009D22D8 /* lib */ = {
@@ -768,21 +729,16 @@
 				31A6FFF52BB9EA30008F69F8 /* Defaults.swift in Sources */,
 				31F859CC2BADEC8E00A74022 /* Logger.swift in Sources */,
 				31F85A002BAE123B00A74022 /* install.m in Sources */,
-				3166619F2BAD918E009D22D8 /* jbclient_xpc.c in Sources */,
 				31ABE9832BAD997C003C35E0 /* MainView.swift in Sources */,
 				319CE29B2BB31ABB00189EDE /* SettingsView.swift in Sources */,
 				3166613D2BAD849C009D22D8 /* Color++.swift in Sources */,
 				316661972BAD918E009D22D8 /* util.m in Sources */,
-				316661982BAD918E009D22D8 /* trustcache.c in Sources */,
 				316661962BAD918E009D22D8 /* util.c in Sources */,
 				31ABE97D2BAD953F003C35E0 /* escalate.c in Sources */,
-				319C8F7F2BB89D0700E19B34 /* GitHubResponse.swift in Sources */,
 				319CE29D2BB31ED400189EDE /* UnsandboxView.swift in Sources */,
 				319C8F7D2BB89CC900E19B34 /* Update.swift in Sources */,
-				31ABE97F2BAD96C2003C35E0 /* UIDevice++.swift in Sources */,
 				3199C2262BB78AED00A196E9 /* InstalledApp.swift in Sources */,
 				31F85A022BAE126800A74022 /* run.m in Sources */,
-				316661932BAD918E009D22D8 /* signatures.m in Sources */,
 				319CE2992BB31A8500189EDE /* CreditsView.swift in Sources */,
 				3166619D2BAD918E009D22D8 /* kalloc_pt.m in Sources */,
 				316661572BAD8BB8009D22D8 /* vm_unaligned_copy_switch_race.c in Sources */,
@@ -809,8 +765,6 @@
 				316661442BAD889C009D22D8 /* Version.swift in Sources */,
 				316661402BAD862C009D22D8 /* Device.swift in Sources */,
 				319CE29F2BB31F7300189EDE /* TrollHelperOTAView.swift in Sources */,
-				3166619C2BAD918E009D22D8 /* jbserver.c in Sources */,
-				316661462BAD8AF8009D22D8 /* Install.swift in Sources */,
 				319C8F852BB8A50600E19B34 /* update.m in Sources */,
 				316661542BAD8BB8009D22D8 /* helpers.m in Sources */,
 			);

@@ -190,6 +190,9 @@ func doDirectInstall(_ device: Device) async -> Bool {
         }
     }
     
+    let newCandidates = getCandidates()
+    persistenceHelperCandidates = newCandidates
+    
     DispatchQueue.main.sync {
         HelperAlert.shared.showAlert = true
         HelperAlert.shared.objectWillChange.send()
@@ -232,5 +235,79 @@ func doDirectInstall(_ device: Device) async -> Bool {
 }
 
 func doIndirectInstall(_ device: Device) async -> Bool {
+    let exploit = selectExploit(device)
+    
+    Logger.log("Running on an \(device.modelIdentifier) on iOS \(device.version.readableString)")
+    
+    if !(getKernel(device)) {
+        Logger.log("Failed to get kernel", type: .error)
+    }
+    
+    Logger.log("Gathering kernel information")
+    if !initialise_kernel_info(kernelPath, false) {
+        Logger.log("Failed to patchfind kernel", type: .error)
+        return false
+    }
+    
+    Logger.log("Exploiting kernel (\(exploit.name))")
+    if !exploit.initialise() {
+        Logger.log("Failed to exploit the kernel", type: .error)
+        return false
+    }
+    Logger.log("Successfully exploited the kernel", type: .success)
+    post_kernel_exploit(false)
+    
+    let apps = get_installed_apps() as? [String]
+    var candidates = [InstalledApp]()
+    print("\n\nApps:")
+    for app in apps ?? [String]() {
+        print(app)
+        for candidate in persistenceHelperCandidates {
+            if app.components(separatedBy: "/")[1].replacingOccurrences(of: ".app", with: "") == candidate.bundleName {
+                candidates.append(candidate)
+                candidates[candidates.count - 1].isInstalled = true
+                candidates[candidates.count - 1].bundlePath = "/var/containers/Bundle/Application/" + app
+            }
+        }
+    }
+    
+    persistenceHelperCandidates = candidates
+    
+    DispatchQueue.main.sync {
+        HelperAlert.shared.showAlert = true
+        HelperAlert.shared.objectWillChange.send()
+    }
+    while HelperAlert.shared.showAlert { }
+    let persistenceID = TIXDefaults().string(forKey: "persistenceHelper")
+    
+    var pathToInstall = ""
+    for candidate in persistenceHelperCandidates {
+        if persistenceID == candidate.bundleIdentifier {
+            pathToInstall = candidate.bundlePath!
+        }
+    }
+    var success = false
+    if !install_persistence_helper_via_vnode(pathToInstall) {
+        Logger.log("Failed to install persistence helper", type: .error)
+    } else {
+        Logger.log("Successfully installed persistence helper!", type: .success)
+        success = true
+    }
+    
+    Logger.log("Deinitialising kernel exploit (\(exploit.name))")
+    if !exploit.deinitialise() {
+        Logger.log("Failed to deinitialise \(exploit.name)", type: .error)
+        return false
+    }
+    
+    if success {
+        let verbose = TIXDefaults().bool(forKey: "verbose")
+        Logger.log("Respringing in \(verbose ? "15" : "5") seconds")
+        DispatchQueue.global().async {
+            sleep(verbose ? 15 : 5)
+            restartBackboard()
+        }
+    }
+    
     return true
 }

@@ -13,7 +13,7 @@ public func TIXDefaults() -> UserDefaults {
         let tixDefaultsPath = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask)[0].path + "/Preferences/com.Alfie.TrollInstallerX.plist"
         tixUserDefaults = UserDefaults.init(suiteName: tixDefaultsPath)
         tixUserDefaults!.register(defaults: [
-            "tweakInjectionEnabled": true,
+            "verbose": false,
         ])
     }
     return tixUserDefaults!

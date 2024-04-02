@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31083CCE2BBAE668006286CE /* vnode.m in Sources */ = {isa = PBXBuildFile; fileRef = 31083CCD2BBAE668006286CE /* vnode.m */; };
 		3166612D2BAD8465009D22D8 /* TrollInstallerXApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3166612C2BAD8465009D22D8 /* TrollInstallerXApp.swift */; };
 		316661312BAD8466009D22D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 316661302BAD8466009D22D8 /* Assets.xcassets */; };
 		316661342BAD8466009D22D8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 316661332BAD8466009D22D8 /* Preview Assets.xcassets */; };
@@ -77,6 +78,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		31083CCD2BBAE668006286CE /* vnode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = vnode.m; sourceTree = "<group>"; };
+		31083CCF2BBAE670006286CE /* vnode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = vnode.h; sourceTree = "<group>"; };
 		316661292BAD8465009D22D8 /* TrollInstallerX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrollInstallerX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3166612C2BAD8465009D22D8 /* TrollInstallerXApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrollInstallerXApp.swift; sourceTree = "<group>"; };
 		316661302BAD8466009D22D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -421,6 +424,8 @@
 				3166618F2BAD918E009D22D8 /* kalloc_pt.m */,
 				316661902BAD918E009D22D8 /* physrw.c */,
 				316661922BAD918E009D22D8 /* translation.c */,
+				31083CCD2BBAE668006286CE /* vnode.m */,
+				31083CCF2BBAE670006286CE /* vnode.h */,
 			);
 			path = libjailbreak;
 			sourceTree = "<group>";
@@ -725,6 +730,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31083CCE2BBAE668006286CE /* vnode.m in Sources */,
 				31F859EA2BAE008200A74022 /* kfd.m in Sources */,
 				31A6FFF52BB9EA30008F69F8 /* Defaults.swift in Sources */,
 				31F859CC2BADEC8E00A74022 /* Logger.swift in Sources */,

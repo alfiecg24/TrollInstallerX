@@ -3,10 +3,12 @@
 //
 
 #include <libjailbreak/kalloc_pt.h>
-#include <libjailbreak/Util.h>
+#include <libjailbreak/util.h>
+#include <libjailbreak/vnode.h>
 
 #include "Exploitation/MacDirtyCow/grant_full_disk_access.h"
 #include "Exploitation/MacDirtyCow/kernel_find.h"
+#include "Exploitation/MacDirtyCow/helpers.h"
 #include "Exploitation/dmaFail/dmaFail.h"
 #include "Exploitation/kfd/kfd.h"
 

@@ -44,8 +44,6 @@ struct Device {
             supportsOTA = self.version >= Version("15.0") && self.version < Version("15.5")
         }
         
-        isSupported = self.version <= Version("16.6.1")
-        
         // Set the CPU family (for checking dmaFail compatibility)
         var deviceCPU = 0
         len = MemoryLayout.size(ofValue: deviceCPU);
@@ -74,6 +72,13 @@ struct Device {
         default:
             self.cpuFamily = .Unknown
         }
+        
+        
+        if self.cpuFamily == .A8 {
+            isSupported = self.version < Version("15.2")
+        } else {
+            isSupported = self.version <= Version("16.6.1")
+        }
     }
     
     var modelIdentifier: String {
@@ -81,5 +86,15 @@ struct Device {
         var sysinfo = utsname()
         uname(&sysinfo) // ignore return value
         return String(bytes: Data(bytes: &sysinfo.machine, count: Int(_SYS_NAMELEN)), encoding: .ascii)!.trimmingCharacters(in: .controlCharacters)
+    }
+    
+    var supportsDirectInstall: Bool {
+//        if !self.isArm64e { return true }
+//        if self.cpuFamily == .A15 || self.cpuFamily == .A16 {
+//            return self.version < Version("16.5.1")
+//        } else {
+//            return self.version < Version("16.6")
+//        }
+        return false
     }
 }

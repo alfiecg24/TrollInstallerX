@@ -125,7 +125,7 @@ struct MainView: View {
             
             if helperView.showAlert {
                 PopupView(isShowingAlert: $isShowingHelperAlert, shouldAllowDismiss: false, content: {
-                        PersistenceHelperView(isShowingHelperAlert: $isShowingHelperAlert)
+                    PersistenceHelperView(isShowingHelperAlert: $isShowingHelperAlert, allowNoPersistenceHelper: device.supportsDirectInstall)
                     })
                 }
             }
@@ -144,7 +144,11 @@ struct MainView: View {
             }
             .onChange(of: isInstalling) { _ in
                 Task {
-                    installedSuccessfully = await doDirectInstall(device)
+                    if device.supportsDirectInstall {
+                        installedSuccessfully = await doDirectInstall(device)
+                    } else {
+                        installedSuccessfully = await doIndirectInstall(device)
+                    }
                     installationFinished = true
                 }
             }

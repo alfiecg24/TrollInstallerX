@@ -80,7 +80,7 @@ func doDirectInstall(_ device: Device) async -> Bool {
     let exploit = selectExploit(device)
     
     let iOS14 = device.version < Version("15.0")
-    let supportsFullPhysRW = (device.isArm64e && device.version >= Version(major: 15, minor: 2)) || (!device.isArm64e && device.version >= Version("15.0"))
+    let supportsFullPhysRW = !(device.cpuFamily == .A8 && device.version > Version("15.1.1")) && ((device.isArm64e && device.version >= Version(major: 15, minor: 2)) || (!device.isArm64e && device.version >= Version("15.0")))
     
     Logger.log("Running on an \(device.modelIdentifier) on iOS \(device.version.readableString)")
     

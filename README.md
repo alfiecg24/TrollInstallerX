@@ -11,7 +11,7 @@ TrollInstallerX supports all devices running iOS 14.0 - 16.6.1, both arm64 and a
 * **Direct installation**: using the [kfd](https://github.com/felix-pb/kfd) kernel exploit, along with the [dmaFail](https://github.com/opa334/Dopamine/blob/2.x/Application/Dopamine/Exploits/dmaFail/dmaFail.c) PPL bypass on iOS 15.2+ arm64e devices, TrollInstallerX can install both TrollStore and its persistence helper directly onto the device without having to leave the installer.
   * Supports iOS 14.0 - 16.6.1 (arm64) and iOS 14.0 - 16.5.1 (arm64e).
     * **Note**: A15, A16, and M2 devices on iOS 16.5.1 do not support this method.
-    * **Note**: A8 devices are only supported on iOS 14.0 - 15.1 for the time being
+    * **Note**: A8 devices are only supported on iOS 14.0 - 15.1 for the time being.
 
 * **Indirect installation**: Using the [kfd](https://github.com/felix-pb/kfd) kernel exploit, TrollInstallerX can replace a system application with the TrollStore persistence helper, and then open that application for you to install TrollStore. This method only exists due to both the lack of a PPL bypass on iOS 16.6 and above, as well as the fact that dmaFail is non-functional on A15, A16, and M2 devices on iOS 16.5.1.
   * Supports iOS 16.5.1 - 16.6.1 (arm64e).
@@ -24,7 +24,7 @@ TrollInstallerX is extremely easy to use. Simply download the latest release fro
 
 TrollInstallerX will automatically choose the best exploit for your device. However, in some cases, you may want to choose a specific exploit. To do this, simply open the settings view and select the exploit that you want to use. Once you have selected it, press the "Install TrollStore" button and TrollInstallerX will use the exploit you have chosen.
 
-**Note**: iOS 16.2 - 16.6.1 require an internet connection in order for TrollInstallerX to download the kernelcache and patchfind it. If your device is unable to obtain a reliable internet connection, you will need to manually supply the kernelcache yourself.
+**Note**: iOS 16.2 - 16.6.1 and iOS 15.7.2 - 15.8.2 require an internet connection in order for TrollInstallerX to download the kernelcache and patchfind it.
 
 ## FAQ
 > Why am I stuck at "Exploiting kernel"?
@@ -44,6 +44,10 @@ If you selected an app for the persistence helper and it did not change, it is l
 Either:
 - You're on a non-MacDirtyCow supported version, and are not connected to the internet, or;
 - You're using a Yellow iPhone 14 or Yellow iPhone 14 Plus on iOS 16.3 (20D50), in which case, [open a GitHub Issue](https://github.com/alfiecg24/TrollInstallerX/issues/new/choose).
+
+> Why does TrollInstallerX say "failed to install persistence helper" using the indirect method?
+
+The indirect method is not perfect, and sometimes it will fail to install the persistence helper. If this happens, simply shut down your device, turn it back on, and try again. If you repeatedly have issues with the same app, try using a different app.
 
 > Why does TrollInstallerX not support iOS 17.0?
 

@@ -31,9 +31,7 @@
 		3166619E2BAD918E009D22D8 /* physrw.c in Sources */ = {isa = PBXBuildFile; fileRef = 316661902BAD918E009D22D8 /* physrw.c */; };
 		316661A02BAD918E009D22D8 /* translation.c in Sources */ = {isa = PBXBuildFile; fileRef = 316661922BAD918E009D22D8 /* translation.c */; };
 		316661B32BAD91ED009D22D8 /* libchoma.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 316661B22BAD91ED009D22D8 /* libchoma.a */; };
-		316661D12BAD9221009D22D8 /* libfragmentzip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 316661CD2BAD9221009D22D8 /* libfragmentzip.a */; };
 		316661D22BAD9221009D22D8 /* libgrabkernel2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 316661CE2BAD9221009D22D8 /* libgrabkernel2.a */; };
-		316661D32BAD9221009D22D8 /* libcurl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 316661CF2BAD9221009D22D8 /* libcurl.a */; };
 		316661D42BAD9221009D22D8 /* libxpf.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 316661D02BAD9221009D22D8 /* libxpf.dylib */; };
 		316661D72BAD93AB009D22D8 /* libarchive.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 316661D62BAD939E009D22D8 /* libarchive.tbd */; };
 		3199C2262BB78AED00A196E9 /* InstalledApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3199C2252BB78AED00A196E9 /* InstalledApp.swift */; };
@@ -62,6 +60,7 @@
 		31F859FE2BAE119200A74022 /* Extract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F859FD2BAE119200A74022 /* Extract.swift */; };
 		31F85A002BAE123B00A74022 /* install.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F859FF2BAE123B00A74022 /* install.m */; };
 		31F85A022BAE126800A74022 /* run.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F85A012BAE126800A74022 /* run.m */; };
+		511A788B2BBE0A8700D262F9 /* libpartial.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 511A788A2BBE0A8700D262F9 /* libpartial.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -160,9 +159,7 @@
 		316661CA2BAD9218009D22D8 /* typecheck-gcc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "typecheck-gcc.h"; sourceTree = "<group>"; };
 		316661CB2BAD9218009D22D8 /* multi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = multi.h; sourceTree = "<group>"; };
 		316661CC2BAD9218009D22D8 /* urlapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = urlapi.h; sourceTree = "<group>"; };
-		316661CD2BAD9221009D22D8 /* libfragmentzip.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libfragmentzip.a; sourceTree = "<group>"; };
 		316661CE2BAD9221009D22D8 /* libgrabkernel2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libgrabkernel2.a; sourceTree = "<group>"; };
-		316661CF2BAD9221009D22D8 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcurl.a; sourceTree = "<group>"; };
 		316661D02BAD9221009D22D8 /* libxpf.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libxpf.dylib; sourceTree = "<group>"; };
 		316661D62BAD939E009D22D8 /* libarchive.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libarchive.tbd; path = usr/lib/libarchive.tbd; sourceTree = SDKROOT; };
 		318298502BB70D7800B9DB42 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
@@ -226,6 +223,7 @@
 		31F85A012BAE126800A74022 /* run.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = run.m; sourceTree = "<group>"; };
 		31F85A032BAE127600A74022 /* run.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = run.h; sourceTree = "<group>"; };
 		31F85A042BAE12DA00A74022 /* install.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = install.h; sourceTree = "<group>"; };
+		511A788A2BBE0A8700D262F9 /* libpartial.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libpartial.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,14 +231,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				511A788B2BBE0A8700D262F9 /* libpartial.a in Frameworks */,
 				316661D42BAD9221009D22D8 /* libxpf.dylib in Frameworks */,
 				31F859F12BAE035E00A74022 /* libz.tbd in Frameworks */,
 				316661D22BAD9221009D22D8 /* libgrabkernel2.a in Frameworks */,
-				316661D32BAD9221009D22D8 /* libcurl.a in Frameworks */,
 				316661D72BAD93AB009D22D8 /* libarchive.tbd in Frameworks */,
 				316661B32BAD91ED009D22D8 /* libchoma.a in Frameworks */,
 				31F859EC2BAE00A000A74022 /* IOKit.framework in Frameworks */,
-				316661D12BAD9221009D22D8 /* libfragmentzip.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,8 +430,7 @@
 		316661A12BAD91CF009D22D8 /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				316661CF2BAD9221009D22D8 /* libcurl.a */,
-				316661CD2BAD9221009D22D8 /* libfragmentzip.a */,
+				511A788A2BBE0A8700D262F9 /* libpartial.a */,
 				316661CE2BAD9221009D22D8 /* libgrabkernel2.a */,
 				316661D02BAD9221009D22D8 /* libxpf.dylib */,
 				316661B22BAD91ED009D22D8 /* libchoma.a */,

@@ -239,6 +239,13 @@ func doIndirectInstall(_ device: Device) async -> Bool {
     
     Logger.log("Running on an \(device.modelIdentifier) on iOS \(device.version.readableString)")
     
+    if !extractTrollStoreIndirect() {
+        return false
+    }
+    defer {
+        cleanupIndirectInstall()
+    }
+    
     if !(getKernel(device)) {
         Logger.log("Failed to get kernel", type: .error)
     }
@@ -259,7 +266,6 @@ func doIndirectInstall(_ device: Device) async -> Bool {
     
     let apps = get_installed_apps() as? [String]
     var candidates = [InstalledApp]()
-    print("\n\nApps:")
     for app in apps ?? [String]() {
         print(app)
         for candidate in persistenceHelperCandidates {

@@ -89,12 +89,11 @@ struct Device {
     }
     
     var supportsDirectInstall: Bool {
-//        if !self.isArm64e { return true }
-//        if self.cpuFamily == .A15 || self.cpuFamily == .A16 {
-//            return self.version < Version("16.5.1")
-//        } else {
-//            return self.version < Version("16.6")
-//        }
-        return false
+        if !self.isArm64e { return true }
+        if self.cpuFamily == .A15 || self.cpuFamily == .A16 {
+            return self.version < Version("16.5.1")
+        } else {
+            return self.version < Version("16.6")
+        }
     }
 }

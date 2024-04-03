@@ -46,3 +46,79 @@ func extractTrollStore(_ useLocalCopy: Bool) -> Bool {
     
     return true
 }
+
+func extractTrollStoreIndirect() -> Bool {
+    // Check docs for TrollStore.tar
+    // If that doesn't exist, we copy bundled
+    
+    let fm = FileManager.default
+    let docs = fm.urls(for: .documentDirectory, in: .userDomainMask)[0]
+    let local = docs.appendingPathComponent("TrollStore.tar")
+    let bundled = Bundle.main.url(forResource: "TrollStore", withExtension: "tar")
+    
+    let extractPath = docs.appendingPathComponent("TrollStore")
+    
+    cleanupIndirectInstall()
+    
+    if fm.fileExists(atPath: local.path) {
+        if fm.fileExists(atPath: extractPath.path) {
+            try? fm.removeItem(at: extractPath)
+        }
+        if libarchive_unarchive(local.path, extractPath.path) != 0 {
+            Logger.log("Failed to extract TrollStore", type: .error)
+            return false
+        }
+    } else {
+        let copyPath = docs.appendingPathComponent("Bundled.tar")
+        if !fm.fileExists(atPath: copyPath.path) {
+            if let bundledTar = bundled {
+                do {
+                    try fm.copyItem(at: bundledTar, to: copyPath)
+                } catch {
+                    Logger.log("Failed to copy TrollStore.tar", type: .error)
+                    print("Failed to copy TrollStore.tar - \(error.localizedDescription)")
+                    return false
+                }
+            } else {
+                return false
+            }
+        }
+        if libarchive_unarchive(copyPath.path, extractPath.path) != 0 {
+            Logger.log("Failed to extract TrollStore", type: .error)
+            return false
+        }
+        
+    }
+    
+    // We can assume the TrollStore directory exists, so now copy files
+    let rootHelperPath = extractPath.appendingPathComponent("TrollStore.app").appendingPathComponent("trollstorehelper")
+    let persistenceHelperPath = extractPath.appendingPathComponent("TrollStore.app").appendingPathComponent("PersistenceHelper")
+    
+    let rootHelperCopy = docs.appendingPathComponent("trollstorehelper")
+    let persistenceHelperCopy = docs.appendingPathComponent("PersistenceHelper")
+    
+    do {
+        try fm.copyItem(at: rootHelperPath, to: rootHelperCopy)
+        try fm.copyItem(at: persistenceHelperPath, to: persistenceHelperCopy)
+    } catch {
+        Logger.log("Failed to copy executables", type: .error)
+        print("Failed to copy \(fm.fileExists(atPath: rootHelperCopy.path) ? "persistence helper" : "root helper") - \(error.localizedDescription)")
+        return false
+    }
+    
+    // Final check
+    return fm.fileExists(atPath: rootHelperCopy.path) && fm.fileExists(atPath: persistenceHelperCopy.path)
+}
+
+func cleanupIndirectInstall() {
+    let fm = FileManager.default
+    let docs = fm.urls(for: .documentDirectory, in: .userDomainMask)[0]
+    let extract = docs.appendingPathComponent("TrollStore")
+    let rootHelper = docs.appendingPathComponent("trollstorehelper")
+    let persistenceHelper = docs.appendingPathComponent("PersistenceHelper")
+    let dotFile = docs.appendingPathComponent(".TrollStorePersistenceHelper")
+    try? fm.removeItem(at: extract)
+    try? fm.removeItem(at: rootHelper)
+    try? fm.removeItem(at: persistenceHelper)
+    try? fm.removeItem(at: dotFile)
+}

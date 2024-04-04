@@ -5,7 +5,7 @@
 //  Created by Alfie on 22/03/2024.
 //
 
-import Foundation
+import SwiftUI
 
 let fileManager = FileManager.default
 let docsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)[0]
@@ -261,8 +261,19 @@ func doIndirectInstall(_ device: Device) async -> Bool {
         Logger.log("Failed to exploit the kernel", type: .error)
         return false
     }
+    defer {
+        Logger.log("Deinitialising kernel exploit (\(exploit.name))")
+        if !exploit.deinitialise() {
+            Logger.log("Failed to deinitialise \(exploit.name)", type: .error)
+        }
+    }
     Logger.log("Successfully exploited the kernel", type: .success)
     post_kernel_exploit(false)
+    
+    if is_persistence_helper_installed() {
+        Logger.log("Persistence helper already installed!")
+        return false
+    }
     
     let apps = get_installed_apps() as? [String]
     var candidates = [InstalledApp]()
@@ -298,12 +309,6 @@ func doIndirectInstall(_ device: Device) async -> Bool {
     } else {
         Logger.log("Successfully installed persistence helper!", type: .success)
         success = true
-    }
-    
-    Logger.log("Deinitialising kernel exploit (\(exploit.name))")
-    if !exploit.deinitialise() {
-        Logger.log("Failed to deinitialise \(exploit.name)", type: .error)
-        return false
     }
     
     if success {

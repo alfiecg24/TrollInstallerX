@@ -150,6 +150,7 @@ struct MainView: View {
                         installedSuccessfully = await doIndirectInstall(device)
                     }
                     installationFinished = true
+                    UINotificationFeedbackGenerator().notificationOccurred(installedSuccessfully ? .success : .error)
                 }
             }
             .onChange(of: isShowingOTAAlert) { new in

@@ -67,7 +67,7 @@ TrollInstallerX wouldn't have been possible without the work of the following pe
 * [wh1te4ever](https://github.com/wh1te4ever) for [kfund](https://github.com/wh1te4ever/kfund)
 * [Zhuowei](https://github.com/zhuowei) for the tccd unsandboxing method
 * [xina520](https://x.com/xina520) for the kernel read/write-only privilege escalation method
-* [dhinakg](https://github.com/dhinakg) for the memory hogger, the MacDirtyCow kernelcache grabber method, and help with [libgrabkernel2](https://github.com/alfiecg24/libgrabkernel2)
+* [dhinakg](https://github.com/dhinakg) for the memory hogger, the MacDirtyCow kernelcache grabber method, [libpartial](https://github.com/dhinakg/partial) and help with [libgrabkernel2](https://github.com/alfiecg24/libgrabkernel2)
 * [staturnz](https://github.com/staturnzz) for work on the kernel patchfinder
 * [aaronp613](https://x.com/aaronp613) for the TrollInstallerX icon
 * [DTCalabro](https://github.com/DTCalabro) and [JJTech](https://github.com/JJTech0130) for improvements to the logging system

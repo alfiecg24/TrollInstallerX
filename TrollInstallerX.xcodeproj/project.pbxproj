@@ -910,6 +910,7 @@
 					TrollInstallerX/External/include,
 					TrollInstallerX/Exploitation/,
 				);
+				INFOPLIST_KEY_CFBundleDisplayName = TrollInstallerX;
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Unsandboxing with MacDirtyCow";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -925,7 +926,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/TrollInstallerX/External/lib",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Alfie.TrollInstallerX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -953,6 +954,7 @@
 					TrollInstallerX/External/include,
 					TrollInstallerX/Exploitation/,
 				);
+				INFOPLIST_KEY_CFBundleDisplayName = TrollInstallerX;
 				INFOPLIST_KEY_NSAppleMusicUsageDescription = "Unsandboxing with MacDirtyCow";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -968,7 +970,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/TrollInstallerX/External/lib",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Alfie.TrollInstallerX;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

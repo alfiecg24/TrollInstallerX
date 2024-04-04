@@ -13,11 +13,11 @@ TrollInstallerX supports all devices running iOS 14.0 - 16.6.1, both arm64 and a
     * **Note**: A15, A16, and M2 devices on iOS 16.5.1 do not support this method.
     * **Note**: A8 devices are only supported on iOS 14.0 - 15.1 for the time being.
 
-* **Indirect installation**: Using the [kfd](https://github.com/felix-pb/kfd) kernel exploit, TrollInstallerX can replace a system application with the TrollStore persistence helper, and then open that application for you to install TrollStore. This method only exists due to both the lack of a PPL bypass on iOS 16.6 and above, as well as the fact that dmaFail is non-functional on A15, A16, and M2 devices on iOS 16.5.1.
+* **Indirect installation**: Using the [kfd](https://github.com/felix-pb/kfd) kernel exploit, TrollInstallerX can replace a system application of your choice with the TrollStore persistence helper. This method only exists due to both the lack of a PPL bypass on iOS 16.6 and above, as well as the fact that dmaFail is non-functional on A15, A16, and M2 devices on iOS 16.5.1.
   * Supports iOS 16.5.1 - 16.6.1 (arm64e).
     * **Note**: This method is the only method that supports A15, A16, and M2 devices on iOS 16.5.1.
 
-Both methods allow you to install a persistence helper into a removable system app. The reason that this is needed is due to the way that the CoreTrust bug used by TrollStore works - in certain circumstances, TrollStore and other apps installed by it will be reset to User registration, instead of System. You cannot open any of these apps until you have used the persistence helper to set them back to System registration.
+Both methods allow you to install a persistence helper into a removable system app. The reason that this is needed is due to the way that the CoreTrust bug (used by TrollStore) works - in certain circumstances, TrollStore and other apps installed by it will be reset to User registration, instead of System. You cannot open any of these apps until you have used the persistence helper to set them back to System registration.
 
 ## Usage
 TrollInstallerX is extremely easy to use. Simply download the latest release from the [Releases](https://github.com/alfiecg24/TrollInstallerX/releases) page, and sideload it using your preferred method. Once installed, open the app and press the "Install" button. From there, TrollStore and/or its persistence helper will be installed onto your device.
@@ -44,6 +44,8 @@ If you selected an app for the persistence helper and it did not change, it is l
 Either:
 - You're on a non-MacDirtyCow supported version, and are not connected to the internet, or;
 - You're using a Yellow iPhone 14 or Yellow iPhone 14 Plus on iOS 16.3 (20D50), in which case, [open a GitHub Issue](https://github.com/alfiecg24/TrollInstallerX/issues/new/choose).
+
+Additionally, if a file exists at `/TrollInstallerX.app/kernelcache`, TrollInstallerX will use that file instead of downloading the kernelcache. This can be useful if you have a slow or unreliable internet connection, or happen to have a device and version combination that has no public kernelcache available.
 
 > Why does TrollInstallerX say "failed to install persistence helper" using the indirect method?
 

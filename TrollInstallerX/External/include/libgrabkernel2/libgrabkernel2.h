@@ -10,7 +10,11 @@
 
 #include <Foundation/Foundation.h>
 
-bool download_kernelcache(NSString *zipURL, bool isOTA, NSString *outDir);
-bool grab_kernelcache(NSString *outDir);
+bool download_kernelcache(NSString *zipURL, bool isOTA, NSString *outPath);
+bool grab_kernelcache(NSString *outPath);
+
+// libgrabkernel compatibility shim
+// Note that research kernel grabbing is not currently supported
+int grabkernel(char *downloadPath, int isResearchKernel);
 
 #endif /* grabkernel_h */

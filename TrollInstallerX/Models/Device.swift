@@ -26,6 +26,7 @@ struct Device {
     let isArm64e: Bool
     let supportsOTA: Bool
     let isSupported: Bool
+    let isOnSupported17Beta: Bool
     var cpuFamily: CPUFamily
     
     init() {
@@ -73,11 +74,28 @@ struct Device {
             self.cpuFamily = .Unknown
         }
         
+        // Set the CPU family (for checking dmaFail compatibility)
+        var buildNumber = [CChar](repeating: 0, count: 256)
+        len = MemoryLayout.size(ofValue: buildNumber);
+        sysctlbyname("kernel.osversion", &buildNumber, &len, nil, 0);
+        let buildNumberStr = String(cString: buildNumber)
+        
+        if buildNumberStr == "21A5248v" // Beta 1
+        || buildNumberStr == "21A5268h" // Beta 2
+        || buildNumberStr == "21A5277j" // Beta 3
+        || buildNumberStr == "21A5291h" // Beta 4
+        || buildNumberStr == "21A5291j" // Beta 4 (re-release)
+        {
+            self.isOnSupported17Beta = true
+        } else {
+            self.isOnSupported17Beta = false
+        }
+        
         
         if self.cpuFamily == .A8 {
             isSupported = self.version < Version("15.2")
         } else {
-            isSupported = self.version <= Version("16.6.1")
+            isSupported = (self.version <= Version("16.6.1")) || self.isOnSupported17Beta
         }
     }
     

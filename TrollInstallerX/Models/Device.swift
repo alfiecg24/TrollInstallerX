@@ -75,8 +75,8 @@ struct Device {
         }
         
         // Set the CPU family (for checking dmaFail compatibility)
-        var buildNumber = [CChar](repeating: 0, count: 256)
-        len = MemoryLayout.size(ofValue: buildNumber);
+        len = 256;
+        var buildNumber = [CChar](repeating: 0, count: len)
         sysctlbyname("kern.osversion", &buildNumber, &len, nil, 0);
         let buildNumberStr = String(cString: buildNumber)
         
@@ -104,7 +104,7 @@ struct Device {
         if self.cpuFamily == .A8 {
             isSupported = self.version < Version("15.2")
         } else {
-            isSupported = (self.version <= Version("16.6.1")) || (self.isOnSupported17Beta && !((self.cpuFamily == .A15 || !isM2) || self.cpuFamily == .A16))
+            isSupported = (self.version <= Version("16.6.1")) || (self.isOnSupported17Beta && !((self.cpuFamily == .A15 || isM2) || self.cpuFamily == .A16))
         }
     }
     

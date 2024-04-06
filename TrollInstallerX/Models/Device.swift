@@ -91,11 +91,20 @@ struct Device {
             self.isOnSupported17Beta = false
         }
         
+        var isM2 = false
+        
+        let registryEntry = IORegistryEntryFromPath(mach_port_t(MACH_PORT_NULL), "IODeviceTree:/chosen")
+        if let bmHash = IORegistryEntryCreateCFProperty(registryEntry, "chip-id" as CFString, kCFAllocatorDefault, 0) {
+            if let bootManifestHashData = bmHash.takeRetainedValue() as? Data {
+                let cpid: Int = bootManifestHashData.withUnsafeBytes { $0.pointee }
+                isM2 = cpid == 0x8112
+            }
+        }
         
         if self.cpuFamily == .A8 {
             isSupported = self.version < Version("15.2")
         } else {
-            isSupported = (self.version <= Version("16.6.1")) || (self.isOnSupported17Beta && !(self.cpuFamily == .A15 || self.cpuFamily == .A16))
+            isSupported = (self.version <= Version("16.6.1")) || (self.isOnSupported17Beta && !((self.cpuFamily == .A15 || !isM2) || self.cpuFamily == .A16))
         }
     }
     

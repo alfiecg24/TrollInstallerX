@@ -95,7 +95,7 @@ struct Device {
         if self.cpuFamily == .A8 {
             isSupported = self.version < Version("15.2")
         } else {
-            isSupported = (self.version <= Version("16.6.1")) || self.isOnSupported17Beta
+            isSupported = (self.version <= Version("16.6.1")) || (self.isOnSupported17Beta && !(self.cpuFamily == .A15 || self.cpuFamily == .A16))
         }
     }
     

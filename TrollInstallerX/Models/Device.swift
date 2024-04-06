@@ -77,7 +77,7 @@ struct Device {
         // Set the CPU family (for checking dmaFail compatibility)
         var buildNumber = [CChar](repeating: 0, count: 256)
         len = MemoryLayout.size(ofValue: buildNumber);
-        sysctlbyname("kernel.osversion", &buildNumber, &len, nil, 0);
+        sysctlbyname("kern.osversion", &buildNumber, &len, nil, 0);
         let buildNumberStr = String(cString: buildNumber)
         
         if buildNumberStr == "21A5248v" // Beta 1

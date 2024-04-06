@@ -144,12 +144,14 @@ struct MainView: View {
             }
             .onChange(of: isInstalling) { _ in
                 Task {
-                    if device.supportsDirectInstall {
-                        installedSuccessfully = await doDirectInstall(device)
-                    } else {
-                        installedSuccessfully = await doIndirectInstall(device)
+                    if device.isSupported {
+                        if device.supportsDirectInstall {
+                            installedSuccessfully = await doDirectInstall(device)
+                        } else {
+                            installedSuccessfully = await doIndirectInstall(device)
+                        }
+                        installationFinished = true
                     }
-                    installationFinished = true
                     UINotificationFeedbackGenerator().notificationOccurred(installedSuccessfully ? .success : .error)
                 }
             }

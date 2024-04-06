@@ -235,6 +235,7 @@ func doDirectInstall(_ device: Device) async -> Bool {
         }
     }
     
+    Logger.log("Successfully installed TrollStore!", type: .success)
     return true
 }
 
@@ -324,5 +325,6 @@ func doIndirectInstall(_ device: Device) async -> Bool {
         }
     }
     
+    Logger.log("Successfully installed persistence helper!", type: .success)
     return true
 }

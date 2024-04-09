@@ -20,7 +20,7 @@ TrollInstallerX supports all devices running iOS 14.0 - 16.6.1, both arm64 and a
 Both methods allow you to install a persistence helper into a removable system app. The reason that this is needed is due to the way that the CoreTrust bug (used by TrollStore) works - in certain circumstances, TrollStore and other apps installed by it will be reset to User registration, instead of System. You cannot open any of these apps until you have used the persistence helper to set them back to System registration.
 
 ## Usage
-TrollInstallerX is extremely easy to use. Simply download the latest release from the [Releases](https://github.com/alfiecg24/TrollInstallerX/releases) page, and sideload it using your preferred method. Once installed, open the app and press the "Install" button. From there, TrollStore and/or its persistence helper will be installed onto your device.
+TrollInstallerX is extremely easy to use. Simply download the [latest release](https://github.com/alfiecg24/TrollInstallerX/releases/latest/download/TrollInstallerX.ipa), and sideload it using your preferred method. Once installed, open the app and press the "Install" button. From there, TrollStore and/or its persistence helper will be installed onto your device.
 
 TrollInstallerX will automatically choose the best exploit for your device. However, in some cases, you may want to choose a specific exploit. To do this, simply open the settings view and select the exploit that you want to use. Once you have selected it, press the "Install TrollStore" button and TrollInstallerX will use the exploit you have chosen.
 

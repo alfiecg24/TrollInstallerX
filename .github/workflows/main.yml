@@ -1,0 +1,59 @@
+name: Build and Package
+
+on:
+  push:
+    branches:
+      - dev
+  workflow_dispatch:
+
+env:
+  VERSION: '1.0'
+
+jobs:
+  build:
+    name: Build TrollInstallerX
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: true
+
+      - name: Pre theos
+        run: |
+         curl -fsSL https://raw.githubusercontent.com/theos/theos/master/bin/install-theos > theos
+         sed -i '' 's/get_sdks$//g' theos
+         bash theos
+      - name: Setup Environment
+        run: echo "THEOS=~/theos" >> $GITHUB_ENV
+
+      - name: Set env
+        run: |
+          sT=$(TZ=UTC-8 date +'%S')
+          echo "msT=$(date -j -f "%Y-%m-%d %H:%M:%S" "$(TZ=UTC-8 date +'%Y-%m-%d %H:%M'):${sT}" +%s)" >> $GITHUB_ENV
+          echo "logT=$(TZ=UTC-8 date +'%Y年%m月%d %H:%M'):${sT}" >> $GITHUB_ENV
+      - name: Print env
+        run: |
+          echo ${{ env.VERSION }}
+          echo ${{ env.msT }}
+          echo ${{ env.logT }}
+      - name: Pre body
+        run: |
+          echo -e "更新时间：${{ env.logT }}" >> release.txt
+          echo -e "> - 同步官方1.0正式版更新，简体中文汉化编译 TrollInstallerX." >> release.txt
+      - name: Build ipa
+        run: |
+          chmod +x ./build.sh
+          ./build.sh
+      - name: Release ipa
+        uses: softprops/action-gh-release@v1
+        with:
+          name: TrollInstallerX_${{ env.VERSION }}
+          tag_name: ${{ env.msT }}
+          target_commitish: main
+          body_path: release.txt
+          latest: true
+          token: ${{ secrets.CUSTOM_GITHUB_TOKEN }}
+          files: |
+           *.ipa

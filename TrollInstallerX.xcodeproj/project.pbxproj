@@ -47,6 +47,7 @@
 		31ABE9812BAD9821003C35E0 /* libxpf.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 316661D02BAD9221009D22D8 /* libxpf.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		31ABE9832BAD997C003C35E0 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31ABE9822BAD997C003C35E0 /* MainView.swift */; };
 		31BA7FF62BAF0CB00061DC7A /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31BA7FF52BAF0CB00061DC7A /* PopupView.swift */; };
+		31D334332C9367A9003050AB /* libgrabkernel2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31D334322C9367A9003050AB /* libgrabkernel2.a */; };
 		31F859CA2BADEC6E00A74022 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F859C92BADEC6E00A74022 /* LogView.swift */; };
 		31F859CC2BADEC8E00A74022 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F859CB2BADEC8E00A74022 /* Logger.swift */; };
 		31F859CE2BADFA0600A74022 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F859CD2BADFA0600A74022 /* MenuView.swift */; };
@@ -59,7 +60,6 @@
 		31F859FE2BAE119200A74022 /* Extract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F859FD2BAE119200A74022 /* Extract.swift */; };
 		31F85A002BAE123B00A74022 /* install.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F859FF2BAE123B00A74022 /* install.m */; };
 		31F85A022BAE126800A74022 /* run.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F85A012BAE126800A74022 /* run.m */; };
-		31FED0C52C92E6B900CC33E4 /* libgrabkernel2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31FED0C42C92E6B900CC33E4 /* libgrabkernel2.a */; };
 		511A788B2BBE0A8700D262F9 /* libpartial.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 511A788A2BBE0A8700D262F9 /* libpartial.a */; };
 /* End PBXBuildFile section */
 
@@ -175,6 +175,7 @@
 		31ABE97C2BAD953F003C35E0 /* escalate.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = escalate.c; sourceTree = "<group>"; };
 		31ABE9822BAD997C003C35E0 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		31BA7FF52BAF0CB00061DC7A /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
+		31D334322C9367A9003050AB /* libgrabkernel2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libgrabkernel2.a; sourceTree = "<group>"; };
 		31F859C92BADEC6E00A74022 /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
 		31F859CB2BADEC8E00A74022 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		31F859CD2BADFA0600A74022 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
@@ -211,7 +212,6 @@
 		31F85A032BAE127600A74022 /* run.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = run.h; sourceTree = "<group>"; };
 		31F85A042BAE12DA00A74022 /* install.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = install.h; sourceTree = "<group>"; };
 		31FED0BF2C92E02800CC33E4 /* libgrabkernel2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libgrabkernel2.h; sourceTree = "<group>"; };
-		31FED0C42C92E6B900CC33E4 /* libgrabkernel2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libgrabkernel2.a; sourceTree = "<group>"; };
 		511A788A2BBE0A8700D262F9 /* libpartial.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libpartial.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -225,7 +225,7 @@
 				31F859F12BAE035E00A74022 /* libz.tbd in Frameworks */,
 				316661D72BAD93AB009D22D8 /* libarchive.tbd in Frameworks */,
 				316661B32BAD91ED009D22D8 /* libchoma.a in Frameworks */,
-				31FED0C52C92E6B900CC33E4 /* libgrabkernel2.a in Frameworks */,
+				31D334332C9367A9003050AB /* libgrabkernel2.a in Frameworks */,
 				31F859EC2BAE00A000A74022 /* IOKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,7 +418,7 @@
 		316661A12BAD91CF009D22D8 /* lib */ = {
 			isa = PBXGroup;
 			children = (
-				31FED0C42C92E6B900CC33E4 /* libgrabkernel2.a */,
+				31D334322C9367A9003050AB /* libgrabkernel2.a */,
 				511A788A2BBE0A8700D262F9 /* libpartial.a */,
 				316661D02BAD9221009D22D8 /* libxpf.dylib */,
 				316661B22BAD91ED009D22D8 /* libchoma.a */,

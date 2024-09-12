@@ -51,10 +51,6 @@ Additionally, if a file exists at `/TrollInstallerX.app/kernelcache`, TrollInsta
 
 The indirect method is not perfect, and sometimes it will fail to install the persistence helper. If this happens, simply shut down your device, turn it back on, and try again. If you repeatedly have issues with the same app, try using a different app.
 
-> Why does TrollInstallerX not support iOS 17.0?
-
-TrollInstallerX does not support iOS 17.0 because we do not have any public exploits for it. Once one releases, it will be integrated into TrollInstallerX.
-
 ## Building
 TrollInstallerX is a regular Xcode project, but the project also contains a build script. To build it and produce an IPA, simply run the `build.sh` script in the root of the project. This will build the project and produce an IPA in the root of the project.
 

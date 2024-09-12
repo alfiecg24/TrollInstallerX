@@ -39,11 +39,11 @@ During installation, you will have installed a persistence helper. Open your per
 
 If you selected an app for the persistence helper and it did not change, it is likely that you already have a persistence helper installed. Open TrollStore and go to settings to see which app is set to the persistence helper.
 
-> Why am I getting an error about not being able to patchfind?
+> Why am I getting an error about being unable to patchfind or being unable to download kernel?
 
 Either:
 - You're on a non-MacDirtyCow supported version, and are not connected to the internet, or;
-- You're using a Yellow iPhone 14 or Yellow iPhone 14 Plus on iOS 16.3 (20D50), in which case, [open a GitHub Issue](https://github.com/alfiecg24/TrollInstallerX/issues/new/choose).
+- You're using a Yellow iPhone 14 or Yellow iPhone 14 Plus on iOS 16.3 (20D50), in which case you should install `TrollInstallerX-20D50.ipa` from [here](https://github.com/alfiecg24/TrollInstallerX/releases/latest).
 
 Additionally, if a file exists at `/TrollInstallerX.app/kernelcache`, TrollInstallerX will use that file instead of downloading the kernelcache. This can be useful if you have a slow or unreliable internet connection, or happen to have a device and version combination that has no public kernelcache available.
 

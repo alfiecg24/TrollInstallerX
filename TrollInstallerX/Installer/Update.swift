@@ -35,7 +35,7 @@ func downloadFile(from url: URL) async throws -> URL {
     }
 }
 
-let bundledVersion = Version("2.0.15")
+let bundledVersion = Version("2.1")
 func getUpdatedTrollStore() async {
     var outOfDate = false
     var doneChecking = false

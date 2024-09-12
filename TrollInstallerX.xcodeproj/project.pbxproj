@@ -31,7 +31,6 @@
 		3166619E2BAD918E009D22D8 /* physrw.c in Sources */ = {isa = PBXBuildFile; fileRef = 316661902BAD918E009D22D8 /* physrw.c */; };
 		316661A02BAD918E009D22D8 /* translation.c in Sources */ = {isa = PBXBuildFile; fileRef = 316661922BAD918E009D22D8 /* translation.c */; };
 		316661B32BAD91ED009D22D8 /* libchoma.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 316661B22BAD91ED009D22D8 /* libchoma.a */; };
-		316661D22BAD9221009D22D8 /* libgrabkernel2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 316661CE2BAD9221009D22D8 /* libgrabkernel2.a */; };
 		316661D42BAD9221009D22D8 /* libxpf.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 316661D02BAD9221009D22D8 /* libxpf.dylib */; };
 		316661D72BAD93AB009D22D8 /* libarchive.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 316661D62BAD939E009D22D8 /* libarchive.tbd */; };
 		3199C2262BB78AED00A196E9 /* InstalledApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3199C2252BB78AED00A196E9 /* InstalledApp.swift */; };
@@ -60,6 +59,7 @@
 		31F859FE2BAE119200A74022 /* Extract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31F859FD2BAE119200A74022 /* Extract.swift */; };
 		31F85A002BAE123B00A74022 /* install.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F859FF2BAE123B00A74022 /* install.m */; };
 		31F85A022BAE126800A74022 /* run.m in Sources */ = {isa = PBXBuildFile; fileRef = 31F85A012BAE126800A74022 /* run.m */; };
+		31FED0C52C92E6B900CC33E4 /* libgrabkernel2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31FED0C42C92E6B900CC33E4 /* libgrabkernel2.a */; };
 		511A788B2BBE0A8700D262F9 /* libpartial.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 511A788A2BBE0A8700D262F9 /* libpartial.a */; };
 /* End PBXBuildFile section */
 
@@ -147,7 +147,6 @@
 		316661BB2BAD9217009D22D8 /* non_ppl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = non_ppl.h; sourceTree = "<group>"; };
 		316661BC2BAD9218009D22D8 /* xpf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = xpf.h; sourceTree = "<group>"; };
 		316661BE2BAD9218009D22D8 /* libfragmentzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libfragmentzip.h; sourceTree = "<group>"; };
-		316661C02BAD9218009D22D8 /* libgrabkernel2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libgrabkernel2.h; sourceTree = "<group>"; };
 		316661C22BAD9218009D22D8 /* header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = header.h; sourceTree = "<group>"; };
 		316661C32BAD9218009D22D8 /* options.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = options.h; sourceTree = "<group>"; };
 		316661C42BAD9218009D22D8 /* mprintf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mprintf.h; sourceTree = "<group>"; };
@@ -159,10 +158,8 @@
 		316661CA2BAD9218009D22D8 /* typecheck-gcc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "typecheck-gcc.h"; sourceTree = "<group>"; };
 		316661CB2BAD9218009D22D8 /* multi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = multi.h; sourceTree = "<group>"; };
 		316661CC2BAD9218009D22D8 /* urlapi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = urlapi.h; sourceTree = "<group>"; };
-		316661CE2BAD9221009D22D8 /* libgrabkernel2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libgrabkernel2.a; sourceTree = "<group>"; };
 		316661D02BAD9221009D22D8 /* libxpf.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libxpf.dylib; sourceTree = "<group>"; };
 		316661D62BAD939E009D22D8 /* libarchive.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libarchive.tbd; path = usr/lib/libarchive.tbd; sourceTree = SDKROOT; };
-		318298502BB70D7800B9DB42 /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
 		3199C2252BB78AED00A196E9 /* InstalledApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstalledApp.swift; sourceTree = "<group>"; };
 		319C8F7C2BB89CC900E19B34 /* Update.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Update.swift; sourceTree = "<group>"; };
 		319C8F842BB8A50600E19B34 /* update.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = update.m; sourceTree = "<group>"; };
@@ -173,16 +170,6 @@
 		319CE29A2BB31ABB00189EDE /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		319CE29C2BB31ED400189EDE /* UnsandboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsandboxView.swift; sourceTree = "<group>"; };
 		319CE29E2BB31F7300189EDE /* TrollHelperOTAView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrollHelperOTAView.swift; sourceTree = "<group>"; };
-		31A4BCC92BB759AC008C125C /* private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = private.h; sourceTree = "<group>"; };
-		31A57C132BB62B3F00311C2E /* base.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = base.h; sourceTree = "<group>"; };
-		31A57C142BB62B3F00311C2E /* debug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = debug.h; sourceTree = "<group>"; };
-		31A57C152BB62B3F00311C2E /* endpoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = endpoint.h; sourceTree = "<group>"; };
-		31A57C162BB62B3F00311C2E /* connection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = connection.h; sourceTree = "<group>"; };
-		31A57C172BB62B3F00311C2E /* xpc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = xpc.h; sourceTree = "<group>"; };
-		31A57C182BB62B3F00311C2E /* activity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = activity.h; sourceTree = "<group>"; };
-		31A57C1A2BB62B3F00311C2E /* availability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = availability.h; sourceTree = "<group>"; };
-		31A57C1B2BB62B3F00311C2E /* rich_error.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = rich_error.h; sourceTree = "<group>"; };
-		31A57C1C2BB62B3F00311C2E /* session.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = session.h; sourceTree = "<group>"; };
 		31A6FFF42BB9EA30008F69F8 /* Defaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		31ABE97B2BAD953F003C35E0 /* escalate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = escalate.h; sourceTree = "<group>"; };
 		31ABE97C2BAD953F003C35E0 /* escalate.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = escalate.c; sourceTree = "<group>"; };
@@ -223,6 +210,8 @@
 		31F85A012BAE126800A74022 /* run.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = run.m; sourceTree = "<group>"; };
 		31F85A032BAE127600A74022 /* run.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = run.h; sourceTree = "<group>"; };
 		31F85A042BAE12DA00A74022 /* install.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = install.h; sourceTree = "<group>"; };
+		31FED0BF2C92E02800CC33E4 /* libgrabkernel2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = libgrabkernel2.h; sourceTree = "<group>"; };
+		31FED0C42C92E6B900CC33E4 /* libgrabkernel2.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libgrabkernel2.a; sourceTree = "<group>"; };
 		511A788A2BBE0A8700D262F9 /* libpartial.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libpartial.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -234,9 +223,9 @@
 				511A788B2BBE0A8700D262F9 /* libpartial.a in Frameworks */,
 				316661D42BAD9221009D22D8 /* libxpf.dylib in Frameworks */,
 				31F859F12BAE035E00A74022 /* libz.tbd in Frameworks */,
-				316661D22BAD9221009D22D8 /* libgrabkernel2.a in Frameworks */,
 				316661D72BAD93AB009D22D8 /* libarchive.tbd in Frameworks */,
 				316661B32BAD91ED009D22D8 /* libchoma.a in Frameworks */,
+				31FED0C52C92E6B900CC33E4 /* libgrabkernel2.a in Frameworks */,
 				31F859EC2BAE00A000A74022 /* IOKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -382,10 +371,9 @@
 		316661592BAD8BE4009D22D8 /* include */ = {
 			isa = PBXGroup;
 			children = (
-				31A57C072BB62A4C00311C2E /* xpc */,
+				31FED0BE2C92E01D00CC33E4 /* libgrabkernel2 */,
 				316661C12BAD9218009D22D8 /* curl */,
 				316661BD2BAD9218009D22D8 /* libfragmentzip */,
-				316661BF2BAD9218009D22D8 /* libgrabkernel2 */,
 				316661B72BAD9217009D22D8 /* xpf */,
 				316661B42BAD9203009D22D8 /* libarchive */,
 				316661A22BAD91E5009D22D8 /* choma */,
@@ -430,8 +418,8 @@
 		316661A12BAD91CF009D22D8 /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				31FED0C42C92E6B900CC33E4 /* libgrabkernel2.a */,
 				511A788A2BBE0A8700D262F9 /* libpartial.a */,
-				316661CE2BAD9221009D22D8 /* libgrabkernel2.a */,
 				316661D02BAD9221009D22D8 /* libxpf.dylib */,
 				316661B22BAD91ED009D22D8 /* libchoma.a */,
 			);
@@ -489,14 +477,6 @@
 			path = libfragmentzip;
 			sourceTree = "<group>";
 		};
-		316661BF2BAD9218009D22D8 /* libgrabkernel2 */ = {
-			isa = PBXGroup;
-			children = (
-				316661C02BAD9218009D22D8 /* libgrabkernel2.h */,
-			);
-			path = libgrabkernel2;
-			sourceTree = "<group>";
-		};
 		316661C12BAD9218009D22D8 /* curl */ = {
 			isa = PBXGroup;
 			children = (
@@ -523,24 +503,6 @@
 				316661D62BAD939E009D22D8 /* libarchive.tbd */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		31A57C072BB62A4C00311C2E /* xpc */ = {
-			isa = PBXGroup;
-			children = (
-				31A4BCC92BB759AC008C125C /* private.h */,
-				318298502BB70D7800B9DB42 /* module.modulemap */,
-				31A57C182BB62B3F00311C2E /* activity.h */,
-				31A57C1A2BB62B3F00311C2E /* availability.h */,
-				31A57C132BB62B3F00311C2E /* base.h */,
-				31A57C162BB62B3F00311C2E /* connection.h */,
-				31A57C142BB62B3F00311C2E /* debug.h */,
-				31A57C152BB62B3F00311C2E /* endpoint.h */,
-				31A57C1B2BB62B3F00311C2E /* rich_error.h */,
-				31A57C1C2BB62B3F00311C2E /* session.h */,
-				31A57C172BB62B3F00311C2E /* xpc.h */,
-			);
-			path = xpc;
 			sourceTree = "<group>";
 		};
 		31ABE9782BAD9514003C35E0 /* Installer */ = {
@@ -651,6 +613,14 @@
 				319C8F8B2BB8AFBE00E19B34 /* TrollStore.tar */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		31FED0BE2C92E01D00CC33E4 /* libgrabkernel2 */ = {
+			isa = PBXGroup;
+			children = (
+				31FED0BF2C92E02800CC33E4 /* libgrabkernel2.h */,
+			);
+			path = libgrabkernel2;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

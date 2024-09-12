@@ -270,8 +270,12 @@ func doIndirectInstall(_ device: Device) async -> Bool {
     Logger.log("Successfully exploited the kernel", type: .success)
     post_kernel_exploit(false)
     
-    if is_persistence_helper_installed() {
-        Logger.log("Persistence helper already installed!")
+    var path: UnsafePointer<CChar>? = nil
+    let pathPointer = withUnsafeMutablePointer(to: &path) { ptr in
+        UnsafeMutablePointer<UnsafePointer<CChar>?>.init(ptr)
+    }
+    if is_persistence_helper_installed(pathPointer) {
+        Logger.log("Persistence helper already installed! (\(path == nil ? "unknown" : String(cString: path!)))", type: .warning)
         return false
     }
     
